@@ -71,14 +71,14 @@ Bootstrap Breakpoints:
 		width: 75%;
 	}
 	#about{
-		background: no-repeat  url('/website\ images/aboutBG.jpg');
+		background: no-repeat  url('/images/aboutBG.jpg');
 		background-size: cover;
 		background-position: -250px center;
 	}
 	#sustainRM::before {
 		content: '';
 		background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),
-			url('website\ images/sustainRM-bg.webp');
+			url('/images/sustainRM-bg.webp');
 		background-size: cover;
 		background-repeat: no-repeat;
 		position: absolute;
@@ -101,7 +101,7 @@ Bootstrap Breakpoints:
 		max-width: 190px;
 	}
 	#loginPage {
-		background: url("/website\ images/iStock-1165131520.jpg");
+		background: url("/images/iStock-1165131520.jpg");
 		/* background-size:  */
 		background-size: cover;
 		background-repeat:no-repeat;
@@ -158,7 +158,7 @@ Bootstrap Breakpoints:
 		font-size: 1.1rem;
 	}
 	#about{
-		background: no-repeat  url('/website\ images/aboutBG.jpg');
+		background: no-repeat  url('/images/aboutBG.jpg');
 		background-size: cover;
 		background-position: -300px center;
 	}
@@ -212,7 +212,7 @@ Bootstrap Breakpoints:
 		margin-left: 30px;
 	}
 	#loginPage {
-		background: url("/website\ images/iStock-1165131520.jpg");
+		background: url("/images/iStock-1165131520.jpg");
 		/* background-size:  */
 		background-size: cover;
 		background-repeat:no-repeat;
@@ -271,7 +271,7 @@ Bootstrap Breakpoints:
 		font-size: 1.6rem;
 	}
 	#about{
-		background: no-repeat  url('/website\ images/aboutBG.jpg');
+		background: no-repeat  url('/images/aboutBG.jpg');
 		background-size: cover;
 		background-position: center;
 	}
@@ -445,7 +445,7 @@ h1 u {
 	height: 1000px;
 	width: 100%;
 	padding: 20% 0 20% 0;
-	background: no-repeat url('/website\ images/landingBG.jpg');
+	background: no-repeat url('/images/landingBG.jpg');
 	background-size: cover;
 }
 #landingCTA {
@@ -541,7 +541,7 @@ h1 u {
 #sustainabilityIndex1 {
 	height: 900px;
 	background: no-repeat center/cover
-		url('/website\ images/iStock-943875208.jpg');
+		url('/images/iStock-943875208.jpg');
 	background-position: center;
 }
 #sustainabilityIndex1 h1 {
@@ -706,7 +706,7 @@ div #sustainRM {
 /* Partnership Section */
 
 #page1 {
-	background-image: url(/website%20images/iStock-1281885421.jpg);
+	background-image: url('/images/iStock-1281885421.jpg');
 	background-repeat: norepeat;
 	height: 100vh;
 	background-size: cover;
@@ -744,7 +744,7 @@ div #sustainRM {
 
 /* contact form*/
 #contactUs {
-	background-image: url(/website%20images/iStock-1091251306.jpg);
+	background-image: url(/images/iStock-1091251306.jpg);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-size: cover;

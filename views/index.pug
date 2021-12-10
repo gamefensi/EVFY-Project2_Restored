@@ -1,0 +1,357 @@
+extends layout
+
+block content
+  body(data-spy='scroll' data-target='#topNavBar' data-offset='20')
+    .container-fluid.px-0
+      header.sticky-top
+        nav#topNavBar.navbar.navbar-dark.navbar-expand-xl
+          a.navbar-brand.logo(href='#landing')
+            img(src='images/EVFY Logos/EVFY_logos-white_green_green_border_noTagline.png')
+          // Hamburger Menu
+          // Values for data-target and aria-controls must match id of div with the collapse class
+          a#loginBtn.btn.float-right(href='indexScore.html#loginPage')
+            i.bi.bi-box-arrow-in-right
+            |   Log In
+          button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarContent' aria-controls='navbarContent' aria-expanded='false' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+          #navbarContent.collapse.navbar-collapse
+            ul.navbar-nav.nav.nav-pills
+              li.nav-item.pr-5.dropdown
+                a.nav-link.text-white(href='#about') About EVFY
+                ul.dropdown-menu(role='menu')
+                  li
+                    a(href='#mission') Our Mission
+                  li
+                    a(href='#team') Our Team
+              li.nav-item.pr-5.dropdown
+                a.nav-link.text-white(href='#sustainabilityIndex1') Sustainability Index
+                ul.dropdown-menu(role='menu')
+                  li
+                    a(href='#sustainabilityIndex2') The Index
+                  li
+                    a(href='#sustainabilityIndex3') Methodology
+              li.nav-item.pr-5
+                a.nav-link.text-white(href='#SRM') Sustainability Roadmap
+              li.nav-item.pr-5.dropdown
+                a.nav-link.text-white(href='#page1') Our Partners
+                ul.dropdown-menu(role='menu')
+                  li
+                    a(href='#item1') Piconi Farm
+                  li
+                    a(href='#item2') Easy Bird Wines
+                  li
+                    a(href='#item3') Sprouts
+              li.nav-item.pr-5
+                a.nav-link.text-white(href='#contactUs') Contact Us
+      main
+        // Landing page
+        section#landing
+          .landingInfo.d-flex.align-content-center.flex-wrap
+            .centerTextBox
+              h1
+                u Introducing the Sustainability Index
+              p
+                | EVFY empowers people to reduce their carbon footprint in an effortless and sustainable way.
+                br
+                br
+                | At EVFY, we help communities understand the environmental impact of their day-to-day life choices and how all of us can make a difference to improve our world and save energy.
+              button#landingCTA.button(href='#' type='button')
+                | Live Sustainably.
+                br
+                | Get Started Today!
+        // Start About EVFY
+        section#about
+          .aboutInfo.container-fluid.d-flex.align-content-center.flex-wrap
+            h1 About EVFY
+            #aboutPara.row
+              p.col-xl-7.offset-xl-5
+                strong EVFY
+                |  &ndash; a cutting-edge clean tech start-up &ndash; offers green
+                |                             solutions, starting with electric mobility, to help
+                |                             communities live more sustainable lives.
+                br
+                br
+                |                             With EVFY, consumers become members of our sustainability
+                |                             program, known as 
+                strong The Sustainability Index.
+                |  This program
+                |                             provides substantial savings and rewards for being a conscious
+                |                             consumer aiming to live carbon free.
+                br
+                br
+                |                             Through our program, EVFY aims to help people become as
+                |                             carbon-free as possible. We educate and guide on lifestyle
+                |                             changes and provide services and resources to &apos;go green&apos;.
+                br
+                br
+                strong The EVFY Sustainability Index
+                |  is the new
+                |                             benchmark for consumers to understand the environmental impact
+                |                             of their decisions and social capital to share amongst peers
+                |                             for a broader goal of making a world-wide impact.
+        section#mission
+          .row
+            .col-sm-12.col-md-6
+              h3 Our Mission
+              p
+                | To empower people to reduce their carbon footprint in an effortless and sustainable way.
+            .col-sm-12.col-md-6
+              img.img-fluid(src='/images/iStock-533578039.jpg')
+        section#team
+          .row
+            .col-sm-12.col-md-6.mt-4
+              img.img-fluid(src='/images/iStock-537599600.jpg')
+            .col-sm-12.col-md-6.pt-3
+              h3 The EVFY Team
+              p
+                | Collaboration is one of the keys for unlocking sustainability,
+                | with leaders from all sectors of society agreeing that solving
+                | environmental and social challenges requires unparalleled cooperation.
+                | At EVFY, we are focused on solving the world&rsquo;s most pressing issues facing
+                | climate change today.
+                br
+                br
+                |                         We cannot be hesitant or half-hearted about living sustainably. Our team culture
+                |                         is to drive innovation, and continuous engagement by being open, transparent,
+                |                         ethical and responsible in order to find solutions for how people can live the
+                |                         most sustainable lives possible.
+        section#teamMember
+          .container-fluid
+            #teamHeadShots1.row
+              .col-sm-12.col-md-3
+                img(src='images/headshots/marco.jpeg' alt='Marco' width='150px' height='150px')
+                h5 Marco Terruzzin
+                p Founder - CEO
+              .col-sm-12.col-md-3
+                img(src='images/headshots/Andrea.jpeg' alt='Andrea' width='150px' height='150px')
+                h5 Andrea Pedretti
+                p Co-Founder - CTO
+              .col-sm-12.col-md-3
+                img(src='images/headshots/Julie_Cropped.jpg' alt='Julie' width='150px' height='150px')
+                h5 Julie Sparacio
+                p VP, Marketing &amp; Customer Growth
+              .col-sm-12.col-md-3
+                img(src='images/headshots/andzej.jpeg' alt='Andrzej' width='150px' height='150px')
+                h5 Andrzej Skoskiewicz
+                p VP, Engineering
+            #teamHeadShots2.row
+              .col-sm-12.col-md-4
+                img(src='images/headshots/daniel.jpeg' alt='Daniel' width='150px' height='150px')
+                h5 Daniel Han
+                p VP, Strategy &amp; BD
+              .col-sm-12.col-md-4
+                img(src='images/headshots/Laetitia.jpeg' alt='laetitia' width='150px' height='150px')
+                h5 Laetitia Lee
+                p VP, Product
+              .col-sm-12.col-md-4
+                img(src='images/headshots/Gianromano P_Cropped.png' alt='gianromano' width='150px' height='150px')
+                h5 Gianromano Piconi
+                p Director, Operations
+        // End About EVFY
+        // Start Sustainability Index
+        section#sustainabilityIndex1
+          div
+            h1 The Sustainability Index.
+        section#sustainabilityIndex2
+          .row
+            .col-sm-12.col-md-6
+              h3 The Sustainability Index
+              p
+                | The Sustainability Index is a tiering system to reward strong sustainable behavior. It is an opportunity
+                | to earn points based on choices that consumers make in their everyday lives.
+                br
+                br
+                |                             The program provides consumers with a sustainability score based on daily consumption choices made
+                |                             around reducing their carbon footprint.
+            .col-sm-12.col-md-6
+              img.img-fluid(src='/images/iStock-1295057140.jpg')
+        section#sustainabilityIndex3
+          .row
+            .col-sm-12.col-lg-6.pl-5
+              img.img-fluid(src='/images/iStock-956436966 copy.jpg' width='500px')
+            .col-sm-12.col-lg-6.mt-1.pr-5
+              h3 Our Methodology
+              p
+                | Our approach is three-fold. To improve your sustainability score, EVFY helps you to:
+              ul
+                li
+                  | Incorporate daily energy usage within your home and by using your electric vehicle.
+                li Reduce your energy bill and enjoy substantial savings.
+                li
+                  | Implement a fully sustainable lifestyle via a phased rollout of ways to improve consumption behaviors
+                  | with discounted products and services including food, clothing, air travel, hotels and other elements to
+                  | help improve your sustainability index - and ultimately live as carbon free as possible.
+        // End Sustainability Index
+        // Start Sustainability Roadmap
+        section#SRM
+          #sustainRM
+            .row
+              h1.col-xs-12.col-xl-4
+                | The EVFY Sustainability Roadmap
+              p.col-xs-12.col-xl-8.pr-xl-5
+                | Our 
+                a(href='#') Sustainability Index
+                |  is a program that provides green conscious members the
+                |                         platform to make informed carbon reduction decisions, with levels of services that consumers are
+                |                         comfortable with.
+                br
+                br
+                |                         As part of the program, EVFY offers consumers subscription tiers and a roadmap to make the most
+                |                         informed decisions. This includes monthly reports, access to green products and services and offers
+                |                         a forum for members to share green lifestyle tips and a community to help others to become more
+                |                         &lsquo;green.&apos;
+          #sustainMockup
+            .row
+              .col-xs-12.col-md-6.img-responsive.imgWrapper
+                img#phoneTop(src='images/Picture4.png' alt='Sustainability Index App' title='Sustainability Index App')
+                img#phoneBottom(src='images/iStock-852024402 copy.jpg')
+              .col-xs-12.col-md-6.infoWrapper
+                h2 EVFY Provides Sustainable Lifestyle Choices.
+                p
+                  | The Sustainability Index assigns a green score to everyday products and services so you can have a consolidated sustainability score.  Now you can have an easy way to see how your day-to-day decisions impact the world around you.  You can also have fun sharing your score with friends and family too!
+          #sustainTable
+            h2 Choose Your Sustainability Tier.
+            p
+              | Simply select the sustainability tier that works best for you and your &lsquo;green&rsquo; lifestyle. The more sustainable you are, the higher your sustainability index will become. This ensures that you will also receive the highest discounts and rewards from our favorite sustainable partners.
+            .table-responsive
+              table.table
+                thead
+                  tr
+                    th(style='width: 8%')  
+                    th(style='width: 23%') Basic
+                    th(style='width: 23%') Basic+
+                    th(style='width: 23%') Premium
+                    th(style='width: 23%') Premium+
+                tbody
+                  tr
+                    td Description
+                    td
+                      | &bull;Home energy monitoring and monthly reports 
+                      br
+                      |                                         &bull;Sustainability Index
+                    td
+                      | &bull;Automated energy management to reduce monthly energy bill and carbon footprint (RECs)
+                    td
+                      | &bull;Incorporation of lifestyle activities outside home energy use to Sustainability Index
+                    td &bull;Access to exclusive green retailers and discounts
+                tfoot
+                  tr
+                    td Cost
+                    td $5/month
+                    td $10/month
+                    td $15/month
+                    td $20/month
+            button#sustainTableCTA.button(href='#' type='button')
+              | Sign up Today.
+        // End Sustainability Roadmap
+        // Start Our Partners
+        section#page1
+          h1 Our Partners
+        section.page2
+          div
+            #item1
+              .row.d-flex.align-items-center.ml-1.p-1
+                h1.col-sm-12.pt-2 Piconi Farms
+                .col-sm-12.col-md-6.col-lg-4
+                  img.img-fluid.float-center(src='/images/Copy%20of%20IMG-20210418-WA0044.jpg' alt='A black, brown, and white dog wearing a kerchief' width='340' height='260')
+                .col-sm-12.col-md-6.col-lg-2
+                  img.img-fluid.float-center(src='/images/Piconi%20Farms%20at%20Lake%20Sherwood_21.png' alt='A black, brown, and white dog wearing a kerchief' width='200' height='180')
+                .col-sm-12.col-md-12.col-lg-6
+                  p
+                    | Piconi Farms was built on the belief that meals should not only be from our farm to
+                    | your table, but organic and sustainable &ndash; and most importantly as special as
+                    | possible for you and your family. We carry this belief into everything we do.Piconi
+                    | Farms speciality is home grown freshness and flavors created with the ingenuity and
+                    | passion inspired by years of family tradition.
+            #item2.container-fluid
+              .row.d-flex.align-items-left.ml-1
+                h1.pt-3 Early Bird Wines
+              .row.align-items-left
+                .col-12.col-sm-12.col-md-6.col-lg-6
+                  p
+                    | Early Bird Wine is America&rsquo;s premier no additional sulfite wine. We produce our wines
+                    | using a proprietary green technology, which results in a cleaner, fresher tasting wine
+                    | with enhanced flavors and increased antioxidants for added health benefits and reduced
+                    | risk of allergic reactions. Utilizing a 100% natural process, no added sulfites, and no
+                    | chemical components, we are able to provide an affordable quality wine for you to enjoy,
+                    | day and night, as part of your active, healthy lifestyle.
+                .col-12.col-sm-12.col-md-6.col-lg-6
+                  .row
+                    .col-xs-12.col-sm-12.col-md-12.col-lg-6
+                      img.img-fluid.float-center(src='/images/Copy%20of%20EB-Logo-Parts-074.png' alt='A black, brown, and white dog wearing a kerchief' width='304' height='180')
+                    .col-xs-12.col-sm-12.col-md-12.col-lg-6
+                      img.img-fluid.float-center(src='/images/earlybird1.png' alt='A black, brown, and white dog wearing a kerchief' width='304' height='180')
+        section
+          #item3
+            .row.align-items-left.ml-1
+              h1.col-12.col-sm-12.pt-3 Sprouts Farmers Market
+              .col-12.col-sm-12.col-md-4.pt-3.pb-2
+                img.img-fluid.float-left(src='/images/Sprouts.png' alt='A black, brown, and white dog wearing a kerchief' width='360' height='260')
+              .col-12.col-sm-12.col-md-8.p-2
+                p
+                  | Our neighborhood grocery stores offer thousands of natural, organic &amp; gluten-free foods.
+                  | Discover fresh produce, meats, vitamins, supplements &amp; more.
+        // End Our Partners
+        // Start Contact Us
+        section#contactUs.container-fluid
+          .row
+            .col-lg-6.offset-lg-6
+              form#contactForm.well.form-horizontal(action='/contact' method='post')
+                fieldset
+                  p
+                    | To learn more about the EVFY program, and to receive a Level 2 home charger, please fill
+                    | out the form below.
+                  .form-group.row.m-0
+                    label.col-3.col-form-label(for='inputFirstName') First Name
+                    .col-9
+                      input.form-control(type='text' name='first name')
+                  .form-group.row.m-0
+                    label.col-3.col-form-label(for='inputLastName') Last Name
+                    .col-9
+                      input.form-control(type='text' name='last name')
+                  .form-group.row.m-0
+                    label.col-12.col-form-label
+                      i Address:
+                    label.col-3.col-col-form-label(for='inputAddress') Street
+                    .col-9
+                      input.form-control(type='text' name='street')
+                  .form-group.row.m-0
+                    label.col-3.col-sm-3.col-form-label City
+                    .col-9.col-sm-3
+                      input.form-control(type='text' name='city')
+                    label.col-3.col-sm-2.col-form-label State
+                    .col-9.col-sm-4
+                      input.form-control(type='text' name='state')
+                  .form-group.row.m-0
+                    label.col-3.col-sm-3.col-form-label Zip
+                    .col-9.col-sm-3
+                      input.form-control(type='text' name='zip')
+                    label.col-3.col-sm-2.col-form-label Country
+                    .col-9.col-sm-4
+                      input.form-control(type='text' name='country')
+                  .form-group.row.m-0
+                    label.col-3.col-form-label Cell Phone
+                    .col-9
+                      input.form-control(type='text' name='phone' placeholder='')
+                  .form-group.row.m-0
+                    label.col-3.col-form-label Email
+                    .col-9
+                      input.form-control(type='email' name='email' placeholder='')
+                  // Random Codes
+                  .form-group.row.m-0.randomcode.align-items-center
+                    label.col-5 Enter code as seen:
+                    .col-3
+                      input#codeentered.form-control(type='text' name='randomcode' placeholder='')
+                    .col-3
+                      p#codes
+                  .row.offset-4
+                    div
+                      button#reset.btn.btn-secondary(type='reset')
+                        i.bi.bi-arrow-repeat
+                          | Reset
+                    .ml-sm-3
+                      button#send.btn.btn-success(type='submit')
+                        i.bi.bi-telegram
+                          | Send
+        // End Contact Us
+    include ./footer.pug
