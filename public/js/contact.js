@@ -1,5 +1,3 @@
-var source = "";
-var sourcesub;
 function generatePw() {
     var i,
         n = 8,
