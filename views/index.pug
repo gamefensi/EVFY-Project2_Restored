@@ -9,9 +9,20 @@ block content
             img(src='images/EVFY Logos/EVFY_logos-white_green_green_border_noTagline.png')
           // Hamburger Menu
           // Values for data-target and aria-controls must match id of div with the collapse class
-          a#loginBtn.btn.float-right.nav-link(href='#' data-toggle='modal' data-target='#loginModal')
-            i.bi.bi-box-arrow-in-right
-            |   Log In
+          //dropdown menu for profile & login
+          //- a#loginBtn.btn.float-right.nav-link(href='#' data-toggle='modal' data-target='#loginModal')
+          //-   i.bi.bi-box-arrow-in-right
+          //-   | Log In
+
+          button#userMenuBtn.float-right.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+            | ${name}
+            | 
+            i.bi.bi-person-circle
+            | 
+            .dropdown-menu(aria-labelledby='userMenuBtn')
+              a.dropdown-item(href='#') My Profile
+              a.dropdown-item(href='#' data-toggle='modal' data-target='#loginModal') Logout
+          
           button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarContent' aria-controls='navbarContent' aria-expanded='false' aria-label='Toggle navigation')
             span.navbar-toggler-icon
           #navbarContent.collapse.navbar-collapse
@@ -44,6 +55,11 @@ block content
               li.nav-item.pr-5
                 a.nav-link.text-white(href='#contactUs') Contact Us
       main
+        //back to top
+        button#myBtn(onclick='topFunction()' title='Go to top') 
+          i.bi.bi-chevron-up
+          |
+          | Top
         // LOGIN MODAL START HERE
         #loginModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
           .modal-dialog.modal-dialog-centered(role='document')
@@ -93,7 +109,7 @@ block content
                   | Remember your password? 
                   a(data-dismiss='modal' data-toggle='modal' data-target='#loginModal' href='#' style='text-decoration: underline;') Sign in
         // SIGNUP  MODAL START HERE
-        #signupModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
+        #signUpModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
           .modal-dialog.modal-dialog-centered(role='document')
             .modal-content
               .modal-header
@@ -313,7 +329,11 @@ block content
                     td $10/month
                     td $15/month
                     td $20/month
+<<<<<<< Updated upstream
             button#sustainTableCTA.button(href='#' type='button' data-toggle='modal' data-target='#signupModal')
+=======
+            button#sustainTableCTA.button(href='#' data-toggle='modal' data-target='#signUpModal')
+>>>>>>> Stashed changes
               | Sign up Today.
         // End Sustainability Roadmap
         // Start Our Partners
