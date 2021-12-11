@@ -584,11 +584,22 @@ input[type='button'] {
   color: white;
 }
 #codes {
+<<<<<<< HEAD
   background-color: cornflowerblue;
   font-weight: bold;
   color: white;
   text-align: center;
   height: 30px;
+=======
+	background-color: cornflowerblue;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	/* width: 100px; */
+	/* font-size: small; */
+	height: 30px;
+	cursor: pointer;
+>>>>>>> 3b3145c346c9d601df031d0e0ecd35d62e1c8814
 }
 footer {
   padding: 120px 20px 20px;
@@ -873,7 +884,11 @@ footer .icons img {
 	cursor: pointer;
 	position: relative;
 	margin: -2.9em 3% 0 1.5%;
+<<<<<<< HEAD
 }
 >>>>>>> c9a940e4ad66082c6c1c59e13361e5ecac3c44fb
 
 /*/
+=======
+}
+>>>>>>> 3b3145c346c9d601df031d0e0ecd35d62e1c8814
