@@ -821,6 +821,7 @@ input[type='button'] {
 	/* width: 100px; */
 	/* font-size: small; */
 	height: 30px;
+	cursor: pointer;
 }
 
 /*End of contact form */
