@@ -772,7 +772,7 @@ div #sustainRM {
 	padding: 15px;
 } */
 
-input.form-control {
+#contactUs input.form-control {
 	background-color: lightgray;
 	opacity: 1;
 	height: 25px;
@@ -871,4 +871,16 @@ footer .icons img {
 
 #loginPage button.btn.btn-light {
 	font-weight: bold;
+}
+
+/*PROJECT 2 UPDATE */
+/*THREE BOOTSTRAP MODALS SETTING*/
+.hide-show {
+	font-size: 19px;
+	padding: 1em;
+	float: right; 
+	border-radius: 5px;
+	cursor: pointer;
+	position: relative;
+	margin: -2.9em 3% 0 1.5%;
 }

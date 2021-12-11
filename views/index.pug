@@ -9,7 +9,7 @@ block content
             img(src='images/EVFY Logos/EVFY_logos-white_green_green_border_noTagline.png')
           // Hamburger Menu
           // Values for data-target and aria-controls must match id of div with the collapse class
-          a#loginBtn.btn.float-right(href='indexScore.html#loginPage')
+          a#loginBtn.btn.float-right.nav-link(href='#' data-toggle='modal' data-target='#loginModal')
             i.bi.bi-box-arrow-in-right
             |   Log In
           button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarContent' aria-controls='navbarContent' aria-expanded='false' aria-label='Toggle navigation')
@@ -44,6 +44,77 @@ block content
               li.nav-item.pr-5
                 a.nav-link.text-white(href='#contactUs') Contact Us
       main
+        // LOGIN MODAL START HERE
+        #loginModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
+          .modal-dialog.modal-dialog-centered(role='document')
+            .modal-content
+              .modal-header
+                h5.modal-title.text-center.col-10 Sign In
+                button.close.col-2(type='button' data-dismiss='modal' aria-label='Close')
+                  span(aria-hidden='true') &times;
+              .modal-body
+                form#LoginForm(action="{{route('login')}}" method='post')
+                  .form-group
+                    label.col-form-label(for='l_username') Username
+                    input#l_username.form-control(type='text' placeholder='Username' required='')
+                  .form-group
+                    label.col-form-label(for='l_password') Password
+                    input#password.form-control(type='password' placeholder='password' required='')
+                    .hide-show
+                      span SHOW
+                  .form-group
+                    a(data-dismiss='modal' data-toggle='modal' data-target='#resetPassword' href='#' style='text-decoration: underline;float: right;' title='Fill Email Field and Click it') Forgot Password?
+              button.btn.btn-success Sign In
+              .modal-footer
+                div
+                  | Not signed up yet?
+                  a(data-dismiss='modal' data-toggle='modal' data-target='#signupModal' href='#' style='text-decoration: underline;') Create Account
+        // RESET PASSWORD MODAL START HERE
+        #resetPassword.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
+          .modal-dialog.modal-dialog-centered(role='document')
+            .modal-content
+              .modal-header
+                h5.modal-title.text-center.col-10 Forgot your password?
+                button.close.col-2(type='button' data-dismiss='modal' aria-label='Close')
+                  span(aria-hidden='true') &times;
+              .modal-body
+                form#SetpwdForm(action="{{route('reset')}}" method='post')
+                  .form-group
+                    p
+                      | Enter the email for your account and we&apos;ll send you a link to reset your password.
+                  .form-group(style='position: relative;')
+                    input.form-control(type='email' required='required' placeholder='Email')
+                  button.btn.btn-success.btn-block(name='submit' value='resetPass')
+                    i.bi.bi-envelope-plus
+                    |  Email Me
+              .modal-footer
+                div
+                  | Remember your password? 
+                  a(data-dismiss='modal' data-toggle='modal' data-target='#loginModal' href='#' style='text-decoration: underline;') Sign in
+        // SIGNUP  MODAL START HERE
+        #signupModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
+          .modal-dialog.modal-dialog-centered(role='document')
+            .modal-content
+              .modal-header
+                h4.modal-title.text-center.col-10 Sign Up
+                button.close.col-2(type='button' data-dismiss='modal' aria-label='Close')
+                  span(aria-hidden='true') &times;
+              .modal-body
+                form#SignupForm(action="{{route('signup')}}" method='post')
+                  .form-group
+                    input.form-control(type='text' required='' placeholder='Full Name')
+                  .form-group
+                    input.form-control(type='email' required='required' name='username' placeholder='Username')
+                  .form-group
+                    input.form-control(type='email' required='required' name='email' placeholder='Email')
+                  .form-group
+                    input#password.form-control(type='password' required='required' name='password' placeholder='Password')
+                    .hide-show
+                      span SHOW
+                  button.btn.btn-success.btn-block Sign Up
+                  .modal-footer
+                    | Already have an account? 
+                    a(data-dismiss='modal' data-toggle='modal' data-target='#loginModal' href='#' style='text-decoration: underline;') Sign In
         // Landing page
         section#landing
           .landingInfo.d-flex.align-content-center.flex-wrap
