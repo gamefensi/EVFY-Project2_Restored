@@ -7,21 +7,34 @@ block content
         nav#topNavBar.navbar.navbar-dark.navbar-expand-xl
           a.navbar-brand.logo(href='#landing')
             img(src='images/EVFY Logos/EVFY_logos-white_green_green_border_noTagline.png')
-
-
           //- dropdown menu for profile & login
-          //- a#loginBtn.btn.float-right.nav-link(href='#' data-toggle='modal' data-target='#loginModal')
-          //-   i.bi.bi-box-arrow-in-right
-          //-   |
-          //-   | Log In
-          button#userMenuBtn.float-right.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-            | ${name}
-            | 
-            i.bi.bi-person-circle
-            | 
-            .dropdown-menu(aria-labelledby='userMenuBtn')
-              a.dropdown-item(href='#' data-toggle='modal' data-target='#profileModal') My Profile
-              a.dropdown-item(href='#' data-toggle='modal' data-target='') Logout
+          a#loginBtn.btn.float-right.nav-link(href='#' data-toggle='modal' data-target='#loginModal')
+            i.bi.bi-box-arrow-in-right
+            |
+            | Log In
+
+          //- button.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+          //-   | ${name}
+          //-   | 
+          //-   i.bi.bi-person-circle
+          //-   | 
+          //-   .dropdown-menu(aria-labelledby='userMenuBtn')
+          //-     a.dropdown-item(data-toggle='modal' data-target='#profileModal' data-user='SomeUser') My Profile
+          //-     a.dropdown-item(href='#' data-toggle='' data-target='') Logout
+          // Dropdown code
+          .dropdown
+            button#userMenuBtn.float-right.btn.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true')
+              | ${name}
+              | 
+              i.bi.bi-person-circle
+              | 
+              span.caret
+            ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+              li
+                a(href='#' data-toggle='modal' data-target='#profileModal') My Profile
+              li
+                a(href='#' data-toggle='' data-target='') Logout
+
           //- Hamburger Menu
           //- Values for data-target and aria-controls must match id of div with the collapse class
           button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarContent' aria-controls='navbarContent' aria-expanded='false' aria-label='Toggle navigation')
@@ -76,7 +89,7 @@ block content
                     input#l_username.form-control(type='text' placeholder='Username' required='')
                   .form-group
                     label.col-form-label(for='l_password') Password
-                    input#password.form-control(type='password' placeholder='Password' required='')
+                    input.password.form-control(type='password' placeholder='Password' required='')
                     .hide-show
                       span SHOW
                   .form-group
@@ -126,7 +139,7 @@ block content
                   .form-group
                     input.form-control(type='email' required='required' name='email' placeholder='Email')
                   .form-group
-                    input#password.form-control(type='password' required='required' name='password' placeholder='Password')
+                    input.password.form-control(type='password' required='required' name='password' placeholder='Password')
                     .hide-show
                       span SHOW
                   button.btn.btn-success.btn-block Sign Up
@@ -135,26 +148,27 @@ block content
                     a(data-dismiss='modal' data-toggle='modal' data-target='#loginModal' href='#' style='text-decoration: underline;') Sign In
         //- profile page
         #profileModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
-          .modal-dialog.modal-dialog-centered(role='document')
+          .modal-dialog.modal-dialog-centered.modal-lg(role='document')
             .modal-content
               .modal-header
                 h4.modal-title.col-10 My Profile
                 button.close.col-2(type='button' data-dismiss='modal' aria-label='Close')
                   span(aria-hidden='true') &times;
               .modal-body
-                form#SignupForm(action="{{route('signup')}}" method='post')
+                form#editProfile(action="{{route('edit')}}" method='post')
                   .form-group
-                    input.form-control(type='text' required='' name='name' placeholder='Full Name')
+                    input.form-control(type='text' required='' name='name' placeholder='name' disabled)
                   .form-group
-                    input.form-control(type='text' required='required' name='username' placeholder='Username')
+                    input.form-control(type='text' required='required' name='username' placeholder=`username` disabled)
                   .form-group
-                    input.form-control(type='email' required='required' name='email' placeholder='Email')
+                    input.form-control(type='email' required='required' name='email' placeholder=`email` disabled)
                   .form-group
-                    input#password.form-control(type='password' required='required' name='password' placeholder='Password')
+                    input.password.form-control(type='password' required='required' name='password' placeholder=`password` disabled)
                     .hide-show
                       span SHOW
                   button.btn.btn-secondary.btn-block Edit
-
+                  .modal-footer
+                    button.close(data-dismiss='modal' data-toggle='modal' data-target='#profileModal' href='#' style='text-decoration: underline;') Close
         //- Landing page
         section#landing
           .landingInfo.d-flex.align-content-center.flex-wrap

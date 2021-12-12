@@ -10,12 +10,19 @@
   <body data-spy="scroll" data-target="#topNavBar" data-offset="20">
     <div class="container-fluid px-0">
       <header class="sticky-top">
-        <nav class="navbar navbar-dark navbar-expand-xl" id="topNavBar"><a class="navbar-brand logo" href="#landing"><img src="images/EVFY Logos/EVFY_logos-white_green_green_border_noTagline.png"></a>
-          <button class="float-right btn btn-secondary dropdown-toggle" id="userMenuBtn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            ${name}
-             <i class="bi bi-person-circle"></i> 
-            <div class="dropdown-menu" aria-labelledby="userMenuBtn"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#profileModal">My Profile</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="">Logout</a></div>
-          </button>
+        <nav class="navbar navbar-dark navbar-expand-xl" id="topNavBar"><a class="navbar-brand logo" href="#landing"><img src="images/EVFY Logos/EVFY_logos-white_green_green_border_noTagline.png"></a><a class="btn float-right nav-link" id="loginBtn" href="#" data-toggle="modal" data-target="#loginModal"><i class="bi bi-box-arrow-in-right"></i>
+            Log In</a>
+          <!-- Dropdown code-->
+          <div class="dropdown">
+            <button class="float-right btn dropdown-toggle" id="userMenuBtn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              ${name}
+               <i class="bi bi-person-circle"></i> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="#" data-toggle="modal" data-target="#profileModal">My Profile</a></li>
+              <li><a href="#" data-toggle="" data-target="">Logout</a></li>
+            </ul>
+          </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav nav nav-pills">
@@ -63,7 +70,7 @@
                   </div>
                   <div class="form-group">
                     <label class="col-form-label" for="l_password">Password</label>
-                    <input class="form-control" id="password" type="password" placeholder="Password" required="">
+                    <input class="password form-control" type="password" placeholder="Password" required="">
                     <div class="hide-show"><span>SHOW</span></div>
                   </div>
                   <div class="form-group"><a data-dismiss="modal" data-toggle="modal" data-target="#resetPassword" href="#" style="text-decoration: underline;float: right;margin-bottom:1em;" title="Fill Email Field and Click it">Forgot Password?</a></div>
@@ -121,7 +128,7 @@
                     <input class="form-control" type="email" required="required" name="email" placeholder="Email">
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="password" type="password" required="required" name="password" placeholder="Password">
+                    <input class="password form-control" type="password" required="required" name="password" placeholder="Password">
                     <div class="hide-show"><span>SHOW</span></div>
                   </div>
                   <button class="btn btn-success btn-block">Sign Up</button>
@@ -132,28 +139,31 @@
           </div>
         </div>
         <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h4 class="modal-title col-10">My Profile</h4>
                 <button class="close col-2" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body">
-                <form id="SignupForm" action="{{route('signup')}}" method="post">
+                <form id="editProfile" action="{{route('edit')}}" method="post">
                   <div class="form-group">
-                    <input class="form-control" type="text" required="" name="name" placeholder="Full Name">
+                    <input class="form-control" type="text" required="" name="name" placeholder="name" disabled>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" type="text" required="required" name="username" placeholder="Username">
+                    <input class="form-control" type="text" required="required" name="username" placeholder="username" disabled>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" type="email" required="required" name="email" placeholder="Email">
+                    <input class="form-control" type="email" required="required" name="email" placeholder="email" disabled>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="password" type="password" required="required" name="password" placeholder="Password">
+                    <input class="password form-control" type="password" required="required" name="password" placeholder="password" disabled>
                     <div class="hide-show"><span>SHOW</span></div>
                   </div>
                   <button class="btn btn-secondary btn-block">Edit</button>
+                  <div class="modal-footer">
+                    <button data-dismiss="modal" data-toggle="modal" data-target="#profileModal" href="#" style="text-decoration: underline;">Close</button>
+                  </div>
                 </form>
               </div>
             </div>

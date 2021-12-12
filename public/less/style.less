@@ -107,17 +107,24 @@ header {
 		color: green;
 	}
 }
-#userMenuBtn {
-	background: #75B44D;
-	color: white;
+
+div.dropdown {
 	position: absolute;
-	right: 5px;
+	right: 175px;
 	top: 10px;
-	&:hover {
-		transform: scale(1.05, 1.05);
+	#userMenuBtn {
+		background: #75B44D;
+		color: white;
+
+		&:hover {
+			transform: scale(1.05, 1.05);
+		}
 	}
-	.dropdown-menu {
-		.dropdown-item {
+	ul.dropdown-menu {
+		li {
+			a {
+				color: rgb(68, 68, 68);
+			}
 			&:hover {
 				background-color: #75B44D;
 			}
@@ -128,8 +135,8 @@ header {
 			}
 		}
 	}
-
 }
+
 ul.navbar-nav {
 	li.dropdown {
 		&:hover {

@@ -99,20 +99,25 @@ header {
 #loginBtn:active {
   color: green;
 }
-#userMenuBtn {
-  background: #75B44D;
-  color: white;
+div.dropdown {
   position: absolute;
-  right: 5px;
+  right: 175px;
   top: 10px;
 }
-#userMenuBtn:hover {
+div.dropdown #userMenuBtn {
+  background: #75B44D;
+  color: white;
+}
+div.dropdown #userMenuBtn:hover {
   transform: scale(1.05, 1.05);
 }
-#userMenuBtn .dropdown-menu .dropdown-item:hover {
+div.dropdown ul.dropdown-menu li a {
+  color: #444444;
+}
+div.dropdown ul.dropdown-menu li:hover {
   background-color: #75B44D;
 }
-#userMenuBtn .dropdown-menu .dropdown-item:active {
+div.dropdown ul.dropdown-menu li:active {
   color: white;
   background-color: green;
   transform: scale(1.05, 1.05);
