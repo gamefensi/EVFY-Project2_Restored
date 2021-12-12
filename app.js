@@ -11,10 +11,10 @@ app.get('/', (req,res) => {
 res.render('index', { title: 'Home page' });
 })
 
-//CONVERT PUG TO HTML IN TEMPLATE FOLDER
-var jade = require('pug');//加载jade引擎
+//CONVERT PUG TO HTML IN PUBLIC FOLDER
+var jade = require('pug');//require pug module
 var fs = require('fs')
-var str = jade.renderFile('./views/index.pug' ,{pretty : true }); //pretty : ture 至关于beauty格式化一下输出的代码
+var str = jade.renderFile('./views/index.pug' ,{pretty : true }); 
 fs.writeFile('./public/final_index.html' ,str , function(err){
     if (err)
         console.log("Compile to html in error");
