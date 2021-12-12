@@ -1,13 +1,3 @@
-/*
-Bootstrap Breakpoints: 
- X-Small	None	<576px
- Small	sm	≥576px
- Medium	md	≥768px
- Large	lg	≥992px
- Extra large	xl	≥1200px
- Extra extra large	xxl	≥1400px
-*/
-/* Global */
 @font-face {
   font-family: NunitoSans;
   src: url('/Font/NunitoSans/NunitoSans-Light.ttf');
@@ -41,101 +31,56 @@ Bootstrap Breakpoints:
   font-weight: bold;
   font-style: italic;
 }
-/* xs screens */
-/* => small screens */
-/* => medium screens */
-/* => large screens */
-/* >= xlarge screens */
-/* >= xxlarge screens */
-/* End Media Queries */
-/* Begin Header */
-/* dropdown */
-/* End Header */
-/* Begin Body */
-/* main {
-	position: relative;
-} */
-/* Begin Landing section */
-/* End Landing Section */
-/* Begin  About Section */
-/* End About Section */
-/* Begin Sustainability Index */
-/* End Sustainability Index */
-/* Begin Sustainability Roadmap */
-/* #sustainMockup .row div {
-	/* margin: % auto; */
-/* padding-top: 20%;
-	padding-bottom: 20%; */
-/* border: black solid 1px; 
-}*/
-/* end Sustainability Roadmap */
-/* Partnership Section */
-/* End of Partnership Section */
-/* contact form*/
-/* #contactUs > .grid-container {
-	display: grid;
-	grid-template-columns: 58% auto;
-	padding: 15px;
-} */
-/* .button {
-	display: inline-block;
-} */
-/*End of contact form */
-/* begin footer */
-/* end footer */
-/* start login page */
 * {
   font-family: 'NunitoSans', Arial, Helvetica, sans-serif !important;
   box-sizing: border-box;
 }
 #topNavBar {
+  padding: 15px;
+  background: #454444;
+  background: linear-gradient(0deg, rgba(69, 68, 68, 0) 0%, #000000 100%);
+  z-index: 1001;
   margin-right: 0;
   padding-right: 0;
 }
-.navbar-toggler {
-  color: white;
-}
-ul.navbar-nav.nav.nav-pills {
-  padding-right: 0;
-}
-.nav-link.active {
-  background: #8cc63f;
-  border: #8cc63f solid 1px;
-}
-.nav-link:hover {
-  background: #8cc63f;
-  border: #8cc63f solid 1px;
-}
-.nav-pills .nav-link.active {
-  background-color: #8cc63f;
-}
-.nav-pills .show > .nav-link {
-  background-color: #8cc63f;
-}
-.navbar-brand {
+#topNavBar .navbar-brand.logo {
   margin-right: 50px;
 }
-div .collapse.navbar-collapse {
+#topNavBar .navbar-brand.logo img {
+  width: 150px;
+}
+#topNavBar .navbar-toggler {
+  color: white;
+}
+#topNavBar div#navbarContent {
   margin-top: 30px;
 }
-div #sustainRM {
+#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills {
+  padding-right: 10px;
+}
+#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item.dropdown {
+  text-align: center;
+}
+#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item {
+  text-align: center;
+}
+#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item a.nav-link:hover {
+  background: #8cc63f;
+  border: #8cc63f solid 1px;
+}
+#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item a.nav-link.active {
+  background-color: #8cc63f;
+  border: #8cc63f solid 1px;
+}
+#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item .show > .nav-link {
+  background-color: #8cc63f;
+}
+#sustainRM {
   height: 1000px;
   color: white;
   padding-top: 20%;
   position: relative;
   padding-bottom: 20%;
-}
-.nav-item {
-  text-align: center;
-}
-.logo img {
-  width: 150px;
-}
-nav {
-  padding: 15px;
-  background: #454444;
-  background: linear-gradient(0deg, rgba(69, 68, 68, 0) 0%, #000000 100%);
-  z-index: 1001;
 }
 header {
   position: relative;
@@ -155,14 +100,23 @@ header {
   color: green;
 }
 #userMenuBtn {
-	background: #75B44D;
-	color: white;
-	position: absolute;
-	right: 5px;
-	top: 10px;
+  background: #75B44D;
+  color: white;
+  position: absolute;
+  right: 5px;
+  top: 10px;
 }
-/* dropdown */
-
+#userMenuBtn:hover {
+  transform: scale(1.05, 1.05);
+}
+#userMenuBtn .dropdown-menu .dropdown-item:hover {
+  background-color: #75B44D;
+}
+#userMenuBtn .dropdown-menu .dropdown-item:active {
+  color: white;
+  background-color: green;
+  transform: scale(1.05, 1.05);
+}
 ul.navbar-nav li.dropdown:hover ul.dropdown-menu {
   display: block;
   background: linear-gradient(180deg, #8cc63f 0%, #4e7512 100%);
@@ -517,39 +471,24 @@ h1 u {
   font-size: 16px;
   padding-top: 25%;
 }
-#contactForm {
-	background-color: white;
-	border: none;
-	opacity: 0.8;
-	padding: 1em 2em 1em 2em;
-	margin: 6em auto 3em auto;
-	/* width:100%;
-	height: auto; */
-	font-size: 14pt;
-	font-weight:bold;
+#contactUs #contactForm {
+  background-color: white;
+  border: none;
+  opacity: 0.8;
+  padding: 1em 2em 1em 2em;
+  margin: 6em auto 3em auto;
+  font-size: 14pt;
+  font-weight: bold;
 }
-
-
-/* #contactUs > .grid-container {
-	display: grid;
-	grid-template-columns: 58% auto;
-	padding: 15px;
-} */
-
-#contactUs input.form-control {
-	background-color: lightgray;
-	opacity: 1;
-	height: 25px;
-	border-radius: 0;
-	border: solid gray 0.5px;
-	font-size: 16px;
+#contactUs #contactForm input.form-control {
+  background-color: lightgray;
+  opacity: 1;
+  height: 25px;
+  border-radius: 0;
+  border: solid gray 0.5px;
+  font-size: 16px;
 }
-
-/* .button {
-	display: inline-block;
-} */
-
-input[type='button'] {
+#contactUs #contactForm input[type='button'] {
   display: inline-block;
   border: none;
   text-align: center;
@@ -558,14 +497,14 @@ input[type='button'] {
   margin: 4px 2px;
   cursor: pointer;
 }
-#reset {
+#contactUs #contactForm #reset {
   font-weight: bold;
   font-size: 16px;
   border: none;
   border-radius: 10px;
   color: white;
 }
-#send {
+#contactUs #contactForm #send {
   width: 100px;
   font-weight: bold;
   font-size: 16px;
@@ -573,15 +512,12 @@ input[type='button'] {
   border-radius: 10px;
   color: white;
 }
-#codes {
-	background-color: cornflowerblue;
-	font-weight: bold;
-	color: white;
-	text-align: center;
-	/* width: 100px; */
-	/* font-size: small; */
-	height: 30px;
-	cursor: pointer;
+#contactUs #contactForm #codes {
+  background-color: cornflowerblue;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  height: 30px;
 }
 footer {
   padding: 120px 20px 20px;
@@ -621,6 +557,44 @@ footer .icons img {
 #loginPage button.btn.btn-light {
   font-weight: bold;
 }
+/*PROJECT 2 UPDATE */
+/*THREE BOOTSTRAP MODALS SETTING*/
+.hide-show {
+  font-size: 19px;
+  padding: 1em;
+  float: right;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  margin: -2.9em 3% 0 1.5%;
+}
+/* Scroll to top */
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18pt;
+  border: none;
+  outline: none;
+  color: black;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+#myBtn :hover {
+  background-color: #555;
+}
+/*
+Bootstrap Breakpoints: 
+ X-Small	None	<576px
+ Small	sm	≥576px
+ Medium	md	≥768px
+ Large	lg	≥992px
+ Extra large	xl	≥1200px
+ Extra extra large	xxl	≥1400px
+*/
 @media screen and (min-width: 200px) {
   html {
     font-size: 1rem;
@@ -665,9 +639,6 @@ footer .icons img {
   #codes {
     font-size: smaller;
     min-width: 80px;
-  }
-  .nav-item {
-    max-width: 190px;
   }
   #loginPage {
     background: url("/images/iStock-1165131520.jpg");
@@ -817,6 +788,13 @@ footer .icons img {
     font-size: 70pt;
     font-weight: bold;
   }
+  a.nav-link {
+    font-size: 0.9rem;
+    min-width: 160px;
+  }
+  ul.dropdown-menu li a {
+    font-size: 0.9rem;
+  }
 }
 @media screen and (min-width: 1400px) {
   html {
@@ -850,36 +828,7 @@ footer .icons img {
   .nav-item {
     max-width: 400px;
   }
-}
-
-/*PROJECT 2 UPDATE */
-/*THREE BOOTSTRAP MODALS SETTING*/
-.hide-show {
-	font-size: 19px;
-	padding: 1em;
-	float: right; 
-	border-radius: 5px;
-	cursor: pointer;
-	position: relative;
-	margin: -2.9em 3% 0 1.5%;
-}
-/* Scroll to top */
-#myBtn {
-	display: none;
-	position: fixed;
-	bottom: 20px;
-	right: 30px;
-	z-index: 99;
-	font-size: 18pt;
-	border: none;
-	outline: none;
-	color: black;
-	cursor: pointer;
-	padding: 15px;
-	border-radius: 4px;
+  li.nav-item {
+    padding-right: 100px;
   }
-  
-  #myBtn:hover {
-	background-color: #555;
-  }
-
+}

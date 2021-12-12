@@ -7,11 +7,12 @@ block content
         nav#topNavBar.navbar.navbar-dark.navbar-expand-xl
           a.navbar-brand.logo(href='#landing')
             img(src='images/EVFY Logos/EVFY_logos-white_green_green_border_noTagline.png')
-          // Hamburger Menu
-          // Values for data-target and aria-controls must match id of div with the collapse class
-          //dropdown menu for profile & login
+
+
+          //- dropdown menu for profile & login
           //- a#loginBtn.btn.float-right.nav-link(href='#' data-toggle='modal' data-target='#loginModal')
           //-   i.bi.bi-box-arrow-in-right
+          //-   |
           //-   | Log In
 
           button#userMenuBtn.float-right.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
@@ -20,30 +21,31 @@ block content
             i.bi.bi-person-circle
             | 
             .dropdown-menu(aria-labelledby='userMenuBtn')
-              a.dropdown-item(href='#') My Profile
+              a.dropdown-item(href='#' data-toggle='modal' data-target='#profileModal') My Profile
               a.dropdown-item(href='#' data-toggle='modal' data-target='') Logout
-          
+          //- Hamburger Menu
+          //- Values for data-target and aria-controls must match id of div with the collapse class
           button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarContent' aria-controls='navbarContent' aria-expanded='false' aria-label='Toggle navigation')
             span.navbar-toggler-icon
           #navbarContent.collapse.navbar-collapse
             ul.navbar-nav.nav.nav-pills
-              li.nav-item.pr-5.dropdown
+              li.nav-item.dropdown
                 a.nav-link.text-white(href='#about') About EVFY
                 ul.dropdown-menu(role='menu')
                   li
                     a(href='#mission') Our Mission
                   li
                     a(href='#team') Our Team
-              li.nav-item.pr-5.dropdown
+              li.nav-item.dropdown
                 a.nav-link.text-white(href='#sustainabilityIndex1') Sustainability Index
                 ul.dropdown-menu(role='menu')
                   li
                     a(href='#sustainabilityIndex2') The Index
                   li
                     a(href='#sustainabilityIndex3') Methodology
-              li.nav-item.pr-5
+              li.nav-item
                 a.nav-link.text-white(href='#SRM') Sustainability Roadmap
-              li.nav-item.pr-5.dropdown
+              li.nav-item.dropdown
                 a.nav-link.text-white(href='#page1') Our Partners
                 ul.dropdown-menu(role='menu')
                   li
@@ -52,15 +54,15 @@ block content
                     a(href='#item2') Easy Bird Wines
                   li
                     a(href='#item3') Sprouts
-              li.nav-item.pr-5
+              li.nav-item
                 a.nav-link.text-white(href='#contactUs') Contact Us
       main
-        //back to top
+        //- back to top
         button#myBtn(onclick='topFunction()' title='Go to top') 
           i.bi.bi-chevron-up
           |
           | Top
-        // LOGIN MODAL START HERE
+        //- LOGIN MODAL START HERE
         #loginModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
           .modal-dialog.modal-dialog-centered(role='document')
             .modal-content
@@ -75,7 +77,7 @@ block content
                     input#l_username.form-control(type='text' placeholder='Username' required='')
                   .form-group
                     label.col-form-label(for='l_password') Password
-                    input#password.form-control(type='password' placeholder='password' required='')
+                    input#password.form-control(type='password' placeholder='Password' required='')
                     .hide-show
                       span SHOW
                   .form-group
@@ -86,7 +88,7 @@ block content
                 div
                   | Not signed up yet?
                   a(data-dismiss='modal' data-toggle='modal' data-target='#signupModal' href='#' style='text-decoration: underline;') Create Account
-        // RESET PASSWORD MODAL START HERE
+        //- RESET PASSWORD MODAL START HERE
         #resetPassword.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
           .modal-dialog.modal-dialog-centered(role='document')
             .modal-content
@@ -108,7 +110,7 @@ block content
                 div
                   | Remember your password? 
                   a(data-dismiss='modal' data-toggle='modal' data-target='#loginModal' href='#' style='text-decoration: underline;') Sign in
-        // SIGNUP  MODAL START HERE
+        //- SIGNUP  MODAL START HERE
         #signUpModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
           .modal-dialog.modal-dialog-centered(role='document')
             .modal-content
@@ -121,7 +123,7 @@ block content
                   .form-group
                     input.form-control(type='text' required='' placeholder='Full Name')
                   .form-group
-                    input.form-control(type='email' required='required' name='username' placeholder='Username')
+                    input.form-control(type='text' required='required' name='username' placeholder='Username')
                   .form-group
                     input.form-control(type='email' required='required' name='email' placeholder='Email')
                   .form-group
@@ -132,7 +134,29 @@ block content
                   .modal-footer
                     | Already have an account? 
                     a(data-dismiss='modal' data-toggle='modal' data-target='#loginModal' href='#' style='text-decoration: underline;') Sign In
-        // Landing page
+        //- profile page
+        #profileModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
+          .modal-dialog.modal-dialog-centered(role='document')
+            .modal-content
+              .modal-header
+                h4.modal-title.col-10 My Profile
+                button.close.col-2(type='button' data-dismiss='modal' aria-label='Close')
+                  span(aria-hidden='true') &times;
+              .modal-body
+                form#SignupForm(action="{{route('signup')}}" method='post')
+                  .form-group
+                    input.form-control(type='text' required='' name='name' placeholder='Full Name')
+                  .form-group
+                    input.form-control(type='text' required='required' name='username' placeholder='Username')
+                  .form-group
+                    input.form-control(type='email' required='required' name='email' placeholder='Email')
+                  .form-group
+                    input#password.form-control(type='password' required='required' name='password' placeholder='Password')
+                    .hide-show
+                      span SHOW
+                  button.btn.btn-secondary.btn-block Edit
+                  
+        //- Landing page
         section#landing
           .landingInfo.d-flex.align-content-center.flex-wrap
             .centerTextBox
@@ -147,7 +171,7 @@ block content
                 | Live Sustainably.
                 br
                 | Get Started Today!
-        // Start About EVFY
+        //- Start About EVFY
         section#about
           .aboutInfo.container-fluid.d-flex.align-content-center.flex-wrap
             h1 About EVFY
@@ -235,8 +259,8 @@ block content
                 img(src='images/headshots/Gianromano P_Cropped.png' alt='gianromano' width='150px' height='150px')
                 h5 Gianromano Piconi
                 p Director, Operations
-        // End About EVFY
-        // Start Sustainability Index
+        //- End About EVFY
+        //- Start Sustainability Index
         section#sustainabilityIndex1
           div
             h1 The Sustainability Index.
@@ -269,8 +293,8 @@ block content
                   | Implement a fully sustainable lifestyle via a phased rollout of ways to improve consumption behaviors
                   | with discounted products and services including food, clothing, air travel, hotels and other elements to
                   | help improve your sustainability index - and ultimately live as carbon free as possible.
-        // End Sustainability Index
-        // Start Sustainability Roadmap
+        //- End Sustainability Index
+        //- Start Sustainability Roadmap
         section#SRM
           #sustainRM
             .row
@@ -331,8 +355,8 @@ block content
                     td $20/month
             button#sustainTableCTA.button(href='#' type='button' data-toggle='modal' data-target='#signupModal')
               | Sign up Today.
-        // End Sustainability Roadmap
-        // Start Our Partners
+        //- End Sustainability Roadmap
+        //- Start Our Partners
         section#page1
           h1 Our Partners
         section.page2
@@ -379,8 +403,8 @@ block content
                 p
                   | Our neighborhood grocery stores offer thousands of natural, organic &amp; gluten-free foods.
                   | Discover fresh produce, meats, vitamins, supplements &amp; more.
-        // End Our Partners
-        // Start Contact Us
+        //- End Our Partners
+        //- Start Contact Us
         section#contactUs.container-fluid
           .row
             .col-lg-6.offset-lg-6
@@ -425,7 +449,7 @@ block content
                     label.col-3.col-form-label Email
                     .col-9
                       input.form-control(type='email' name='email' placeholder='')
-                  // Random Codes
+                  //- Random Codes
                   .form-group.row.m-0.randomcode.align-items-center
                     label.col-5 Enter code as seen:
                     .col-3
@@ -441,5 +465,5 @@ block content
                       button#send.btn.btn-success(type='submit')
                         i.bi.bi-telegram
                           | Send
-        // End Contact Us
+        //- End Contact Us
     include ./footer.pug
