@@ -99,7 +99,8 @@ block content
               .modal-footer
                 div
                   | Not signed up yet?
-                  a(data-dismiss='modal' data-toggle='modal' data-target='#signupModal' href='#' style='text-decoration: underline;') Create Account
+                  | 
+                a.block(data-dismiss='modal' data-toggle='modal' data-target='#signUpModal' href='#' style='text-decoration: underline;') Create Account
         //- RESET PASSWORD MODAL START HERE
         #resetPassword.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
           .modal-dialog.modal-dialog-centered(role='document')
@@ -243,35 +244,9 @@ block content
         section#teamMember
           .container-fluid
             #teamHeadShots1.row
-              .col-sm-12.col-md-3
-                img(src='images/headshots/marco.jpeg' alt='Marco' width='150px' height='150px')
-                h5 Marco Terruzzin
-                p Founder - CEO
-              .col-sm-12.col-md-3
-                img(src='images/headshots/Andrea.jpeg' alt='Andrea' width='150px' height='150px')
-                h5 Andrea Pedretti
-                p Co-Founder - CTO
-              .col-sm-12.col-md-3
-                img(src='images/headshots/Julie_Cropped.jpg' alt='Julie' width='150px' height='150px')
-                h5 Julie Sparacio
-                p VP, Marketing &amp; Customer Growth
-              .col-sm-12.col-md-3
-                img(src='images/headshots/andzej.jpeg' alt='Andrzej' width='150px' height='150px')
-                h5 Andrzej Skoskiewicz
-                p VP, Engineering
+              team-members1(v-for='member in team' v-bind:members='member')
             #teamHeadShots2.row
-              .col-sm-12.col-md-4
-                img(src='images/headshots/daniel.jpeg' alt='Daniel' width='150px' height='150px')
-                h5 Daniel Han
-                p VP, Strategy &amp; BD
-              .col-sm-12.col-md-4
-                img(src='images/headshots/Laetitia.jpeg' alt='laetitia' width='150px' height='150px')
-                h5 Laetitia Lee
-                p VP, Product
-              .col-sm-12.col-md-4
-                img(src='images/headshots/Gianromano P_Cropped.png' alt='gianromano' width='150px' height='150px')
-                h5 Gianromano Piconi
-                p Director, Operations
+              team-members2(v-for='member in team' v-bind:members='member')
         //- End About EVFY
         //- Start Sustainability Index
         section#sustainabilityIndex1
@@ -366,7 +341,7 @@ block content
                     td $10/month
                     td $15/month
                     td $20/month
-            button#sustainTableCTA.button(href='#' type='button' data-toggle='modal' data-target='#signupModal')
+            button#sustainTableCTA.button(href='#' type='button' data-toggle='modal' data-target='#signUpModal')
               | Sign up Today.
         //- End Sustainability Roadmap
         //- Start Our Partners

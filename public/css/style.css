@@ -592,6 +592,8 @@ footer .icons img {
 #myBtn :hover {
   background-color: #555;
 }
+
+
 /*
 Bootstrap Breakpoints: 
  X-Small	None	<576px
@@ -816,7 +818,7 @@ Bootstrap Breakpoints:
     background-position: center;
   }
   .nav-item {
-    max-width: 250px;
+    max-width: 200px;
   }
   #loginPage h1 {
     color: #FFF;
@@ -833,8 +835,5 @@ Bootstrap Breakpoints:
 @media screen and (min-width: 1600px) {
   .nav-item {
     max-width: 400px;
-  }
-  li.nav-item {
-    padding-right: 100px;
   }
 }

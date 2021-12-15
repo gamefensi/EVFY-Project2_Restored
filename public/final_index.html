@@ -80,7 +80,10 @@
                 </form>
               </div>
               <div class="modal-footer">
-                <div>Not signed up yet?<a data-dismiss="modal" data-toggle="modal" data-target="#signupModal" href="#" style="text-decoration: underline;">Create Account</a></div>
+                <div>
+                  Not signed up yet?
+                   
+                </div><a class="block" data-dismiss="modal" data-toggle="modal" data-target="#signUpModal" href="#" style="text-decoration: underline;">Create Account</a>
               </div>
             </div>
           </div>
@@ -162,7 +165,7 @@
                   </div>
                   <button class="btn btn-secondary btn-block">Edit</button>
                   <div class="modal-footer">
-                    <button data-dismiss="modal" data-toggle="modal" data-target="#profileModal" href="#" style="text-decoration: underline;">Close</button>
+                    <button class="close" data-dismiss="modal" data-toggle="modal" data-target="#profileModal" href="#" style="text-decoration: underline;">Close</button>
                   </div>
                 </form>
               </div>
@@ -229,36 +232,10 @@
         <section id="teamMember">
           <div class="container-fluid">
             <div class="row" id="teamHeadShots1">
-              <div class="col-sm-12 col-md-3"><img src="images/headshots/marco.jpeg" alt="Marco" width="150px" height="150px">
-                <h5>Marco Terruzzin</h5>
-                <p>Founder - CEO</p>
-              </div>
-              <div class="col-sm-12 col-md-3"><img src="images/headshots/Andrea.jpeg" alt="Andrea" width="150px" height="150px">
-                <h5>Andrea Pedretti</h5>
-                <p>Co-Founder - CTO</p>
-              </div>
-              <div class="col-sm-12 col-md-3"><img src="images/headshots/Julie_Cropped.jpg" alt="Julie" width="150px" height="150px">
-                <h5>Julie Sparacio</h5>
-                <p>VP, Marketing &amp; Customer Growth</p>
-              </div>
-              <div class="col-sm-12 col-md-3"><img src="images/headshots/andzej.jpeg" alt="Andrzej" width="150px" height="150px">
-                <h5>Andrzej Skoskiewicz</h5>
-                <p>VP, Engineering</p>
-              </div>
+              <team-members1 v-for="member in team" v-bind:members="member"></team-members1>
             </div>
             <div class="row" id="teamHeadShots2">
-              <div class="col-sm-12 col-md-4"><img src="images/headshots/daniel.jpeg" alt="Daniel" width="150px" height="150px">
-                <h5>Daniel Han</h5>
-                <p>VP, Strategy &amp; BD</p>
-              </div>
-              <div class="col-sm-12 col-md-4"><img src="images/headshots/Laetitia.jpeg" alt="laetitia" width="150px" height="150px">
-                <h5>Laetitia Lee</h5>
-                <p>VP, Product</p>
-              </div>
-              <div class="col-sm-12 col-md-4"><img src="images/headshots/Gianromano P_Cropped.png" alt="gianromano" width="150px" height="150px">
-                <h5>Gianromano Piconi</h5>
-                <p>Director, Operations</p>
-              </div>
+              <team-members2 v-for="member in team" v-bind:members="member"></team-members2>
             </div>
           </div>
         </section>
@@ -354,7 +331,7 @@
                 </tfoot>
               </table>
             </div>
-            <button class="button" id="sustainTableCTA" href="#" type="button" data-toggle="modal" data-target="#signupModal">Sign up Today.</button>
+            <button class="button" id="sustainTableCTA" href="#" type="button" data-toggle="modal" data-target="#signUpModal">Sign up Today.</button>
           </div>
         </section>
         <section id="page1">
@@ -523,9 +500,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
     <script src="js/contact.js"></script>
     <script src="js/signin.js"></script>
     <script src="js/backToTop.js"></script>
     <script src="js/userProfile.js"></script>
+    <script src="js/vue.js"></script>
   </body>
 </head>
