@@ -13,14 +13,6 @@ block content
             |
             | Log In
 
-          //- button.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-          //-   | ${name}
-          //-   | 
-          //-   i.bi.bi-person-circle
-          //-   | 
-          //-   .dropdown-menu(aria-labelledby='userMenuBtn')
-          //-     a.dropdown-item(data-toggle='modal' data-target='#profileModal' data-user='SomeUser') My Profile
-          //-     a.dropdown-item(href='#' data-toggle='' data-target='') Logout
           // Dropdown code
           .dropdown
             button#userMenuBtn.float-right.btn.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true')
@@ -89,18 +81,18 @@ block content
                     input#l_username.form-control(type='text' placeholder='Username' required='')
                   .form-group
                     label.col-form-label(for='l_password') Password
-                    input.password.form-control(type='password' placeholder='Password' required='')
+                    input#l_password.form-control(type='password' placeholder='Password' required='')
                     .hide-show
                       span SHOW
                   .form-group
                     a(data-dismiss='modal' data-toggle='modal' data-target='#resetPassword' href='#' style='text-decoration: underline;float: right;margin-bottom:1em;' title='Fill Email Field and Click it') Forgot Password?
                   .form-group
-                    button.btn.btn-success.btn-block Sign In
+                    button.btn.btn-success.btn-block(type='submit') Sign In
               .modal-footer
                 div
                   | Not signed up yet?
                   | 
-                a.block(data-dismiss='modal' data-toggle='modal' data-target='#signUpModal' href='#' style='text-decoration: underline;') Create Account
+                  a(data-dismiss='modal' data-toggle='modal' data-target='#signUpModal' href='#' style='text-decoration: underline;') Create Account
         //- RESET PASSWORD MODAL START HERE
         #resetPassword.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
           .modal-dialog.modal-dialog-centered(role='document')
@@ -116,7 +108,7 @@ block content
                       | Enter the email for your account and we&apos;ll send you a link to reset your password.
                   .form-group(style='position: relative;')
                     input.form-control(type='email' required='required' placeholder='Email')
-                  button.btn.btn-success.btn-block(name='submit' value='resetPass')
+                  button.btn.btn-success.btn-block(type='submit' value='resetPass')
                     i.bi.bi-envelope-plus
                     |  Email Me
               .modal-footer
@@ -140,10 +132,10 @@ block content
                   .form-group
                     input.form-control(type='email' required='required' name='email' placeholder='Email')
                   .form-group
-                    input.password.form-control(type='password' required='required' name='password' placeholder='Password')
+                    input#s_password.form-control(type='password' required='required' name='password' placeholder='Password')
                     .hide-show
                       span SHOW
-                  button.btn.btn-success.btn-block Sign Up
+                  button.btn.btn-success.btn-block(type='submit') Sign Up
                   .modal-footer
                     | Already have an account? 
                     a(data-dismiss='modal' data-toggle='modal' data-target='#loginModal' href='#' style='text-decoration: underline;') Sign In

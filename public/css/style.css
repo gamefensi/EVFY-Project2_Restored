@@ -474,14 +474,14 @@ h1 u {
   background-repeat: no-repeat;
   background-size: cover;
   font-size: 16px;
-  padding-top: 25%;
+  padding-top: 5%;
 }
 #contactUs #contactForm {
   background-color: white;
   border: none;
   opacity: 0.8;
   padding: 1em 2em 1em 2em;
-  margin: 6em auto 3em auto;
+  margin: 6em auto 2em auto;
   font-size: 14pt;
   font-weight: bold;
 }
