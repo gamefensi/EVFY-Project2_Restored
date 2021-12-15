@@ -70,12 +70,12 @@
                   </div>
                   <div class="form-group">
                     <label class="col-form-label" for="l_password">Password</label>
-                    <input class="password form-control" type="password" placeholder="Password" required="">
+                    <input class="form-control" id="l_password" type="password" placeholder="Password" required="">
                     <div class="hide-show"><span>SHOW</span></div>
                   </div>
                   <div class="form-group"><a data-dismiss="modal" data-toggle="modal" data-target="#resetPassword" href="#" style="text-decoration: underline;float: right;margin-bottom:1em;" title="Fill Email Field and Click it">Forgot Password?</a></div>
                   <div class="form-group">
-                    <button class="btn btn-success btn-block">Sign In</button>
+                    <button class="btn btn-success btn-block" type="submit">Sign In</button>
                   </div>
                 </form>
               </div>
@@ -100,7 +100,7 @@
                   <div class="form-group" style="position: relative;">
                     <input class="form-control" type="email" required="required" placeholder="Email">
                   </div>
-                  <button class="btn btn-success btn-block" name="submit" value="resetPass"><i class="bi bi-envelope-plus"></i> Email Me</button>
+                  <button class="btn btn-success btn-block" type="submit" value="resetPass"><i class="bi bi-envelope-plus"></i> Email Me</button>
                 </form>
               </div>
               <div class="modal-footer">
@@ -128,10 +128,10 @@
                     <input class="form-control" type="email" required="required" name="email" placeholder="Email">
                   </div>
                   <div class="form-group">
-                    <input class="password form-control" type="password" required="required" name="password" placeholder="Password">
+                    <input class="form-control" id="s_password" type="password" required="required" name="password" placeholder="Password">
                     <div class="hide-show"><span>SHOW</span></div>
                   </div>
-                  <button class="btn btn-success btn-block">Sign Up</button>
+                  <button class="btn btn-success btn-block" type="submit">Sign Up</button>
                   <div class="modal-footer">Already have an account? <a data-dismiss="modal" data-toggle="modal" data-target="#loginModal" href="#" style="text-decoration: underline;">Sign In</a></div>
                 </form>
               </div>
