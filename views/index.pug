@@ -75,13 +75,13 @@ block content
                 button.close.col-2(type='button' data-dismiss='modal' aria-label='Close')
                   span(aria-hidden='true') &times;
               .modal-body
-                form#LoginForm(action="{{route('login')}}" method='post')
+                form#LoginForm(action="/login" method='post')
                   .form-group
-                    label.col-form-label(for='l_username') Username
-                    input#l_username.form-control(type='text' placeholder='Username' required='')
+                    label.col-form-label(for='l_email') Email
+                    input#l_email.form-control(type='text' placeholder='email' name='email' required='')
                   .form-group
                     label.col-form-label(for='l_password') Password
-                    input#l_password.form-control(type='password' placeholder='Password' required='')
+                    input#l_password.form-control(type='password' placeholder='Password' name='password' required='')
                     .hide-show
                       span SHOW
                   .form-group
@@ -124,9 +124,9 @@ block content
                 button.close.col-2(type='button' data-dismiss='modal' aria-label='Close')
                   span(aria-hidden='true') &times;
               .modal-body
-                form#SignupForm(action="{{route('signup')}}" method='post')
+                form#SignupForm(action="/register" method='post')
                   .form-group
-                    input.form-control(type='text' required='' placeholder='Full Name')
+                    input.form-control(type='text' required='' name='fullname' placeholder='Full Name')
                   .form-group
                     input.form-control(type='text' required='required' name='username' placeholder='Username')
                   .form-group
