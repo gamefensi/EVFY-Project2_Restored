@@ -63,14 +63,14 @@
                 <button class="close col-2" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body">
-                <form id="LoginForm" action="{{route('login')}}" method="post">
+                <form id="LoginForm" action="/login" method="post">
                   <div class="form-group">
-                    <label class="col-form-label" for="l_username">Username</label>
-                    <input class="form-control" id="l_username" type="text" placeholder="Username" required="">
+                    <label class="col-form-label" for="l_email">Email</label>
+                    <input class="form-control" id="l_email" type="text" placeholder="email" name="email" required="">
                   </div>
                   <div class="form-group">
                     <label class="col-form-label" for="l_password">Password</label>
-                    <input class="form-control" id="l_password" type="password" placeholder="Password" required="">
+                    <input class="form-control" id="l_password" type="password" placeholder="Password" name="password" required="">
                     <div class="hide-show"><span>SHOW</span></div>
                   </div>
                   <div class="form-group"><a data-dismiss="modal" data-toggle="modal" data-target="#resetPassword" href="#" style="text-decoration: underline;float: right;margin-bottom:1em;" title="Fill Email Field and Click it">Forgot Password?</a></div>
@@ -117,9 +117,9 @@
                 <button class="close col-2" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body">
-                <form id="SignupForm" action="{{route('signup')}}" method="post">
+                <form id="SignupForm" action="/register" method="post">
                   <div class="form-group">
-                    <input class="form-control" type="text" required="" placeholder="Full Name">
+                    <input class="form-control" type="text" required="" name="fullname" placeholder="Full Name">
                   </div>
                   <div class="form-group">
                     <input class="form-control" type="text" required="required" name="username" placeholder="Username">
