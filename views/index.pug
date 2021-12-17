@@ -148,18 +148,35 @@ block content
                 button.close.col-2(type='button' data-dismiss='modal' aria-label='Close')
                   span(aria-hidden='true') &times;
               .modal-body
-                form#editProfile(action="{{route('edit')}}" method='post')
-                  .form-group
-                    input.form-control(type='text' required='' name='name' placeholder='name' disabled)
-                  .form-group
-                    input.form-control(type='text' required='required' name='username' placeholder=`username` disabled)
-                  .form-group
-                    input.form-control(type='email' required='required' name='email' placeholder=`email` disabled)
-                  .form-group
-                    input.password.form-control(type='password' required='required' name='password' placeholder=`password` disabled)
+                form#editProfile.form-inline.col-10(action="/edit" method='post')
+                  .form-group.col-12
+                    label.col-3(for='name') Full Name: 
+                    | 
+                    input.form-control.col-8.m-2(id='urName' type='text' required='' name='name' placeholder='name' disabled)
+                  .form-group.col-12
+                    label.col-3(for='username') Username:
+                    | 
+                    input.form-control.col-8.m-2(id='urUserName' type='text' required='required' name='username' placeholder=`username` disabled)
+                  .form-group.col-12
+                    label.col-3(for='email') Email:
+                    | 
+                    input.form-control.col-8.m-2(id='urEmail' type='email' required='required' name='email' placeholder=`email` disabled)
+                  .form-group.col-12
+                    label.col-3(for='password') Password:
+                    | 
+                    input.password.form-control.col-8.m-2(id='urPassword' type='password' required='required' name='password' placeholder=`password` disabled)
                     .hide-show
-                      span SHOW
-                  button.btn.btn-secondary.btn-block Edit
+                      label
+                        span SHOW
+                  .row.col-10
+                    p.col-6 Profile Picture:
+                    img.col-6.offset(src="images/default-avatar.png")
+                  .custom-file.col-8.offset-3.my-2
+                    input#customFile.custom-file-input(type='file')
+                    label.custom-file-label(for='customFile') Choose file
+                  .row.d-flex.justify-content-center.col-12
+                    button#editBtn.btn.btn-primary.col-4.offset-3.my-2.mr-2(type='button') Edit
+                    button#saveBtn.btn.btn-secondary.col-4.my-2(type='submit' disabled) Save Changes
                   .modal-footer
                     button.close(data-dismiss='modal' data-toggle='modal' data-target='#profileModal' href='#' style='text-decoration: underline;') Close
         //- Landing page

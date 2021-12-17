@@ -149,21 +149,33 @@
                 <button class="close col-2" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body">
-                <form id="editProfile" action="{{route('edit')}}" method="post">
-                  <div class="form-group">
-                    <input class="form-control" type="text" required="" name="name" placeholder="name" disabled>
+                <form class="form-inline col-10" id="editProfile" action="/edit" method="post">
+                  <div class="form-group col-12">
+                    <label class="col-3" for="name">Full Name: </label> 
+                    <input class="form-control col-8 m-2" id="urName" type="text" required="" name="name" placeholder="name" disabled>
                   </div>
-                  <div class="form-group">
-                    <input class="form-control" type="text" required="required" name="username" placeholder="username" disabled>
+                  <div class="form-group col-12">
+                    <label class="col-3" for="username">Username:</label> 
+                    <input class="form-control col-8 m-2" id="urUserName" type="text" required="required" name="username" placeholder="username" disabled>
                   </div>
-                  <div class="form-group">
-                    <input class="form-control" type="email" required="required" name="email" placeholder="email" disabled>
+                  <div class="form-group col-12">
+                    <label class="col-3" for="email">Email:</label> 
+                    <input class="form-control col-8 m-2" id="urEmail" type="email" required="required" name="email" placeholder="email" disabled>
                   </div>
-                  <div class="form-group">
-                    <input class="password form-control" type="password" required="required" name="password" placeholder="password" disabled>
-                    <div class="hide-show"><span>SHOW</span></div>
+                  <div class="form-group col-12">
+                    <label class="col-3" for="password">Password:</label> 
+                    <input class="password form-control col-8 m-2" id="urPassword" type="password" required="required" name="password" placeholder="password" disabled>
+                    <div class="hide-show"></div>
+                    <label><span>SHOW</span></label>
                   </div>
-                  <button class="btn btn-secondary btn-block">Edit</button>
+                  <div class="custom-file">
+                    <input class="custom-file-input" id="customFile" type="file">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                  <div class="row d-flex justify-content-center col-12">
+                    <button class="btn btn-primary col-4 mx-1" id="editBtn" type="button">Edit</button>
+                    <button class="btn btn-secondary col-4 mx-1" id="saveBtn" type="submit" disabled>Save Changes</button>
+                  </div>
                   <div class="modal-footer">
                     <button class="close" data-dismiss="modal" data-toggle="modal" data-target="#profileModal" href="#" style="text-decoration: underline;">Close</button>
                   </div>
