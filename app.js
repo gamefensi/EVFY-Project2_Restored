@@ -8,9 +8,10 @@ const cors = require("cors");
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const passportLocalMongoose = require('passport-local-mongoose');
+const session = require('express-session');
+const app = express();
 require("dotenv").config();
 
-const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -24,7 +25,21 @@ const expressSession = require('express-session')({
 app.use(express.static('public'));
 app.use(express.json());
 app.use(cors());
+app.use(session({
+  cookie: {
+     maxAge: 60000,
+     secure: false
+  }, 
+  secret: 'woot',
+  resave: false, 
+  saveUninitialized: false
+}));
 app.use(flash());
+app.use((req, res, next) => {
+  res.locals.errors = req.flash("error");
+  res.locals.successes = req.flash("success");
+  next();
+});
 
 // // PASSPORT SETUP
 
@@ -71,16 +86,14 @@ res.render('index', { title: 'EVFY' });
 app.post("/register", async (req, res) => {
     try {
       const { email, password, username, fullname} = req.body;
-      
-      // ensure email and password meet the requirements
+
       if (!email || !password || !username || !fullname) {
         return res.status(400).json({ msg: "Not all fields have been entered" });
       }
   
       if (password.length < 6) {
-        return res
-          .status(400)
-          .json({ msg: "The password needs to be at least 6 characters long" });
+        return res.status(400).json({ msg: "The password needs to be at least 6 characters long" });
+        // res.send("The password needs to be at least 6 characters long");
       }
   
       const existingEmail = await User.findOne({ email: email });
@@ -101,8 +114,7 @@ app.post("/register", async (req, res) => {
         fullname: fullname,
       });
       const savedUser = await newUser.save();
-      res.json(savedUser);
-      // req.flash("success", "Successfully created the account!!");
+      req.flash("success", "Welcome to EVFY!");
       res.redirect('/');
     } catch (error) {
       res.status(500).json({ err: error.message });
@@ -131,14 +143,11 @@ app.post('/login', async (req, res) => {
         if (!isMatch) {
           return res.status(400).json({ msg: "Invalid credentials" });
         } else {
-            // req.flash('success', 'Welcome to EVFY!');
+            req.flash('success', 'Welcome back!');
             res.redirect('/');
         }
-    } catch (error) {
-            res.status(500).json({ err: error.message });
-    }
-    
-        //create json web token
+
+         //create json web token
         // const token = jwt.sign({ id: user._id });
         // res.json({
         //   token,
@@ -148,11 +157,10 @@ app.post('/login', async (req, res) => {
         //     lastName: user.lastName,
         //   },
         // });
-    //   } catch (error) {
-    //     res.status(500).json({ err: error.message });
-    //   }
+    } catch (error) {
+        res.status(500).json({ err: error.message });
+    }
 });
-
 
 //EDIT USER PROFILE
 app.post("/edit", async (req, res) => {
@@ -196,9 +204,6 @@ app.post("/edit", async (req, res) => {
   }
 });
 //CONVERT PUG TO HTML IN PUBLIC FOLDER
-var jade = require('pug');//require pug module
-var fs = require('fs')
-var str = jade.renderFile('./views/index.pug' ,{pretty : true }); 
 fs.writeFile('./public/final_index.html' ,str , function(err){
     if (err)
         console.log("Compile to html in error");
