@@ -43,10 +43,10 @@ app.use((req, res, next) => {
 
 // // PASSPORT SETUP
 
-// const passport = require('passport');
+const passport = require('passport');
 
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // CONNECT TO DB
 
@@ -67,10 +67,10 @@ mongoose.connect(
 
 // PASSPORT LOCAL AUTHENTICATION
 
-// passport.use(User.createStrategy());
+passport.use(User.createStrategy());
 
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 
 const connectEnsureLogin = require('connect-ensure-login');
@@ -90,6 +90,7 @@ app.get("/logout",(req,res)=>{
 app.get("/profile", (req, res) => {
   res.render("profile", {title:'Profile Page'});
 });
+app.get('/user', (req, res) => res.send({user: req.user}));
 
 app.post("/register", async (req, res) => {
     try {
@@ -129,40 +130,43 @@ app.post("/register", async (req, res) => {
     }
   });
 
-app.post('/login', async (req, res) => {
+
+
+app.post('/login', async (req, res, next) => {
     try {
-        const { email, password } = req.body;
-        if (!email || !password) {
-          return res.status(400).json({ msg: "Not all fields have been entered" });
-        }
+      const { email, password } = req.body;
+      if (!email || !password) {
+        return res.status(400).json({ msg: "Not all fields have been entered" });
+      }
 
-        // validate email
-        const user = await User.findOne({ email: email });
-        if (!user) {
-          return res
-            .status(400)
-            .json({ msg: "Invalid credentials" });
-        }
-    
-        // validate password
-        const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) {
-          return res.status(400).json({ msg: "Invalid credentials" });
-        } else {
-            req.flash('success', 'Welcome back!');
-            res.redirect('/profile');
-        }
+      // validate email
+      const user = await User.findOne({ email: email });
+      if (!user) {
+        return res
+          .status(400)
+          .json({ msg: "Invalid credentials" });
+      }
+  
+      // validate password
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        return res.status(400).json({ msg: "Invalid credentials" });
+      } else {
+          req.flash("success", "Welcome back!");
+          res.redirect('/profile')
+          .send({user: req.body});
+      }
 
-         //create json web token
-        // const token = jwt.sign({ id: user._id });
-        // res.json({
-        //   token,
-        //   user: {
-        //     id: user._id,
-        //     firstName: user.firstName,
-        //     lastName: user.lastName,
-        //   },
-        // });
+        //create json web token
+      // const token = jwt.sign({ id: user._id });
+      // res.json({
+      //   token,
+      //   user: {
+      //     id: user._id,
+      //     firstName: user.firstName,
+      //     lastName: user.lastName,
+      //   },
+      // });
     } catch (error) {
         res.status(500).json({ err: error.message });
     }
