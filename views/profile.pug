@@ -1,0 +1,51 @@
+extends layout
+block content
+    .dropdown
+        button#userMenuBtn.float-right.btn.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true')
+            | ${name}
+            | 
+            i.bi.bi-person-circle
+            | 
+            span.caret
+        ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+            li
+            a(href='#' data-toggle='modal' data-target='#profileModal') My Profile
+            li
+            a(href='/logout' data-toggle='' data-target='') Logout
+
+block profile
+    #profileModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
+        .modal-dialog.modal-dialog-centered.modal-lg(role='document')
+            .modal-content
+                .modal-header
+                    h4.modal-title.col-10 My Profile
+                    button.close.col-2(type='button' data-dismiss='modal' aria-label='Close')
+                        span(aria-hidden='true') &times;
+                .modal-body
+                    form#editProfile.form-inline.col-10(action='/edit' method='post')
+                        .form-group.col-12
+                            label.col-3(for='name') Full Name: 
+                            input#urName.form-control.col-8.m-2(type='text' required='' name='name' placeholder='name' disabled='')
+                        .form-group.col-12
+                            label.col-3(for='username') Username:
+                            input#urUserName.form-control.col-8.m-2(type='text' required='required' name='username' placeholder='username' disabled='')
+                        .form-group.col-12
+                            label.col-3(for='email') Email:
+                            input#urEmail.form-control.col-8.m-2(type='email' required='required' name='email' placeholder='email' disabled='')
+                        .form-group.col-12
+                            label.col-3(for='password') Password:
+                            input#urPassword.password.form-control.col-8.m-2(type='password' required='required' name='password' placeholder='password' disabled='')
+                            .hide-show
+                                label
+                                    span SHOW
+                        .row.col-10
+                            p.col-6 Profile Picture:
+                            img.col-6.offset(src='images/default-avatar.png')
+                        .custom-file.col-8.offset-3.my-2
+                            input#customFile.custom-file-input(type='file')
+                            label.custom-file-label(for='customFile') Choose file
+                        .row.d-flex.justify-content-center.col-12
+                            button#editBtn.btn.btn-primary.col-4.offset-3.my-2.mr-2(type='button') Edit
+                            button#saveBtn.btn.btn-secondary.col-4.my-2(type='submit' disabled='') Save Changes
+                        .modal-footer
+                            button.close(data-dismiss='modal' data-toggle='modal' data-target='#profileModal' href='#' style='text-decoration: underline;') Close

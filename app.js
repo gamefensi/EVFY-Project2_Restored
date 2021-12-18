@@ -83,6 +83,14 @@ app.get('/', (req,res) => {
 res.render('index', { title: 'EVFY' });
 })
 
+app.get("/logout",(req,res)=>{
+  // req.logout();
+  res.redirect("/");
+});
+app.get("/profile", (req, res) => {
+  res.render("profile", {title:'Profile Page'});
+});
+
 app.post("/register", async (req, res) => {
     try {
       const { email, password, username, fullname} = req.body;
@@ -115,7 +123,7 @@ app.post("/register", async (req, res) => {
       });
       const savedUser = await newUser.save();
       req.flash("success", "Welcome to EVFY!");
-      res.redirect('/');
+      res.redirect('/profile');
     } catch (error) {
       res.status(500).json({ err: error.message });
     }
@@ -142,7 +150,7 @@ app.post('/login', async (req, res) => {
           return res.status(400).json({ msg: "Invalid credentials" });
         } else {
             req.flash('success', 'Welcome back!');
-            res.redirect('/');
+            res.redirect('/profile');
         }
 
          //create json web token

@@ -37,50 +37,54 @@
 	box-sizing: border-box;
 }
 
-#topNavBar {
-	padding: 15px;
-	background: rgb(69, 68, 68);
-	background: linear-gradient( 0deg, rgba(69, 68, 68, 0) 0%, rgb(0, 0, 0) 100% );
-	z-index: 1001;
-	margin-right: 0;
-	padding-right: 0;
-	.navbar-brand.logo {
-		margin-right: 50px;
-		img {
-			width: 150px;
-		}
-	}
-	.navbar-toggler {
-		color: white;
-	}
-	div#navbarContent {
-		margin-top: 30px;
-		ul.navbar-nav.nav.nav-pills {
-			padding-right: 10px;
-			li.nav-item.dropdown {
-				text-align: center;
+header {
+	position: relative;
+	#topNavBar {
+		padding: 15px;
+		background: rgb(69, 68, 68);
+		background: linear-gradient( 0deg, rgba(69, 68, 68, 0) 0%, rgb(0, 0, 0) 100% );
+		z-index: 1001;
+		margin-right: 0;
+		padding-right: 0;
+		.navbar-brand.logo {
+			margin-right: 50px;
+			img {
+				width: 150px;
 			}
-			li.nav-item {
-				text-align: center;
-				a.nav-link {
-					&:hover {
-						background: #8cc63f;
+		}
+		.navbar-toggler {
+			color: white;
+		}
+		div#navbarContent {
+			margin-top: 30px;
+			ul.navbar-nav.nav.nav-pills {
+				padding-right: 10px;
+				li.nav-item.dropdown {
+					text-align: center;
+				}
+				li.nav-item {
+					text-align: center;
+					a.nav-link {
+						&:hover {
+							background: #8cc63f;
+							border: #8cc63f solid 1px;
+						}
+					}
+					a.nav-link.active {
+						background-color: #8cc63f;
 						border: #8cc63f solid 1px;
 					}
-				}
-				a.nav-link.active {
-					background-color: #8cc63f;
-					border: #8cc63f solid 1px;
-				}
-				.show {
-					>.nav-link {
-						background-color: #8cc63f;
+					.show {
+						>.nav-link {
+							background-color: #8cc63f;
+						}
 					}
 				}
 			}
 		}
 	}
 }
+
 
 #sustainRM {
 	height: 1000px;
@@ -90,9 +94,9 @@
 	padding-bottom: 20%;
 }
 
-header {
-	position: relative;
-}
+// header {
+// 	position: relative;
+// }
 #loginBtn {
 	background: #75B44D;
 	color: white;
@@ -110,7 +114,7 @@ header {
 
 div.dropdown {
 	position: absolute;
-	right: 175px;
+	right: 5px;
 	top: 10px;
 	#userMenuBtn {
 		background: #75B44D;

@@ -35,7 +35,10 @@
   font-family: 'NunitoSans', Arial, Helvetica, sans-serif !important;
   box-sizing: border-box;
 }
-#topNavBar {
+header {
+  position: relative;
+}
+header #topNavBar {
   padding: 15px;
   background: #454444;
   background: linear-gradient(0deg, rgba(69, 68, 68, 0) 0%, #000000 100%);
@@ -43,36 +46,36 @@
   margin-right: 0;
   padding-right: 0;
 }
-#topNavBar .navbar-brand.logo {
+header #topNavBar .navbar-brand.logo {
   margin-right: 50px;
 }
-#topNavBar .navbar-brand.logo img {
+header #topNavBar .navbar-brand.logo img {
   width: 150px;
 }
-#topNavBar .navbar-toggler {
+header #topNavBar .navbar-toggler {
   color: white;
 }
-#topNavBar div#navbarContent {
+header #topNavBar div#navbarContent {
   margin-top: 30px;
 }
-#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills {
+header #topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills {
   padding-right: 10px;
 }
-#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item.dropdown {
+header #topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item.dropdown {
   text-align: center;
 }
-#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item {
+header #topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item {
   text-align: center;
 }
-#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item a.nav-link:hover {
+header #topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item a.nav-link:hover {
   background: #8cc63f;
   border: #8cc63f solid 1px;
 }
-#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item a.nav-link.active {
+header #topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item a.nav-link.active {
   background-color: #8cc63f;
   border: #8cc63f solid 1px;
 }
-#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item .show > .nav-link {
+header #topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item .show > .nav-link {
   background-color: #8cc63f;
 }
 #sustainRM {
@@ -81,9 +84,6 @@
   padding-top: 20%;
   position: relative;
   padding-bottom: 20%;
-}
-header {
-  position: relative;
 }
 #loginBtn {
   background: #75B44D;
@@ -101,7 +101,7 @@ header {
 }
 div.dropdown {
   position: absolute;
-  right: 175px;
+  right: 5px;
   top: 10px;
 }
 div.dropdown #userMenuBtn {
