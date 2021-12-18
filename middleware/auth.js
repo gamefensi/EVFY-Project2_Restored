@@ -1,10 +1,8 @@
 const jwt = require("jsonwebtoken");
 
-// status code 401 means unauthorized
-
 const auth = (req, res, next) => {
   try {
-    // checking x-auth-token with our jwt token
+    // checking x-auth-token with jwt token
     const token = req.header("x-auth-token");
     if (!token) {
       return res
@@ -24,6 +22,5 @@ const auth = (req, res, next) => {
     res.status(500).json({ err: error.message });
   }
 };
-
 
 module.exports = auth;
