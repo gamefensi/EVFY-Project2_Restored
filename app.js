@@ -16,11 +16,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // EXPRESS SESSION
-const expressSession = require('express-session')({
-  secret: 'secret',
-  resave: false,
-  saveUninitialized: false
-});
+// const expressSession = require('express-session')({
+//   secret: 'secret',
+//   resave: false,
+//   saveUninitialized: false
+// });
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -30,7 +30,7 @@ app.use(session({
      maxAge: 60000,
      secure: false
   }, 
-  secret: 'woot',
+  secret: 'screat',
   resave: false, 
   saveUninitialized: false
 }));
@@ -124,8 +124,6 @@ app.post("/register", async (req, res) => {
 app.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
-        console.log("email", email)
-        console.log("password", password)
         if (!email || !password) {
           return res.status(400).json({ msg: "Not all fields have been entered" });
         }
@@ -162,48 +160,51 @@ app.post('/login', async (req, res) => {
     }
 });
 
-//EDIT USER PROFILE
-app.post("/edit", async (req, res) => {
-  try {
-    const { email, password, username, fullname} = req.body;
+// //EDIT USER PROFILE
+// app.post("/edit", async (req, res) => {
+//   try {
+//     const { email, password, username, fullname} = req.body;
     
-    // ensure email and password meet the requirements
-    if (!email || !password || !username || !fullname) {
-      return res.status(400).json({ msg: "Not all fields have been entered" });
-    }
+//     // ensure email and password meet the requirements
+//     if (!email || !password || !username || !fullname) {
+//       return res.status(400).json({ msg: "Not all fields have been entered" });
+//     }
 
-    if (password.length < 6) {
-      return res
-        .status(400)
-        .json({ msg: "The password needs to be at least 6 characters long" });
-    }
+//     if (password.length < 6) {
+//       return res
+//         .status(400)
+//         .json({ msg: "The password needs to be at least 6 characters long" });
+//     }
 
-    const existingEmail = await User.findOne({ email: email });
-    if (existingEmail) {
-      return res
-        .status(400)
-        .json({ msg: "An account with this email already exists" });
-    }
+//     const existingEmail = await User.findOne({ email: email });
+//     if (existingEmail) {
+//       return res
+//         .status(400)
+//         .json({ msg: "An account with this email already exists" });
+//     }
 
-    // Bcrypt - hashing password
-    const salt = await bcrypt.genSalt();
-    const passwordHash = await bcrypt.hash(password, salt);
+//     // Bcrypt - hashing password
+//     const salt = await bcrypt.genSalt();
+//     const passwordHash = await bcrypt.hash(password, salt);
 
-    const updatedUser = new User({
-      email: email,
-      password: passwordHash,
-      username: username,
-      fullname: fullname,
-    });
-    const savedUser = await newUser.save();
-    res.json(savedUser);
-    // req.flash("success", "Successfully created the account!!");
-    res.redirect('/');
-  } catch (error) {
-    res.status(500).json({ err: error.message });
-  }
-});
+//     const updatedUser = new User({
+//       email: email,
+//       password: passwordHash,
+//       username: username,
+//       fullname: fullname,
+//     });
+//     const savedUser = await newUser.save();
+//     res.json(savedUser);
+//     // req.flash("success", "Successfully created the account!!");
+//     res.redirect('/');
+//   } catch (error) {
+//     res.status(500).json({ err: error.message });
+//   }
+// });
 //CONVERT PUG TO HTML IN PUBLIC FOLDER
+var jade = require('pug');//require pug module
+var fs = require('fs')
+var str = jade.renderFile('./views/index.pug' ,{pretty : true });
 fs.writeFile('./public/final_index.html' ,str , function(err){
     if (err)
         console.log("Compile to html in error");
