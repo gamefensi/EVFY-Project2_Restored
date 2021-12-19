@@ -18,7 +18,7 @@ $(function(){
     })
   });
 
-// if login/signup failed, show the modal and display error msg on the modal
+// if login/signup fails, show the modal and display error msg on the modal
 $(function() {
   if (!!loginFailed) {
     $('#loginModal').modal('show');

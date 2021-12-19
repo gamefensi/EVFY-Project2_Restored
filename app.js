@@ -4,35 +4,28 @@ const mongoose = require("mongoose");
 const User = require("./models/userModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const cors = require("cors");
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
-const passportLocalMongoose = require('passport-local-mongoose');
 const session = require('express-session');
 const app = express();
 require("dotenv").config();
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// EXPRESS SESSION
-// const expressSession = require('express-session')({
-//   secret: 'secret',
-//   resave: false,
-//   saveUninitialized: false
-// });
 
 app.use(express.static('public'));
 app.use(express.json());
-app.use(cors());
+
+// EXPRESS SESSION
 app.use(session({
   cookie: {
      maxAge: 60000,
      secure: false
   }, 
   secret: 'screat',
-  resave: false, 
-  saveUninitialized: false
+  resave: true,
+  saveUninitialized: true
 }));
 app.use(flash());
 app.use((req, res, next) => {
@@ -79,7 +72,19 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 app.get('/', (req,res) => {
-res.render('index', { title: 'EVFY' });
+  if (req.session.loggedin) {
+    const { email, password, username, fullname } = req.session;
+    req.flash('success', 'Welcome back,' + req.session.username + '!');
+    res.render('index', {
+      title: 'EVFY',
+      username: username,
+      fullname: fullname,
+      email: email,
+      password: password
+    });
+  } else {
+    res.render('index', { title: 'EVFY' });
+  }
 })
 
 app.post("/register", async (req, res) => {
@@ -133,18 +138,24 @@ app.post('/login', async (req, res) => {
         if (!isMatch) {
           res.render('index', { loginFailed: 'true' });
         } else {
-            req.flash('success', 'Welcome back!');
+            console.log("user", user)
+            req.session.loggedin = true;
+            req.session.username = user.username;
+            req.session.fullname = user.fullname;
+            req.session.email = email;
+            req.session.password = password;
+            req.flash('success', 'Welcome back, ' + req.session.username + '!');
             res.redirect('/');
         }
 
-         //create json web token
+        //create json web token
         // const token = jwt.sign({ id: user._id });
         // res.json({
         //   token,
         //   user: {
         //     id: user._id,
-        //     firstName: user.firstName,
-        //     lastName: user.lastName,
+        //     fullname: user.fullname,
+        //     username: user.username,
         //   },
         // });
     } catch (error) {
@@ -155,6 +166,7 @@ app.post('/login', async (req, res) => {
 app.get("/logout", (req, res) => {
   req.logout();
   req.flash('success', "Goodbye!");
+  req.session.destroy();
   res.redirect("/");
 });
 
