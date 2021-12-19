@@ -2,6 +2,7 @@ const req = new XMLHttpRequest();
 req.onreadystatechange = function () {
     if (req.readyState == 4 && req.status == 200) {
         const user = JSON.parse(req.response).user;
+        console.log('we"re inside XMLHttp');
         document.getElementById("userMenuBtn").innerHTML = 
         `${user} <i class="bi bi-person-circle"></i>`
     }

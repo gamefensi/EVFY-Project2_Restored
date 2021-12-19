@@ -90,7 +90,9 @@ app.get("/logout",(req,res)=>{
 app.get("/profile", (req, res) => {
   res.render("profile", {title:'Profile Page'});
 });
-app.get('/user', (req, res) => res.send({user: req.user}));
+app.get('/user', (req, res) => console.log({user: res.user}));
+  // return res.send({user: req.user}); 
+// });
 
 app.post("/register", async (req, res) => {
     try {
@@ -153,8 +155,10 @@ app.post('/login', async (req, res, next) => {
         return res.status(400).json({ msg: "Invalid credentials" });
       } else {
           req.flash("success", "Welcome back!");
-          res.redirect('/profile')
-          .send({user: req.body});
+          res
+            .redirect('/profile')
+            .send({user: req.body});
+          console.log({user: req.body});
       }
 
         //create json web token
@@ -168,7 +172,7 @@ app.post('/login', async (req, res, next) => {
       //   },
       // });
     } catch (error) {
-        res.status(500).json({ err: error.message });
+        // res.status(500).json({ err: error.message });
     }
 });
 
