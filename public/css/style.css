@@ -35,10 +35,7 @@
   font-family: 'NunitoSans', Arial, Helvetica, sans-serif !important;
   box-sizing: border-box;
 }
-header {
-  position: relative;
-}
-header #topNavBar {
+#topNavBar {
   padding: 15px;
   background: #454444;
   background: linear-gradient(0deg, rgba(69, 68, 68, 0) 0%, #000000 100%);
@@ -46,16 +43,16 @@ header #topNavBar {
   margin-right: 0;
   padding-right: 0;
 }
-header #topNavBar .navbar-brand.logo {
+#topNavBar .navbar-brand.logo {
   margin-right: 50px;
 }
-header #topNavBar .navbar-brand.logo img {
+#topNavBar .navbar-brand.logo img {
   width: 150px;
 }
-header #topNavBar .navbar-toggler {
+#topNavBar .navbar-toggler {
   color: white;
 }
-header #topNavBar div#navbarContent {
+#topNavBar div#navbarContent {
   margin-top: 30px;
 }
 #topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item ul.dropdown-menu li {
@@ -71,15 +68,26 @@ header #topNavBar div#navbarContent {
 #topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item a.nav-link {
   text-align: center;
 }
-header #topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item a.nav-link:hover {
+#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item a.nav-link:hover {
   background: #8cc63f;
   border: #8cc63f solid 1px;
 }
-header #topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item a.nav-link.active {
+#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item a.nav-link.active {
   background-color: #8cc63f;
   border: #8cc63f solid 1px;
 }
-header #topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item .show > .nav-link {
+#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item li.nav-item {
+  text-align: center;
+}
+#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item li.nav-item a.nav-link:hover {
+  background: #8cc63f;
+  border: #8cc63f solid 1px;
+}
+#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item li.nav-item a.nav-link.active {
+  background-color: #8cc63f;
+  border: #8cc63f solid 1px;
+}
+#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item li.nav-item .show > .nav-link {
   background-color: #8cc63f;
 }
 #sustainRM {
@@ -596,6 +604,13 @@ footer .icons img {
 #editProfile div.hide-show {
   left: 550px;
   bottom: 10px;
+}
+#lblGreetings {
+  padding-left: 15px;
+}
+#lblGreetings span {
+  color: green;
+  font-weight: bold;
 }
 /*
 Bootstrap Breakpoints: 

@@ -45,3 +45,21 @@ script(src='js/signin.js')
 script(src='js/backToTop.js')
 script(src='js/userProfile.js')
 script(src='js/vue.js')
+
+//- custom Day Greeting
+script.
+    var myDate = new Date();
+    var hrs = myDate.getHours();
+    var username = '#{username}';
+    var greet;
+
+    if (hrs < 12)
+        greet = 'Good Morning';
+    else if (hrs >= 12 && hrs <= 17)
+        greet = 'Good Afternoon';
+    else if (hrs >= 17 && hrs <= 24)
+        greet = 'Good Evening';
+
+    if (username !== '') {
+            document.getElementById('lblGreetings').innerHTML = `<b> ${greet} </b> <span>#{fullname}</span> and welcome to EVFY.com!`;
+    }
