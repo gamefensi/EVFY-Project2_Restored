@@ -180,6 +180,7 @@
           </div>
         </div>
         <section id="landing">
+          <label id="lblGreetings"></label>
           <div class="landingInfo d-flex align-content-center flex-wrap">
             <div class="div col-12 ml-sm-auto px-4" id="message">
               <script>setTimeout(function() {document.getElementById("message").remove();}, 3000);</script>
@@ -515,6 +516,23 @@
       <script src="js/backToTop.js"></script>
       <script src="js/userProfile.js"></script>
       <script src="js/vue.js"></script>
+      <script>
+        var myDate = new Date();
+        var hrs = myDate.getHours();
+        var username = '';
+        var greet;
+        
+        if (hrs < 12)
+            greet = 'Good Morning';
+        else if (hrs >= 12 && hrs <= 17)
+            greet = 'Good Afternoon';
+        else if (hrs >= 17 && hrs <= 24)
+            greet = 'Good Evening';
+        
+        if (username !== '') {
+                document.getElementById('lblGreetings').innerHTML = `<b> ${greet} </b> <span></span> and welcome to EVFY.com!`;
+        }
+      </script>
     </div>
   </body>
 </head>
