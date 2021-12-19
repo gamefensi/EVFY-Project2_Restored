@@ -12,5 +12,361 @@ head
   link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css')
 
   title EVFY
+
+  body(data-spy='scroll' data-target='#topNavBar' data-offset='20')
+    .container-fluid.px-0
+      header.fixed-top
+        nav#topNavBar.navbar.navbar-dark.navbar-expand-xl
+          a.navbar-brand.logo(href='#landing')
+            img(src='images/EVFY Logos/EVFY_logos-white_green_green_border_noTagline.png')
+          block content
+          include includes/nav.pug
+      
+    main
+      button#myBtn(onclick='topFunction()' title='Go to top')
+        i.bi.bi-chevron-up
+        |           Top
+      #loginModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
+        .modal-dialog.modal-dialog-centered(role='document')
+          .modal-content
+            .modal-header
+              h5.modal-title.text-center.col-10 Sign In
+              button.close.col-2(type='button' data-dismiss='modal' aria-label='Close')
+                span(aria-hidden='true') &times;
+            .modal-body
+              form#LoginForm(action='/login' method='post')
+                .form-group
+                  label.col-form-label(for='l_email') Email
+                  input#l_email.form-control(type='text' placeholder='email' name='email' required='')
+                .form-group
+                  label.col-form-label(for='l_password') Password
+                  input#l_password.form-control(type='password' placeholder='Password' name='password' required='')
+                  .hide-show
+                    span SHOW
+                .form-group
+                  a(data-dismiss='modal' data-toggle='modal' data-target='#resetPassword' href='#' style='text-decoration: underline;float: right;margin-bottom:1em;' title='Fill Email Field and Click it') Forgot Password?
+                .form-group
+                  button.btn.btn-success.btn-block(type='submit') Sign In
+            .modal-footer
+              div
+                | Not signed up yet?
+                a(data-dismiss='modal' data-toggle='modal' data-target='#signUpModal' href='#' style='text-decoration: underline;') Create Account
+      #resetPassword.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
+        .modal-dialog.modal-dialog-centered(role='document')
+          .modal-content
+            .modal-header
+              h5.modal-title.text-center.col-10 Forgot your password?
+              button.close.col-2(type='button' data-dismiss='modal' aria-label='Close')
+                span(aria-hidden='true') &times;
+            .modal-body
+              form#SetpwdForm(action="{{route('reset')}}" method='post')
+                .form-group
+                  p
+                    | Enter the email for your account and we&apos;ll send you a link to reset your password.
+                .form-group(style='position: relative;')
+                  input.form-control(type='email' required='required' placeholder='Email')
+                button.btn.btn-success.btn-block(type='submit' value='resetPass')
+                  i.bi.bi-envelope-plus
+                  |  Email Me
+            .modal-footer
+              div
+                | Remember your password? 
+                a(data-dismiss='modal' data-toggle='modal' data-target='#loginModal' href='#' style='text-decoration: underline;') Sign in
+      #signUpModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
+        .modal-dialog.modal-dialog-centered(role='document')
+          .modal-content
+            .modal-header
+              h4.modal-title.text-center.col-10 Sign Up
+              button.close.col-2(type='button' data-dismiss='modal' aria-label='Close')
+                span(aria-hidden='true') &times;
+            .modal-body
+              form#SignupForm(action='/register' method='post')
+                .form-group
+                  input.form-control(type='text' required='' name='fullname' placeholder='Full Name')
+                .form-group
+                  input.form-control(type='text' required='required' name='username' placeholder='Username')
+                .form-group
+                  input.form-control(type='email' required='required' name='email' placeholder='Email')
+                .form-group
+                  input#s_password.form-control(type='password' required='required' name='password' placeholder='Password')
+                  .hide-show
+                    span SHOW
+                button.btn.btn-success.btn-block(type='submit') Sign Up
+                .modal-footer
+                  | Already have an account? 
+                  a(data-dismiss='modal' data-toggle='modal' data-target='#loginModal' href='#' style='text-decoration: underline;') Sign In
     
-  block content
+      block profile 
+
+      section#landing
+        .landingInfo.d-flex.align-content-center.flex-wrap
+          #message.div.col-12.ml-sm-auto.px-4
+            script.
+              setTimeout(function() {document.getElementById("message").remove();}, 3000);
+          .centerTextBox
+            h1
+              u Introducing the Sustainability Index
+            p
+              | EVFY empowers people to reduce their carbon footprint in an effortless and sustainable way.
+              br
+              br
+              | At EVFY, we help communities understand the environmental impact of their day-to-day life choices and how all of us can make a difference to improve our world and save energy.
+            button#landingCTA.button(href='#' type='button')
+              | Live Sustainably.
+              br
+              | Get Started Today!
+      section#about
+        .aboutInfo.container-fluid.d-flex.align-content-center.flex-wrap
+          h1 About EVFY
+          #aboutPara.row
+            p.col-xl-7.offset-xl-5
+              strong EVFY
+              |  &ndash; a cutting-edge clean tech start-up &ndash; offers green
+              |                                             solutions, starting with electric mobility, to help
+              |                                             communities live more sustainable lives.
+              br
+              br
+              |                             With EVFY, consumers become members of our sustainability
+              |                                             program, known as 
+              strong The Sustainability Index.
+              |  This program
+              |                                             provides substantial savings and rewards for being a conscious
+              |                                             consumer aiming to live carbon free.
+              br
+              br
+              |                             Through our program, EVFY aims to help people become as
+              |                                             carbon-free as possible. We educate and guide on lifestyle
+              |                                             changes and provide services and resources to &apos;go green&apos;.
+              br
+              br
+              strong The EVFY Sustainability Index
+              |  is the new
+              |                                             benchmark for consumers to understand the environmental impact
+              |                                             of their decisions and social capital to share amongst peers
+              |                                             for a broader goal of making a world-wide impact.
+      section#mission
+        .row
+          .col-sm-12.col-md-6
+            h3 Our Mission
+            p
+              | To empower people to reduce their carbon footprint in an effortless and sustainable way.
+          .col-sm-12.col-md-6
+            img.img-fluid(src='images/iStock-533578039.jpg')
+      section#team
+        .row
+          .col-sm-12.col-md-6.mt-4
+            img.img-fluid(src='images/iStock-537599600.jpg')
+          .col-sm-12.col-md-6.pt-3
+            h3 The EVFY Team
+            p
+              | Collaboration is one of the keys for unlocking sustainability,
+              | with leaders from all sectors of society agreeing that solving
+              | environmental and social challenges requires unparalleled cooperation.
+              | At EVFY, we are focused on solving the world&rsquo;s most pressing issues facing
+              | climate change today.
+              br
+              br
+              |                         We cannot be hesitant or half-hearted about living sustainably. Our team culture
+              |                                         is to drive innovation, and continuous engagement by being open, transparent,
+              |                                         ethical and responsible in order to find solutions for how people can live the
+              |                                         most sustainable lives possible.
+      section#teamMember
+        .container-fluid
+          #teamHeadShots1.row
+            team-members1(v-for='member in team' v-bind:members='member')
+          #teamHeadShots2.row
+            team-members2(v-for='member in team' v-bind:members='member')
+      section#sustainabilityIndex1
+        div
+          h1 The Sustainability Index.
+      section#sustainabilityIndex2
+        .row
+          .col-sm-12.col-md-6
+            h3 The Sustainability Index
+            p
+              | The Sustainability Index is a tiering system to reward strong sustainable behavior. It is an opportunity
+              | to earn points based on choices that consumers make in their everyday lives.
+              br
+              br
+              |                             The program provides consumers with a sustainability score based on daily consumption choices made
+              |                                             around reducing their carbon footprint.
+          .col-sm-12.col-md-6
+            img.img-fluid(src='images/iStock-1295057140.jpg')
+      section#sustainabilityIndex3
+        .row
+          .col-sm-12.col-lg-6.pl-5
+            img.img-fluid(src='images/iStock-956436966 copy.jpg' width='500px')
+          .col-sm-12.col-lg-6.mt-1.pr-5
+            h3 Our Methodology
+            p
+              | Our approach is three-fold. To improve your sustainability score, EVFY helps you to:
+            ul
+              li
+                | Incorporate daily energy usage within your home and by using your electric vehicle.
+              li Reduce your energy bill and enjoy substantial savings.
+              li
+                | Implement a fully sustainable lifestyle via a phased rollout of ways to improve consumption behaviors
+                | with discounted products and services including food, clothing, air travel, hotels and other elements to
+                | help improve your sustainability index - and ultimately live as carbon free as possible.
+      section#SRM
+        #sustainRM
+          .row
+            h1.col-xs-12.col-xl-4 The EVFY Sustainability Roadmap
+            p.col-xs-12.col-xl-8.pr-xl-5
+              | Our 
+              a(href='#') Sustainability Index
+              |  is a program that provides green conscious members the
+              |                                         platform to make informed carbon reduction decisions, with levels of services that consumers are
+              |                                         comfortable with.
+              br
+              br
+              |                         As part of the program, EVFY offers consumers subscription tiers and a roadmap to make the most
+              |                                         informed decisions. This includes monthly reports, access to green products and services and offers
+              |                                         a forum for members to share green lifestyle tips and a community to help others to become more
+              |                                         &lsquo;green.&apos;
+        #sustainMockup
+          .row
+            .col-xs-12.col-md-6.img-responsive.imgWrapper
+              img#phoneTop(src='images/Picture4.png' alt='Sustainability Index App' title='Sustainability Index App')
+              img#phoneBottom(src='images/iStock-852024402 copy.jpg')
+            .col-xs-12.col-md-6.infoWrapper
+              h2 EVFY Provides Sustainable Lifestyle Choices.
+              p
+                | The Sustainability Index assigns a green score to everyday products and services so you can have a consolidated sustainability score.  Now you can have an easy way to see how your day-to-day decisions impact the world around you.  You can also have fun sharing your score with friends and family too!
+        #sustainTable
+          h2 Choose Your Sustainability Tier.
+          p
+            | Simply select the sustainability tier that works best for you and your &lsquo;green&rsquo; lifestyle. The more sustainable you are, the higher your sustainability index will become. This ensures that you will also receive the highest discounts and rewards from our favorite sustainable partners.
+          .table-responsive
+            table.table
+              thead
+                tr
+                  th(style='width: 8%')  
+                  th(style='width: 23%') Basic
+                  th(style='width: 23%') Basic+
+                  th(style='width: 23%') Premium
+                  th(style='width: 23%') Premium+
+              tbody
+                tr
+                  td Description
+                  td
+                    | &bull;Home energy monitoring and monthly reports 
+                    br
+                    |                                         &bull;Sustainability Index
+                  td
+                    | &bull;Automated energy management to reduce monthly energy bill and carbon footprint (RECs)
+                  td
+                    | &bull;Incorporation of lifestyle activities outside home energy use to Sustainability Index
+                  td &bull;Access to exclusive green retailers and discounts
+              tfoot
+                tr
+                  td Cost
+                  td $5/month
+                  td $10/month
+                  td $15/month
+                  td $20/month
+          button#sustainTableCTA.button(href='#' type='button' data-toggle='modal' data-target='#signUpModal') Sign up Today.
+      section#page1
+        h1 Our Partners
+      section.page2
+        div
+          #item1
+            .row.d-flex.align-items-center.ml-1.p-1
+              h1.col-sm-12.pt-2 Piconi Farms
+              .col-sm-12.col-md-6.col-lg-4
+                img.img-fluid.float-center(src='images/Copy%20of%20IMG-20210418-WA0044.jpg' alt='A black, brown, and white dog wearing a kerchief' width='340' height='260')
+              .col-sm-12.col-md-6.col-lg-2
+                img.img-fluid.float-center(src='images/Piconi%20Farms%20at%20Lake%20Sherwood_21.png' alt='A black, brown, and white dog wearing a kerchief' width='200' height='180')
+              .col-sm-12.col-md-12.col-lg-6
+                p
+                  | Piconi Farms was built on the belief that meals should not only be from our farm to
+                  | your table, but organic and sustainable &ndash; and most importantly as special as
+                  | possible for you and your family. We carry this belief into everything we do.Piconi
+                  | Farms speciality is home grown freshness and flavors created with the ingenuity and
+                  | passion inspired by years of family tradition.
+          #item2.container-fluid
+            .row.d-flex.align-items-left.ml-1
+              h1.pt-3 Early Bird Wines
+            .row.align-items-left
+              .col-12.col-sm-12.col-md-6.col-lg-6
+                p
+                  | Early Bird Wine is America&rsquo;s premier no additional sulfite wine. We produce our wines
+                  | using a proprietary green technology, which results in a cleaner, fresher tasting wine
+                  | with enhanced flavors and increased antioxidants for added health benefits and reduced
+                  | risk of allergic reactions. Utilizing a 100% natural process, no added sulfites, and no
+                  | chemical components, we are able to provide an affordable quality wine for you to enjoy,
+                  | day and night, as part of your active, healthy lifestyle.
+              .col-12.col-sm-12.col-md-6.col-lg-6
+                .row
+                  .col-xs-12.col-sm-12.col-md-12.col-lg-6
+                    img.img-fluid.float-center(src='images/Copy%20of%20EB-Logo-Parts-074.png' alt='A black, brown, and white dog wearing a kerchief' width='304' height='180')
+                  .col-xs-12.col-sm-12.col-md-12.col-lg-6
+                    img.img-fluid.float-center(src='images/earlybird1.png' alt='A black, brown, and white dog wearing a kerchief' width='304' height='180')
+      section
+        #item3
+          .row.align-items-left.ml-1
+            h1.col-12.col-sm-12.pt-3 Sprouts Farmers Market
+            .col-12.col-sm-12.col-md-4.pt-3.pb-2
+              img.img-fluid.float-left(src='images/Sprouts.png' alt='A black, brown, and white dog wearing a kerchief' width='360' height='260')
+            .col-12.col-sm-12.col-md-8.p-2
+              p
+                | Our neighborhood grocery stores offer thousands of natural, organic &amp; gluten-free foods.
+                | Discover fresh produce, meats, vitamins, supplements &amp; more.
+      section#contactUs.container-fluid
+        .row
+          .col-lg-6.offset-lg-6
+            form#contactForm.well.form-horizontal(action='/contact' method='post')
+              fieldset
+                p
+                  | To learn more about the EVFY program, and to receive a Level 2 home charger, please fill
+                  | out the form below.
+                .form-group.row.m-0
+                  label.col-3.col-form-label(for='inputFirstName') First Name
+                  .col-9
+                    input.form-control(type='text' name='first name')
+                .form-group.row.m-0
+                  label.col-3.col-form-label(for='inputLastName') Last Name
+                  .col-9
+                    input.form-control(type='text' name='last name')
+                .form-group.row.m-0
+                  label.col-12.col-form-label
+                    i Address:
+                  label.col-3.col-col-form-label(for='inputAddress') Street
+                  .col-9
+                    input.form-control(type='text' name='street')
+                .form-group.row.m-0
+                  label.col-3.col-sm-3.col-form-label City
+                  .col-9.col-sm-3
+                    input.form-control(type='text' name='city')
+                  label.col-3.col-sm-2.col-form-label State
+                  .col-9.col-sm-4
+                    input.form-control(type='text' name='state')
+                .form-group.row.m-0
+                  label.col-3.col-sm-3.col-form-label Zip
+                  .col-9.col-sm-3
+                    input.form-control(type='text' name='zip')
+                  label.col-3.col-sm-2.col-form-label Country
+                  .col-9.col-sm-4
+                    input.form-control(type='text' name='country')
+                .form-group.row.m-0
+                  label.col-3.col-form-label Cell Phone
+                  .col-9
+                    input.form-control(type='text' name='phone' placeholder='')
+                .form-group.row.m-0
+                  label.col-3.col-form-label Email
+                  .col-9
+                    input.form-control(type='email' name='email' placeholder='')
+                .form-group.row.m-0.randomcode.align-items-center
+                  label.col-5 Enter code as seen:
+                  .col-3
+                    input#codeentered.form-control(type='text' name='randomcode' placeholder='')
+                  .col-3
+                    p#codes
+                .row.offset-4
+                  div
+                    button#reset.btn.btn-secondary(type='reset')
+                      i.bi.bi-arrow-repeat Reset
+                  .ml-sm-3
+                    button#send.btn.btn-success(type='submit')
+                      i.bi.bi-telegram Send
+  include includes/footer.pug

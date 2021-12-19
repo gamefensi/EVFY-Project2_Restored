@@ -35,7 +35,10 @@
   font-family: 'NunitoSans', Arial, Helvetica, sans-serif !important;
   box-sizing: border-box;
 }
-#topNavBar {
+header {
+  position: relative;
+}
+header #topNavBar {
   padding: 15px;
   background: #454444;
   background: linear-gradient(0deg, rgba(69, 68, 68, 0) 0%, #000000 100%);
@@ -43,36 +46,40 @@
   margin-right: 0;
   padding-right: 0;
 }
-#topNavBar .navbar-brand.logo {
+header #topNavBar .navbar-brand.logo {
   margin-right: 50px;
 }
-#topNavBar .navbar-brand.logo img {
+header #topNavBar .navbar-brand.logo img {
   width: 150px;
 }
-#topNavBar .navbar-toggler {
+header #topNavBar .navbar-toggler {
   color: white;
 }
-#topNavBar div#navbarContent {
+header #topNavBar div#navbarContent {
   margin-top: 30px;
 }
-#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills {
-  padding-right: 10px;
+#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item ul.dropdown-menu li {
+  background-color: #9fc968;
 }
-#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item.dropdown {
+#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item ul.dropdown-menu li a {
+  text-align: center;
+  color: black;
+}
+#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item ul.dropdown-menu li a:hover {
+  color: #444444;
+}
+#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item a.nav-link {
   text-align: center;
 }
-#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item {
-  text-align: center;
-}
-#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item a.nav-link:hover {
+header #topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item a.nav-link:hover {
   background: #8cc63f;
   border: #8cc63f solid 1px;
 }
-#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item a.nav-link.active {
+header #topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item a.nav-link.active {
   background-color: #8cc63f;
   border: #8cc63f solid 1px;
 }
-#topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item .show > .nav-link {
+header #topNavBar div#navbarContent ul.navbar-nav.nav.nav-pills li.nav-item .show > .nav-link {
   background-color: #8cc63f;
 }
 #sustainRM {
@@ -81,9 +88,6 @@
   padding-top: 20%;
   position: relative;
   padding-bottom: 20%;
-}
-header {
-  position: relative;
 }
 #loginBtn {
   background: #75B44D;
@@ -101,7 +105,7 @@ header {
 }
 div.dropdown {
   position: absolute;
-  right: 175px;
+  right: 5px;
   top: 10px;
 }
 div.dropdown #userMenuBtn {
@@ -560,9 +564,6 @@ footer .disclaimer {
 footer .icons img {
   width: 26px;
 }
-#loginPage button.btn.btn-light {
-  font-weight: bold;
-}
 /*PROJECT 2 UPDATE */
 /*THREE BOOTSTRAP MODALS SETTING*/
 .hide-show {
@@ -595,22 +596,6 @@ footer .icons img {
 #editProfile div.hide-show {
   left: 550px;
   bottom: 10px;
-}
-#customFile .custom-file-input:lang(en)::after {
-  content: "Select file...";
-}
-#customFile .custom-file-input:lang(en)::before {
-  content: "Click me";
-}
-/*when a value is selected, this class removes the content */
-.custom-file-input.selected:lang(en)::after {
-  content: "" !important;
-}
-.custom-file {
-  overflow: hidden;
-}
-.custom-file-input {
-  white-space: nowrap;
 }
 /*
 Bootstrap Breakpoints: 
@@ -665,23 +650,6 @@ Bootstrap Breakpoints:
   #codes {
     font-size: smaller;
     min-width: 80px;
-  }
-  #loginPage {
-    background: url("../images/iStock-1165131520.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 400px;
-    background-position: center bottom;
-  }
-  #loginPage h1 {
-    color: #FFF;
-    padding: 20px 0 20px 0;
-    text-align: center;
-    font-size: 25pt;
-  }
-  #loginPage button.btn.btn-light {
-    width: 70%;
-    margin: 20px 10% 0 10%;
   }
 }
 @media screen and (min-width: 576px) {
@@ -814,7 +782,7 @@ Bootstrap Breakpoints:
     font-size: 70pt;
     font-weight: bold;
   }
-  a.nav-link {
+  .nav-item a.nav-link {
     font-size: 0.9rem;
     min-width: 160px;
   }
@@ -836,7 +804,7 @@ Bootstrap Breakpoints:
     background-position: center;
   }
   .nav-item {
-    max-width: 200px;
+    min-width: 200px;
   }
   #loginPage h1 {
     color: #FFF;

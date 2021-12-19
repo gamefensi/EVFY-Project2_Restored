@@ -56,13 +56,19 @@
 	div#navbarContent {
 		margin-top: 30px;
 		ul.navbar-nav.nav.nav-pills {
-			padding-right: 10px;
-			li.nav-item.dropdown {
-				text-align: center;
-			}
 			li.nav-item {
-				text-align: center;
+				ul.dropdown-menu li {
+					background-color: #9fc968;
+					a {
+						text-align: center;
+						color: black;
+					}
+				}
+				ul.dropdown-menu li a:hover {
+					color:rgb(68, 68, 68);
+				}
 				a.nav-link {
+					text-align: center;
 					&:hover {
 						background: #8cc63f;
 						border: #8cc63f solid 1px;
@@ -72,15 +78,29 @@
 					background-color: #8cc63f;
 					border: #8cc63f solid 1px;
 				}
-				.show {
-					>.nav-link {
+				li.nav-item {
+					text-align: center;
+					a.nav-link {
+						&:hover {
+							background: #8cc63f;
+							border: #8cc63f solid 1px;
+						}
+					}
+					a.nav-link.active {
 						background-color: #8cc63f;
+						border: #8cc63f solid 1px;
+					}
+					.show {
+						>.nav-link {
+							background-color: #8cc63f;
+						}
 					}
 				}
 			}
 		}
 	}
 }
+
 
 #sustainRM {
 	height: 1000px;
@@ -90,9 +110,9 @@
 	padding-bottom: 20%;
 }
 
-header {
-	position: relative;
-}
+// header {
+// 	position: relative;
+// }
 #loginBtn {
 	background: #75B44D;
 	color: white;
@@ -110,7 +130,7 @@ header {
 
 div.dropdown {
 	position: absolute;
-	right: 175px;
+	right: 5px;
 	top: 10px;
 	#userMenuBtn {
 		background: #75B44D;
@@ -612,11 +632,11 @@ footer {
 		}
 	}
 }
-#loginPage {
-	button.btn.btn-light {
-		font-weight: bold;
-	}
-}
+// #loginPage {
+// 	button.btn.btn-light {
+// 		font-weight: bold;
+// 	}
+// }
 
 /*PROJECT 2 UPDATE */
 /*THREE BOOTSTRAP MODALS SETTING*/
@@ -654,25 +674,6 @@ footer {
 	}
 }
 
-#customFile .custom-file-input:lang(en)::after {
-	content: "Select file...";
-}
-
-#customFile .custom-file-input:lang(en)::before {
-	content: "Click me";
-}
-
-/*when a value is selected, this class removes the content */
-.custom-file-input.selected:lang(en)::after {
-	content: "" !important;
-}
-
-.custom-file {
-	overflow: hidden;
-}
-.custom-file-input {
-	white-space: nowrap;
-}
   /*
 Bootstrap Breakpoints: 
  X-Small	None	<576px
@@ -738,23 +739,23 @@ Bootstrap Breakpoints:
 	// .nav-item {
 	// 	max-width: 190px;
 	// }
-	#loginPage {
-		background: url("../images/iStock-1165131520.jpg");
-		background-size: cover;
-		background-repeat: no-repeat;
-		height: 400px;
-		background-position: center bottom;
-		h1 {
-			color: #FFF;
-			padding: 20px 0 20px 0;
-			text-align: center;
-			font-size: 25pt;
-		}
-		button.btn.btn-light {
-			width: 70%;
-			margin: 20px 10% 0 10%;
-		}
-	}
+	// #loginPage {
+	// 	background: url("../images/iStock-1165131520.jpg");
+	// 	background-size: cover;
+	// 	background-repeat: no-repeat;
+	// 	height: 400px;
+	// 	background-position: center bottom;
+	// 	h1 {
+	// 		color: #FFF;
+	// 		padding: 20px 0 20px 0;
+	// 		text-align: center;
+	// 		font-size: 25pt;
+	// 	}
+	// 	button.btn.btn-light {
+	// 		width: 70%;
+	// 		margin: 20px 10% 0 10%;
+	// 	}
+	// }
 }
 @media screen and (min-width: 576px) {
 	html {
@@ -912,11 +913,13 @@ Bootstrap Breakpoints:
 			font-weight: bold;
 		}
 	}
-
-	a.nav-link {
-		font-size: .9rem;
-		min-width: 160px;
+	.nav-item {
+		a.nav-link {
+			font-size: .9rem;
+			min-width: 160px;
+		}
 	}
+
 	ul.dropdown-menu li a {
 		font-size: .9rem;
 	}
@@ -938,8 +941,9 @@ Bootstrap Breakpoints:
 		background-position: center;
 	}
 	.nav-item {
-		max-width: 200px;
+		min-width: 200px;
 	}
+	
 	#loginPage {
 		h1 {
 			color: #FFF;

@@ -36,10 +36,10 @@ app.use((req, res, next) => {
 
 // // PASSPORT SETUP
 
-// const passport = require('passport');
+const passport = require('passport');
 
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // CONNECT TO DB
 mongoose.connect(
@@ -59,13 +59,13 @@ mongoose.connect(
 
 // PASSPORT LOCAL AUTHENTICATION
 
-// passport.use(User.createStrategy());
+passport.use(User.createStrategy());
 
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 
-const connectEnsureLogin = require('connect-ensure-login');
+// const connectEnsureLogin = require('connect-ensure-login');
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
@@ -86,6 +86,15 @@ app.get('/', (req,res) => {
     res.render('index', { title: 'EVFY' });
   }
 })
+
+app.get("/logout",(req,res)=>{
+  // req.logout();
+  res.redirect("/");
+});
+app.get("/profile", (req, res) => {
+  res.render("profile", {title:'Profile Page'});
+});
+app.get('/user', (req, res) => res.send({user: req.user}));
 
 app.post("/register", async (req, res) => {
     try {
@@ -112,13 +121,15 @@ app.post("/register", async (req, res) => {
       });
       const savedUser = await newUser.save();
       req.flash("success", "Welcome to EVFY!");
-      res.redirect('/');
+      res.redirect('/profile');
     } catch (error) {
       res.status(500).json({ err: error.message });
     }
   });
 
-app.post('/login', async (req, res) => {
+
+
+app.post('/login', async (req, res, next) => {
     try {
         const { email, password } = req.body;
         if (!email || !password) {
@@ -158,6 +169,7 @@ app.post('/login', async (req, res) => {
         //     username: user.username,
         //   },
         // });
+
     } catch (error) {
         res.status(500).json({ err: error.message });
     }
