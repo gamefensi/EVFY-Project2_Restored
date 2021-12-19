@@ -1,32 +1,30 @@
 extends layout
 block content
-	body(data-spy='scroll' data-target='#topNavBar' data-offset='20')
-		.container-fluid.px-0
-			header.sticky-top
-				nav#topNavBar.navbar.navbar-dark.navbar-expand-xl
-					a.navbar-brand.logo(href='#landing')
-						img(src='images/EVFY Logos/EVFY_logos-white_green_green_border_noTagline.png')
-					//- dropdown menu for profile & login
-					if(username)
-						.dropdown
-							button#userMenuBtn.float-right.btn.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true')
-								| #{ username } 
-								| 
-								i.bi.bi-person-circle
-								| 
-								span.caret
-							ul.dropdown-menu(aria-labelledby='dropdownMenu1')
-								li
-									a(href='#' data-toggle='modal' data-target='#profileModal') My Profile
-								li
-									a(href='/logout') Logout
-					else
-						a#loginBtn.btn.float-right.nav-link(href='#' data-toggle='modal' data-target='#loginModal')
-							i.bi.bi-box-arrow-in-right
-							|
-							| Log In
-
-          //- Values for data-target and aria-controls must match id of div with the collapse class
+  body(data-spy='scroll' data-target='#topNavBar' data-offset='20')
+    .container-fluid.px-0
+      header.sticky-top
+        nav#topNavBar.navbar.navbar-dark.navbar-expand-xl
+          a.navbar-brand.logo(href='#landing')
+            img(src='images/EVFY Logos/EVFY_logos-white_green_green_border_noTagline.png')
+          //- dropdown menu for profile & login
+          if(username)
+            .dropdown
+              button#userMenuBtn.float-right.btn.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true')
+                | #{ username } 
+                | 
+                i.bi.bi-person-circle
+                | 
+                span.caret
+              ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+                li
+                  a(href='#' data-toggle='modal' data-target='#profileModal') My Profile
+                li
+                  a(href='/logout') Logout
+          else
+            a#loginBtn.btn.float-right.nav-link(href='#' data-toggle='modal' data-target='#loginModal')
+              i.bi.bi-box-arrow-in-right
+              |
+              | Log In
           button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarContent' aria-controls='navbarContent' aria-expanded='false' aria-label='Toggle navigation')
             span.navbar-toggler-icon
           #navbarContent.collapse.navbar-collapse
@@ -481,4 +479,4 @@ block content
                         i.bi.bi-telegram
                           | Send
         //- End Contact Us
-    include ./footer.pug
+      include ./footer.pug
