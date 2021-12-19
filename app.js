@@ -73,7 +73,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
-const connectEnsureLogin = require('connect-ensure-login');
+// const connectEnsureLogin = require('connect-ensure-login');
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
