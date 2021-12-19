@@ -81,7 +81,10 @@ block content
                     input#l_email.form-control(type='text' placeholder='email' name='email' required='')
                   .form-group
                     label.col-form-label(for='l_password') Password
-                    input#l_password.form-control(type='password' placeholder='Password' name='password' required='')
+                    input#l_password.form-control(type='password' placeholder='Password' name='password' required='' aria-describedby='validatePasswordFeedback')
+                    if loginFailed
+                      #validatePasswordFeedback.invalid-feedback
+                        | Wrong password!
                     .hide-show
                       span SHOW
                   .form-group
@@ -93,6 +96,8 @@ block content
                   | Not signed up yet?
                   | 
                   a(data-dismiss='modal' data-toggle='modal' data-target='#signUpModal' href='#' style='text-decoration: underline;') Create Account
+        script.
+          const loginFailed = '#{loginFailed}';
         //- RESET PASSWORD MODAL START HERE
         #resetPassword.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
           .modal-dialog.modal-dialog-centered(role='document')
@@ -130,15 +135,20 @@ block content
                   .form-group
                     input.form-control(type='text' required='required' name='username' placeholder='Username')
                   .form-group
-                    input.form-control(type='email' required='required' name='email' placeholder='Email')
+                    input#s_email.form-control(type='text' required='required' name='email' placeholder='Email' aria-describedby='validateEmailFeedback')
+                    if signUpFailed
+                      #validateEmailFeedback.invalid-feedback
+                        | Email has been registered!
                   .form-group
-                    input#s_password.form-control(type='password' required='required' name='password' placeholder='Password')
+                    input#s_password.form-control(type='password' required='required' name='password' placeholder='Password' pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters")
                     .hide-show
                       span SHOW
                   button.btn.btn-success.btn-block(type='submit') Sign Up
                   .modal-footer
                     | Already have an account? 
                     a(data-dismiss='modal' data-toggle='modal' data-target='#loginModal' href='#' style='text-decoration: underline;') Sign In
+        script.
+          const signUpFailed = '#{signUpFailed}';
         //- profile page
         #profileModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
           .modal-dialog.modal-dialog-centered.modal-lg(role='document')

@@ -49,7 +49,6 @@ app.use((req, res, next) => {
 // app.use(passport.session());
 
 // CONNECT TO DB
-
 mongoose.connect(
     process.env.DB,
     {
@@ -91,17 +90,10 @@ app.post("/register", async (req, res) => {
         return res.status(400).json({ msg: "Not all fields have been entered" });
       }
   
-      if (password.length < 6) {
-        return res.status(400).json({ msg: "The password needs to be at least 6 characters long" });
-        // res.send("The password needs to be at least 6 characters long");
-      }
-  
       const existingEmail = await User.findOne({ email: email });
       if (existingEmail) {
-        return res
-          .status(400)
-          .json({ msg: "An account with this email already exists" });
-      }
+        return res.render('index', { signUpFailed: 'true' }); 
+      };
   
       // Bcrypt - hashing password
       const salt = await bcrypt.genSalt();
@@ -139,7 +131,7 @@ app.post('/login', async (req, res) => {
         // validate password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-          return res.status(400).json({ msg: "Invalid credentials" });
+          res.render('index', { loginFailed: 'true' });
         } else {
             req.flash('success', 'Welcome back!');
             res.redirect('/');
@@ -158,6 +150,12 @@ app.post('/login', async (req, res) => {
     } catch (error) {
         res.status(500).json({ err: error.message });
     }
+});
+
+app.get("/logout", (req, res) => {
+  req.logout();
+  req.flash('success', "Goodbye!");
+  res.redirect("/");
 });
 
 // //EDIT USER PROFILE
