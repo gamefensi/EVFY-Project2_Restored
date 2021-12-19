@@ -4,35 +4,28 @@ const mongoose = require("mongoose");
 const User = require("./models/userModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const cors = require("cors");
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
-const passportLocalMongoose = require('passport-local-mongoose');
 const session = require('express-session');
 const app = express();
 require("dotenv").config();
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// EXPRESS SESSION
-// const expressSession = require('express-session')({
-//   secret: 'secret',
-//   resave: false,
-//   saveUninitialized: false
-// });
 
 app.use(express.static('public'));
 app.use(express.json());
-app.use(cors());
+
+// EXPRESS SESSION
 app.use(session({
   cookie: {
      maxAge: 60000,
      secure: false
   }, 
   secret: 'screat',
-  resave: false, 
-  saveUninitialized: false
+  resave: true,
+  saveUninitialized: true
 }));
 app.use(flash());
 app.use((req, res, next) => {
@@ -49,7 +42,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // CONNECT TO DB
-
 mongoose.connect(
     process.env.DB,
     {
@@ -80,7 +72,19 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 app.get('/', (req,res) => {
-res.render('index', { title: 'EVFY' });
+  if (req.session.loggedin) {
+    const { email, password, username, fullname } = req.session;
+    req.flash('success', 'Welcome back,' + req.session.username + '!');
+    res.render('index', {
+      title: 'EVFY',
+      username: username,
+      fullname: fullname,
+      email: email,
+      password: password
+    });
+  } else {
+    res.render('index', { title: 'EVFY' });
+  }
 })
 
 app.get("/logout",(req,res)=>{
@@ -100,17 +104,10 @@ app.post("/register", async (req, res) => {
         return res.status(400).json({ msg: "Not all fields have been entered" });
       }
   
-      if (password.length < 6) {
-        return res.status(400).json({ msg: "The password needs to be at least 6 characters long" });
-        // res.send("The password needs to be at least 6 characters long");
-      }
-  
       const existingEmail = await User.findOne({ email: email });
       if (existingEmail) {
-        return res
-          .status(400)
-          .json({ msg: "An account with this email already exists" });
-      }
+        return res.render('index', { signUpFailed: 'true' }); 
+      };
   
       // Bcrypt - hashing password
       const salt = await bcrypt.genSalt();
@@ -134,42 +131,55 @@ app.post("/register", async (req, res) => {
 
 app.post('/login', async (req, res, next) => {
     try {
-      const { email, password } = req.body;
-      if (!email || !password) {
-        return res.status(400).json({ msg: "Not all fields have been entered" });
-      }
+        const { email, password } = req.body;
+        if (!email || !password) {
+          return res.status(400).json({ msg: "Not all fields have been entered" });
+        }
 
-      // validate email
-      const user = await User.findOne({ email: email });
-      if (!user) {
-        return res
-          .status(400)
-          .json({ msg: "Invalid credentials" });
-      }
-  
-      // validate password
-      const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch) {
-        return res.status(400).json({ msg: "Invalid credentials" });
-      } else {
-          req.flash("success", "Welcome back!");
-          res.redirect('/profile')
-          .send({user: req.body});
-      }
+        // validate email
+        const user = await User.findOne({ email: email });
+        if (!user) {
+          return res
+            .status(400)
+            .json({ msg: "Invalid credentials" });
+        }
+    
+        // validate password
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+          res.render('index', { loginFailed: 'true' });
+        } else {
+            console.log("user", user)
+            req.session.loggedin = true;
+            req.session.username = user.username;
+            req.session.fullname = user.fullname;
+            req.session.email = email;
+            req.session.password = password;
+            req.flash('success', 'Welcome back, ' + req.session.username + '!');
+            res.redirect('/');
+        }
 
         //create json web token
-      // const token = jwt.sign({ id: user._id });
-      // res.json({
-      //   token,
-      //   user: {
-      //     id: user._id,
-      //     firstName: user.firstName,
-      //     lastName: user.lastName,
-      //   },
-      // });
+        // const token = jwt.sign({ id: user._id });
+        // res.json({
+        //   token,
+        //   user: {
+        //     id: user._id,
+        //     fullname: user.fullname,
+        //     username: user.username,
+        //   },
+        // });
+
     } catch (error) {
         res.status(500).json({ err: error.message });
     }
+});
+
+app.get("/logout", (req, res) => {
+  req.logout();
+  req.flash('success', "Goodbye!");
+  req.session.destroy();
+  res.redirect("/");
 });
 
 // //EDIT USER PROFILE
