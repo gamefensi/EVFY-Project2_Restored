@@ -87,14 +87,12 @@ app.get('/', (req,res) => {
   }
 })
 
-app.get("/logout",(req,res)=>{
-  // req.logout();
+app.get("/logout", (req, res) => {
+  req.logout();
+  req.flash('success', "Goodbye!");
+  req.session.destroy();
   res.redirect("/");
 });
-app.get("/profile", (req, res) => {
-  res.render("profile", {title:'Profile Page'});
-});
-app.get('/user', (req, res) => res.send({user: req.user}));
 
 app.post("/register", async (req, res) => {
     try {
@@ -175,54 +173,7 @@ app.post('/login', async (req, res, next) => {
     }
 });
 
-app.get("/logout", (req, res) => {
-  req.logout();
-  req.flash('success', "Goodbye!");
-  req.session.destroy();
-  res.redirect("/");
-});
 
-// //EDIT USER PROFILE
-// app.post("/edit", async (req, res) => {
-//   try {
-//     const { email, password, username, fullname} = req.body;
-    
-//     // ensure email and password meet the requirements
-//     if (!email || !password || !username || !fullname) {
-//       return res.status(400).json({ msg: "Not all fields have been entered" });
-//     }
-
-//     if (password.length < 6) {
-//       return res
-//         .status(400)
-//         .json({ msg: "The password needs to be at least 6 characters long" });
-//     }
-
-//     const existingEmail = await User.findOne({ email: email });
-//     if (existingEmail) {
-//       return res
-//         .status(400)
-//         .json({ msg: "An account with this email already exists" });
-//     }
-
-//     // Bcrypt - hashing password
-//     const salt = await bcrypt.genSalt();
-//     const passwordHash = await bcrypt.hash(password, salt);
-
-//     const updatedUser = new User({
-//       email: email,
-//       password: passwordHash,
-//       username: username,
-//       fullname: fullname,
-//     });
-//     const savedUser = await newUser.save();
-//     res.json(savedUser);
-//     // req.flash("success", "Successfully created the account!!");
-//     res.redirect('/');
-//   } catch (error) {
-//     res.status(500).json({ err: error.message });
-//   }
-// });
 //CONVERT PUG TO HTML IN PUBLIC FOLDER
 var jade = require('pug');//require pug module
 var fs = require('fs')

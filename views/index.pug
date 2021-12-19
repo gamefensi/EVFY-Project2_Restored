@@ -19,7 +19,7 @@ block content
                 li
                   a(href='#' data-toggle='modal' data-target='#profileModal') My Profile
                 li
-                  a(href='/logout') Logout
+                  a(href='/logout' action='' method='') Logout
           else
             a#loginBtn.btn.float-right.nav-link(href='#' data-toggle='modal' data-target='#loginModal')
               i.bi.bi-box-arrow-in-right
@@ -422,7 +422,7 @@ block content
         section#contactUs.container-fluid
           .row
             .col-lg-6.offset-lg-6
-              form#contactForm.well.form-horizontal(action='/contact' method='post')
+              form#contactForm.well.form-horizontal.needs-validation(action='/contact' method='post' novalidate)
                 fieldset
                   p
                     | To learn more about the EVFY program, and to receive a Level 2 home charger, please fill
@@ -430,44 +430,52 @@ block content
                   .form-group.row.m-0
                     label.col-3.col-form-label(for='inputFirstName') First Name
                     .col-9
-                      input.form-control(type='text' name='first name')
+                      input.form-control(type='text' name='first name' id='inputFirstName' required)
+                      .invalid-feedback
+                        | Please enter your first name
                   .form-group.row.m-0
                     label.col-3.col-form-label(for='inputLastName') Last Name
                     .col-9
-                      input.form-control(type='text' name='last name')
+                      input.form-control(type='text' name='last name' id='inputLastName' required)
+                      .invalid-feedback 
+                        | Please enter your last name
                   .form-group.row.m-0
                     label.col-12.col-form-label
                       i Address:
                     label.col-3.col-col-form-label(for='inputAddress') Street
                     .col-9
-                      input.form-control(type='text' name='street')
+                      input.form-control(type='text' name='street' id='inputAddress')
                   .form-group.row.m-0
-                    label.col-3.col-sm-3.col-form-label City
+                    label.col-3.col-sm-3.col-form-label(for='inputCity') City
                     .col-9.col-sm-3
-                      input.form-control(type='text' name='city')
-                    label.col-3.col-sm-2.col-form-label State
+                      input.form-control(type='text' name='city' id='inputCity')
+                    label.col-3.col-sm-2.col-form-label(for='inputState') State
                     .col-9.col-sm-4
-                      input.form-control(type='text' name='state')
+                      input.form-control(type='text' name='state' id='inputState')
                   .form-group.row.m-0
-                    label.col-3.col-sm-3.col-form-label Zip
+                    label.col-3.col-sm-3.col-form-label(for='inputZip') Zip
                     .col-9.col-sm-3
-                      input.form-control(type='text' name='zip')
-                    label.col-3.col-sm-2.col-form-label Country
+                      input.form-control(type='text' name='zip' for='inputZip')
+                    label.col-3.col-sm-2.col-form-label(for='inputCountry') Country
                     .col-9.col-sm-4
-                      input.form-control(type='text' name='country')
+                      input.form-control(type='text' name='country' id='inputCountry')
                   .form-group.row.m-0
-                    label.col-3.col-form-label Cell Phone
+                    label.col-3.col-form-label(for='inputCell') Cell Phone
                     .col-9
-                      input.form-control(type='text' name='phone' placeholder='')
+                      input.form-control(type='text' name='phone' placeholder='' id='inputCell' required)
+                      .invalid-feedback 
+                        | Please enter your phone number
                   .form-group.row.m-0
-                    label.col-3.col-form-label Email
+                    label.col-3.col-form-label(for='inputEmail') Email
                     .col-9
-                      input.form-control(type='email' name='email' placeholder='')
+                      input.form-control(type='email' name='email' placeholder='' id='inputEmail' required)
+                      .invalid-feedback 
+                        | Please enter your email
                   //- Random Codes
                   .form-group.row.m-0.randomcode.align-items-center
-                    label.col-5 Enter code as seen:
+                    label.col-5(for='codeentered') Enter code as seen:
                     .col-3
-                      input#codeentered.form-control(type='text' name='randomcode' placeholder='')
+                      input#codeentered.form-control(type='text' name='randomcode' placeholder='' required)
                     .col-3
                       p#codes
                   .row.offset-4

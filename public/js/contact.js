@@ -11,11 +11,15 @@ function generatePw() {
 
 $(document).ready(function(){
   generatePw();
-  $('#codes').on("click", function(){
+  $('#reset').on("click", function(){
     generatePw()
   });
 });
 
+$('#send').submit(function(event) {
+  //disable submit
+  event.preventDefault()
+})
 
 
 
