@@ -1,1359 +1,572 @@
 <!DOCTYPE html>
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta
-		name="viewport"
-		content="width = device-width, initial-scale = 1, shrink-to-fit = no"
-	/>
-	<link rel="stylesheet" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/style.css" />
-	<link
-		rel="stylesheet"
-		href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-	/>
-	<title>EVFY</title>
-	<body data-spy="scroll" data-target="#topNavBar" data-offset="20">
-		<div class="container-fluid px-0">
-			<header class="sticky-top">
-				<nav class="navbar navbar-dark navbar-expand-xl" id="topNavBar">
-					<a class="navbar-brand logo" href="#landing"
-						><img
-							src="images/EVFY Logos/EVFY_logos-white_green_green_border_noTagline.png" /></a
-					><a
-						class="btn float-right nav-link"
-						id="loginBtn"
-						href="#"
-						data-toggle="modal"
-						data-target="#loginModal"
-						><i class="bi bi-box-arrow-in-right"></i> Log In</a
-					>
-					<button
-						class="navbar-toggler"
-						type="button"
-						data-toggle="collapse"
-						data-target="#navbarContent"
-						aria-controls="navbarContent"
-						aria-expanded="false"
-						aria-label="Toggle navigation"
-					>
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarContent">
-						<ul class="navbar-nav nav nav-pills">
-							<li class="nav-item dropdown">
-								<a class="nav-link text-white" href="#about"
-									>About EVFY</a
-								>
-								<ul class="dropdown-menu" role="menu">
-									<li><a href="#mission">Our Mission</a></li>
-									<li><a href="#team">Our Team</a></li>
-								</ul>
-							</li>
-							<li class="nav-item dropdown">
-								<a
-									class="nav-link text-white"
-									href="#sustainabilityIndex1"
-									>Sustainability Index</a
-								>
-								<ul class="dropdown-menu" role="menu">
-									<li>
-										<a href="#sustainabilityIndex2"
-											>The Index</a
-										>
-									</li>
-									<li>
-										<a href="#sustainabilityIndex3"
-											>Methodology</a
-										>
-									</li>
-								</ul>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link text-white" href="#SRM"
-									>Sustainability Roadmap</a
-								>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link text-white" href="#page1"
-									>Our Partners</a
-								>
-								<ul class="dropdown-menu" role="menu">
-									<li><a href="#item1">Piconi Farm</a></li>
-									<li>
-										<a href="#item2">Easy Bird Wines</a>
-									</li>
-									<li><a href="#item3">Sprouts</a></li>
-								</ul>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link text-white" href="#contactUs"
-									>Contact Us</a
-								>
-							</li>
-						</ul>
-					</div>
-				</nav>
-			</header>
-			<main>
-				<button id="myBtn" onclick="topFunction()" title="Go to top">
-					<i class="bi bi-chevron-up"></i>
-					Top
-				</button>
-				<div
-					class="modal fade"
-					id="loginModal"
-					tabindex="-1"
-					role="dialog"
-					aria-labelledby="exampleModalLongTitle"
-					aria-hidden="true"
-				>
-					<div
-						class="modal-dialog modal-dialog-centered"
-						role="document"
-					>
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title text-center col-10">
-									Sign In
-								</h5>
-								<button
-									class="close col-2"
-									type="button"
-									data-dismiss="modal"
-									aria-label="Close"
-								>
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<form
-									id="LoginForm"
-									action="/login"
-									method="post"
-								>
-									<div class="form-group">
-										<label
-											class="col-form-label"
-											for="l_email"
-											>Email</label
-										>
-										<input
-											class="form-control"
-											id="l_email"
-											type="text"
-											placeholder="email"
-											name="email"
-											required=""
-										/>
-									</div>
-									<div class="form-group">
-										<label
-											class="col-form-label"
-											for="l_password"
-											>Password</label
-										>
-										<input
-											class="form-control"
-											id="l_password"
-											type="password"
-											placeholder="Password"
-											name="password"
-											required=""
-											aria-describedby="validatePasswordFeedback"
-										/>
-										<div class="hide-show">
-											<span>SHOW</span>
-										</div>
-									</div>
-									<div class="form-group">
-										<a
-											data-dismiss="modal"
-											data-toggle="modal"
-											data-target="#resetPassword"
-											href="#"
-											style="
-												text-decoration: underline;
-												float: right;
-												margin-bottom: 1em;
-											"
-											title="Fill Email Field and Click it"
-											>Forgot Password?</a
-										>
-									</div>
-									<div class="form-group">
-										<button
-											class="btn btn-success btn-block"
-											type="submit"
-										>
-											Sign In
-										</button>
-									</div>
-								</form>
-							</div>
-							<div class="modal-footer">
-								<div>
-									Not signed up yet?
-									<a
-										data-dismiss="modal"
-										data-toggle="modal"
-										data-target="#signUpModal"
-										href="#"
-										style="text-decoration: underline"
-										>Create Account</a
-									>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<script>
-					const loginFailed = '';
-				</script>
-				<div
-					class="modal fade"
-					id="resetPassword"
-					tabindex="-1"
-					role="dialog"
-					aria-labelledby="exampleModalLongTitle"
-					aria-hidden="true"
-				>
-					<div
-						class="modal-dialog modal-dialog-centered"
-						role="document"
-					>
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title text-center col-10">
-									Forgot your password?
-								</h5>
-								<button
-									class="close col-2"
-									type="button"
-									data-dismiss="modal"
-									aria-label="Close"
-								>
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<form
-									id="SetpwdForm"
-									action="{{route('reset')}}"
-									method="post"
-								>
-									<div class="form-group">
-										<p>
-											Enter the email for your account and
-											we&apos;ll send you a link to reset
-											your password.
-										</p>
-									</div>
-									<div
-										class="form-group"
-										style="position: relative"
-									>
-										<input
-											class="form-control"
-											type="email"
-											required="required"
-											placeholder="Email"
-										/>
-									</div>
-									<button
-										class="btn btn-success btn-block"
-										type="submit"
-										value="resetPass"
-									>
-										<i class="bi bi-envelope-plus"></i>
-										Email Me
-									</button>
-								</form>
-							</div>
-							<div class="modal-footer">
-								<div>
-									Remember your password?
-									<a
-										data-dismiss="modal"
-										data-toggle="modal"
-										data-target="#loginModal"
-										href="#"
-										style="text-decoration: underline"
-										>Sign in</a
-									>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div
-					class="modal fade"
-					id="signUpModal"
-					tabindex="-1"
-					role="dialog"
-					aria-labelledby="exampleModalLongTitle"
-					aria-hidden="true"
-				>
-					<div
-						class="modal-dialog modal-dialog-centered"
-						role="document"
-					>
-						<div class="modal-content">
-							<div class="modal-header">
-								<h4 class="modal-title text-center col-10">
-									Sign Up
-								</h4>
-								<button
-									class="close col-2"
-									type="button"
-									data-dismiss="modal"
-									aria-label="Close"
-								>
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<form
-									id="SignupForm"
-									action="/register"
-									method="post"
-								>
-									<div class="form-group">
-										<input
-											class="form-control"
-											type="text"
-											required=""
-											name="fullname"
-											placeholder="Full Name"
-										/>
-									</div>
-									<div class="form-group">
-										<input
-											class="form-control"
-											type="text"
-											required="required"
-											name="username"
-											placeholder="Username"
-										/>
-									</div>
-									<div class="form-group">
-										<input
-											class="form-control"
-											id="s_email"
-											type="text"
-											required="required"
-											name="email"
-											placeholder="Email"
-											aria-describedby="validateEmailFeedback"
-										/>
-									</div>
-									<div class="form-group">
-										<input
-											class="form-control"
-											id="s_password"
-											type="password"
-											required="required"
-											name="password"
-											placeholder="Password"
-											pattern="(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-											title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-										/>
-										<div class="hide-show">
-											<span>SHOW</span>
-										</div>
-									</div>
-									<button
-										class="btn btn-success btn-block"
-										type="submit"
-									>
-										Sign Up
-									</button>
-									<div class="modal-footer">
-										Already have an account?
-										<a
-											data-dismiss="modal"
-											data-toggle="modal"
-											data-target="#loginModal"
-											href="#"
-											style="text-decoration: underline"
-											>Sign In</a
-										>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-				<script>
-					const signUpFailed = '';
-				</script>
-				<div
-					class="modal fade"
-					id="profileModal"
-					tabindex="-1"
-					role="dialog"
-					aria-labelledby="exampleModalLongTitle"
-					aria-hidden="true"
-				>
-					<div
-						class="modal-dialog modal-dialog-centered modal-lg"
-						role="document"
-					>
-						<div class="modal-content">
-							<div class="modal-header">
-								<h4 class="modal-title col-10">'s Profile</h4>
-								<button
-									class="close col-2"
-									type="button"
-									data-dismiss="modal"
-									aria-label="Close"
-								>
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<form
-									class="form-inline col-10"
-									id="editProfile"
-									action="/edit"
-									method="post"
-								>
-									<div class="form-group col-12">
-										<label class="col-3" for="name"
-											>Full Name:
-										</label>
-										<input
-											class="form-control col-8 m-2"
-											id="urName"
-											type="text"
-											required=""
-											name="fullname"
-											disabled
-										/>
-									</div>
-									<div class="form-group col-12">
-										<label class="col-3" for="username"
-											>Username:</label
-										>
-										<input
-											class="form-control col-8 m-2"
-											id="urUserName"
-											type="text"
-											required="required"
-											name="username"
-											disabled
-										/>
-									</div>
-									<div class="form-group col-12">
-										<label class="col-3" for="email"
-											>Email:</label
-										>
-										<input
-											class="form-control col-8 m-2"
-											id="urEmail"
-											type="email"
-											required="required"
-											name="email"
-											disabled
-										/>
-									</div>
-									<div class="form-group col-12">
-										<label class="col-3" for="password"
-											>Password:</label
-										>
-										<input
-											class="
-												password
-												form-control
-												col-8
-												m-2
-											"
-											id="urPassword"
-											type="password"
-											required="required"
-											name="password"
-											disabled
-										/>
-									</div>
-									<div class="row col-10">
-										<p class="col-6">Profile Picture:</p>
-										<img
-											class="col-6 offset"
-											src="images/default-avatar.png"
-										/>
-									</div>
-									<div
-										class="custom-file col-8 offset-3 my-2"
-									>
-										<input
-											class="custom-file-input"
-											id="customFile"
-											type="file"
-										/>
-										<label
-											class="custom-file-label"
-											for="customFile"
-											>Choose file</label
-										>
-									</div>
-									<div
-										class="
-											row
-											d-flex
-											justify-content-center
-											col-12
-										"
-									>
-										<button
-											class="
-												btn btn-primary
-												col-4
-												offset-3
-												my-2
-												mr-2
-											"
-											id="editBtn"
-											type="button"
-										>
-											Edit
-										</button>
-										<button
-											class="btn btn-secondary col-4 my-2"
-											id="saveBtn"
-											type="submit"
-											disabled
-										>
-											Save Changes
-										</button>
-									</div>
-									<div class="modal-footer">
-										<button
-											class="close"
-											data-dismiss="modal"
-											data-toggle="modal"
-											data-target="#profileModal"
-											href="#"
-											style="text-decoration: underline"
-										>
-											Close
-										</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-				<section id="landing">
-					<label id="lblGreetings"></label>
-					<div
-						class="
-							landingInfo
-							d-flex
-							align-content-center
-							flex-wrap
-						"
-					>
-						<div class="div col-12 ml-sm-auto px-4" id="message">
-							<script>
-								setTimeout(function () {
-									document.getElementById('message').remove();
-								}, 3000);
-							</script>
-						</div>
-						<div class="centerTextBox">
-							<h1>
-								<u>Introducing the Sustainability Index</u>
-							</h1>
-							<p>
-								EVFY empowers people to reduce their carbon
-								footprint in an effortless and sustainable
-								way.<br /><br />At EVFY, we help communities
-								understand the environmental impact of their
-								day-to-day life choices and how all of us can
-								make a difference to improve our world and save
-								energy.
-							</p>
-							<button
-								class="button"
-								id="landingCTA"
-								href="#"
-								type="button"
-							>
-								Live Sustainably.<br />Get Started Today!
-							</button>
-						</div>
-					</div>
-				</section>
-				<section id="about">
-					<div
-						class="
-							aboutInfo
-							container-fluid
-							d-flex
-							align-content-center
-							flex-wrap
-						"
-					>
-						<h1>About EVFY</h1>
-						<div class="row" id="aboutPara">
-							<p class="col-xl-7 offset-xl-5">
-								<strong>EVFY</strong> &ndash; a cutting-edge
-								clean tech start-up &ndash; offers green
-								solutions, starting with electric mobility, to
-								help communities live more sustainable lives.<br /><br />
-								With EVFY, consumers become members of our
-								sustainability program, known as
-								<strong>The Sustainability Index.</strong> This
-								program provides substantial savings and rewards
-								for being a conscious consumer aiming to live
-								carbon free.<br /><br />
-								Through our program, EVFY aims to help people
-								become as carbon-free as possible. We educate
-								and guide on lifestyle changes and provide
-								services and resources to &apos;go
-								green&apos;.<br /><br /><strong
-									>The EVFY Sustainability Index</strong
-								>
-								is the new benchmark for consumers to understand
-								the environmental impact of their decisions and
-								social capital to share amongst peers for a
-								broader goal of making a world-wide impact.
-							</p>
-						</div>
-					</div>
-				</section>
-				<section id="mission">
-					<div class="row">
-						<div class="col-sm-12 col-md-6">
-							<h3>Our Mission</h3>
-							<p>
-								To empower people to reduce their carbon
-								footprint in an effortless and sustainable way.
-							</p>
-						</div>
-						<div class="col-sm-12 col-md-6">
-							<img
-								class="img-fluid"
-								src="images/iStock-533578039.jpg"
-							/>
-						</div>
-					</div>
-				</section>
-				<section id="team">
-					<div class="row">
-						<div class="col-sm-12 col-md-6 mt-4">
-							<img
-								class="img-fluid"
-								src="images/iStock-537599600.jpg"
-							/>
-						</div>
-						<div class="col-sm-12 col-md-6 pt-3">
-							<h3>The EVFY Team</h3>
-							<p>
-								Collaboration is one of the keys for unlocking
-								sustainability, with leaders from all sectors of
-								society agreeing that solving environmental and
-								social challenges requires unparalleled
-								cooperation. At EVFY, we are focused on solving
-								the world&rsquo;s most pressing issues facing
-								climate change today.<br /><br />
-								We cannot be hesitant or half-hearted about
-								living sustainably. Our team culture is to drive
-								innovation, and continuous engagement by being
-								open, transparent, ethical and responsible in
-								order to find solutions for how people can live
-								the most sustainable lives possible.
-							</p>
-						</div>
-					</div>
-				</section>
-				<section id="teamMember">
-					<div class="container-fluid">
-						<div class="row" id="teamHeadShots1">
-							<team-members1
-								v-for="member in team"
-								v-bind:members="member"
-							></team-members1>
-						</div>
-						<div class="row" id="teamHeadShots2">
-							<team-members2
-								v-for="member in team"
-								v-bind:members="member"
-							></team-members2>
-						</div>
-					</div>
-				</section>
-				<section id="sustainabilityIndex1">
-					<div>
-						<h1>The Sustainability Index.</h1>
-					</div>
-				</section>
-				<section id="sustainabilityIndex2">
-					<div class="row">
-						<div class="col-sm-12 col-md-6">
-							<h3>The Sustainability Index</h3>
-							<p>
-								The Sustainability Index is a tiering system to
-								reward strong sustainable behavior. It is an
-								opportunity to earn points based on choices that
-								consumers make in their everyday lives.<br /><br />
-								The program provides consumers with a
-								sustainability score based on daily consumption
-								choices made around reducing their carbon
-								footprint.
-							</p>
-						</div>
-						<div class="col-sm-12 col-md-6">
-							<img
-								class="img-fluid"
-								src="images/iStock-1295057140.jpg"
-							/>
-						</div>
-					</div>
-				</section>
-				<section id="sustainabilityIndex3">
-					<div class="row">
-						<div class="col-sm-12 col-lg-6 pl-5">
-							<img
-								class="img-fluid"
-								src="images/iStock-956436966 copy.jpg"
-								width="500px"
-							/>
-						</div>
-						<div class="col-sm-12 col-lg-6 mt-1 pr-5">
-							<h3>Our Methodology</h3>
-							<p>
-								Our approach is three-fold. To improve your
-								sustainability score, EVFY helps you to:
-							</p>
-							<ul>
-								<li>
-									Incorporate daily energy usage within your
-									home and by using your electric vehicle.
-								</li>
-								<li>
-									Reduce your energy bill and enjoy
-									substantial savings.
-								</li>
-								<li>
-									Implement a fully sustainable lifestyle via
-									a phased rollout of ways to improve
-									consumption behaviors with discounted
-									products and services including food,
-									clothing, air travel, hotels and other
-									elements to help improve your sustainability
-									index - and ultimately live as carbon free
-									as possible.
-								</li>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<section id="SRM">
-					<div id="sustainRM">
-						<div class="row">
-							<h1 class="col-xs-12 col-xl-4">
-								The EVFY Sustainability Roadmap
-							</h1>
-							<p class="col-xs-12 col-xl-8 pr-xl-5">
-								Our <a href="#">Sustainability Index</a> is a
-								program that provides green conscious members
-								the platform to make informed carbon reduction
-								decisions, with levels of services that
-								consumers are comfortable with.<br /><br />
-								As part of the program, EVFY offers consumers
-								subscription tiers and a roadmap to make the
-								most informed decisions. This includes monthly
-								reports, access to green products and services
-								and offers a forum for members to share green
-								lifestyle tips and a community to help others to
-								become more &lsquo;green.&apos;
-							</p>
-						</div>
-					</div>
-					<div id="sustainMockup">
-						<div class="row">
-							<div
-								class="
-									col-xs-12 col-md-6
-									img-responsive
-									imgWrapper
-								"
-							>
-								<img
-									id="phoneTop"
-									src="images/Picture4.png"
-									alt="Sustainability Index App"
-									title="Sustainability Index App"
-								/><img
-									id="phoneBottom"
-									src="images/iStock-852024402 copy.jpg"
-								/>
-							</div>
-							<div class="col-xs-12 col-md-6 infoWrapper">
-								<h2>
-									EVFY Provides Sustainable Lifestyle Choices.
-								</h2>
-								<p>
-									The Sustainability Index assigns a green
-									score to everyday products and services so
-									you can have a consolidated sustainability
-									score. Now you can have an easy way to see
-									how your day-to-day decisions impact the
-									world around you. You can also have fun
-									sharing your score with friends and family
-									too!
-								</p>
-							</div>
-						</div>
-					</div>
-					<div id="sustainTable">
-						<h2>Choose Your Sustainability Tier.</h2>
-						<p>
-							Simply select the sustainability tier that works
-							best for you and your &lsquo;green&rsquo; lifestyle.
-							The more sustainable you are, the higher your
-							sustainability index will become. This ensures that
-							you will also receive the highest discounts and
-							rewards from our favorite sustainable partners.
-						</p>
-						<div class="table-responsive">
-							<table class="table">
-								<thead>
-									<tr>
-										<th style="width: 8%"></th>
-										<th style="width: 23%">Basic</th>
-										<th style="width: 23%">Basic+</th>
-										<th style="width: 23%">Premium</th>
-										<th style="width: 23%">Premium+</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Description</td>
-										<td>
-											&bull;Home energy monitoring and
-											monthly reports <br />
-											&bull;Sustainability Index
-										</td>
-										<td>
-											&bull;Automated energy management to
-											reduce monthly energy bill and
-											carbon footprint (RECs)
-										</td>
-										<td>
-											&bull;Incorporation of lifestyle
-											activities outside home energy use
-											to Sustainability Index
-										</td>
-										<td>
-											&bull;Access to exclusive green
-											retailers and discounts
-										</td>
-									</tr>
-								</tbody>
-								<tfoot>
-									<tr>
-										<td>Cost</td>
-										<td>$5/month</td>
-										<td>$10/month</td>
-										<td>$15/month</td>
-										<td>$20/month</td>
-									</tr>
-								</tfoot>
-							</table>
-						</div>
-						<button
-							class="button"
-							id="sustainTableCTA"
-							href="#"
-							type="button"
-							data-toggle="modal"
-							data-target="#signUpModal"
-						>
-							Sign up Today.
-						</button>
-					</div>
-				</section>
-				<section id="page1">
-					<h1>Our Partners</h1>
-				</section>
-				<section class="page2">
-					<div>
-						<div id="item1">
-							<div class="row d-flex align-items-center ml-1 p-1">
-								<h1 class="col-sm-12 pt-2">Piconi Farms</h1>
-								<div class="col-sm-12 col-md-6 col-lg-4">
-									<img
-										class="img-fluid float-center"
-										src="images/Copy%20of%20IMG-20210418-WA0044.jpg"
-										alt="A black, brown, and white dog wearing a kerchief"
-										width="340"
-										height="260"
-									/>
-								</div>
-								<div class="col-sm-12 col-md-6 col-lg-2">
-									<img
-										class="img-fluid float-center"
-										src="images/Piconi%20Farms%20at%20Lake%20Sherwood_21.png"
-										alt="A black, brown, and white dog wearing a kerchief"
-										width="200"
-										height="180"
-									/>
-								</div>
-								<div class="col-sm-12 col-md-12 col-lg-6">
-									<p>
-										Piconi Farms was built on the belief
-										that meals should not only be from our
-										farm to your table, but organic and
-										sustainable &ndash; and most importantly
-										as special as possible for you and your
-										family. We carry this belief into
-										everything we do.Piconi Farms speciality
-										is home grown freshness and flavors
-										created with the ingenuity and passion
-										inspired by years of family tradition.
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="container-fluid" id="item2">
-							<div class="row d-flex align-items-left ml-1">
-								<h1 class="pt-3">Early Bird Wines</h1>
-							</div>
-							<div class="row align-items-left">
-								<div class="col-12 col-sm-12 col-md-6 col-lg-6">
-									<p>
-										Early Bird Wine is America&rsquo;s
-										premier no additional sulfite wine. We
-										produce our wines using a proprietary
-										green technology, which results in a
-										cleaner, fresher tasting wine with
-										enhanced flavors and increased
-										antioxidants for added health benefits
-										and reduced risk of allergic reactions.
-										Utilizing a 100% natural process, no
-										added sulfites, and no chemical
-										components, we are able to provide an
-										affordable quality wine for you to
-										enjoy, day and night, as part of your
-										active, healthy lifestyle.
-									</p>
-								</div>
-								<div class="col-12 col-sm-12 col-md-6 col-lg-6">
-									<div class="row">
-										<div
-											class="
-												col-xs-12
-												col-sm-12
-												col-md-12
-												col-lg-6
-											"
-										>
-											<img
-												class="img-fluid float-center"
-												src="images/Copy%20of%20EB-Logo-Parts-074.png"
-												alt="A black, brown, and white dog wearing a kerchief"
-												width="304"
-												height="180"
-											/>
-										</div>
-										<div
-											class="
-												col-xs-12
-												col-sm-12
-												col-md-12
-												col-lg-6
-											"
-										>
-											<img
-												class="img-fluid float-center"
-												src="images/earlybird1.png"
-												alt="A black, brown, and white dog wearing a kerchief"
-												width="304"
-												height="180"
-											/>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section>
-					<div id="item3">
-						<div class="row align-items-left ml-1">
-							<h1 class="col-12 col-sm-12 pt-3">
-								Sprouts Farmers Market
-							</h1>
-							<div class="col-12 col-sm-12 col-md-4 pt-3 pb-2">
-								<img
-									class="img-fluid float-left"
-									src="images/Sprouts.png"
-									alt="A black, brown, and white dog wearing a kerchief"
-									width="360"
-									height="260"
-								/>
-							</div>
-							<div class="col-12 col-sm-12 col-md-8 p-2">
-								<p>
-									Our neighborhood grocery stores offer
-									thousands of natural, organic &amp;
-									gluten-free foods. Discover fresh produce,
-									meats, vitamins, supplements &amp; more.
-								</p>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section class="container-fluid" id="contactUs">
-					<div class="row">
-						<div class="col-lg-6 offset-lg-6">
-							<form
-								class="well form-horizontal needs-validation"
-								id="contactForm"
-								action="/contact"
-								method="post"
-								novalidate
-							>
-								<fieldset>
-									<p>
-										To learn more about the EVFY program,
-										and to receive a Level 2 home charger,
-										please fill out the form below.
-									</p>
-									<div class="form-group row m-0">
-										<label
-											class="col-3 col-form-label"
-											for="inputFirstName"
-											>First Name</label
-										>
-										<div class="col-9">
-											<input
-												class="form-control"
-												type="text"
-												name="first name"
-												id="inputFirstName"
-												required
-											/>
-											<div class="invalid-feedback">
-												Please enter your first name
-											</div>
-										</div>
-									</div>
-									<div class="form-group row m-0">
-										<label
-											class="col-3 col-form-label"
-											for="inputLastName"
-											>Last Name</label
-										>
-										<div class="col-9">
-											<input
-												class="form-control"
-												type="text"
-												name="last name"
-												id="inputLastName"
-												required
-											/>
-											<div class="invalid-feedback">
-												Please enter your last name
-											</div>
-										</div>
-									</div>
-									<div class="form-group row m-0">
-										<label class="col-12 col-form-label"
-											><i>Address:</i></label
-										>
-										<label
-											class="col-3 col-col-form-label"
-											for="inputAddress"
-											>Street</label
-										>
-										<div class="col-9">
-											<input
-												class="form-control"
-												type="text"
-												name="street"
-												id="inputAddress"
-											/>
-										</div>
-									</div>
-									<div class="form-group row m-0">
-										<label
-											class="
-												col-3 col-sm-3 col-form-label
-											"
-											for="inputCity"
-											>City</label
-										>
-										<div class="col-9 col-sm-3">
-											<input
-												class="form-control"
-												type="text"
-												name="city"
-												id="inputCity"
-												required
-											/>
-										</div>
-										<label
-											class="
-												col-3 col-sm-2 col-form-label
-											"
-											for="inputState"
-											>State</label
-										>
-										<div class="col-9 col-sm-4">
-											<input
-												class="form-control"
-												type="text"
-												name="state"
-												id="inputState"
-												required
-											/>
-										</div>
-									</div>
-									<div class="form-group row m-0">
-										<label
-											class="
-												col-3 col-sm-3 col-form-label
-											"
-											for="inputZip"
-											>Zip</label
-										>
-										<div class="col-9 col-sm-3">
-											<input
-												class="form-control"
-												type="text"
-												name="zip"
-												for="inputZip"
-												required
-											/>
-										</div>
-										<label
-											class="
-												col-3 col-sm-2 col-form-label
-											"
-											for="inputCountry"
-											>Country</label
-										>
-										<div class="col-9 col-sm-4">
-											<input
-												class="form-control"
-												type="text"
-												name="country"
-												id="inputCountry"
-												required
-											/>
-										</div>
-									</div>
-									<div class="form-group row m-0">
-										<label
-											class="col-3 col-form-label"
-											for="inputCell"
-											>Cell Phone</label
-										>
-										<div class="col-9">
-											<input
-												class="form-control"
-												type="text"
-												name="phone"
-												placeholder=""
-												id="inputCell"
-												required
-											/>
-											<div class="invalid-feedback">
-												Please enter your phone number
-											</div>
-										</div>
-									</div>
-									<div class="form-group row m-0">
-										<label
-											class="col-3 col-form-label"
-											for="inputEmail"
-											>Email</label
-										>
-										<div class="col-9">
-											<input
-												class="form-control"
-												type="email"
-												name="email"
-												placeholder=""
-												id="inputEmail"
-												required
-											/>
-											<div class="invalid-feedback">
-												Please enter your email
-											</div>
-										</div>
-									</div>
-									<div
-										class="
-											form-group
-											row
-											m-0
-											randomcode
-											align-items-center
-										"
-									>
-										<label class="col-5" for="codeentered"
-											>Enter code as seen:</label
-										>
-										<div class="col-3">
-											<input
-												class="form-control"
-												id="codeentered"
-												type="text"
-												name="randomcode"
-												placeholder=""
-												required
-											/>
-										</div>
-										<div class="col-3">
-											<p id="codes"></p>
-										</div>
-									</div>
-									<div class="row offset-4">
-										<div>
-											<button
-												class="btn btn-secondary"
-												id="reset"
-												type="reset"
-											>
-												<i class="bi bi-arrow-repeat"
-													>Reset</i
-												>
-											</button>
-										</div>
-										<div class="ml-sm-3">
-											<button
-												class="btn btn-success"
-												id="send"
-												type="submit"
-											>
-												<i class="bi bi-telegram"
-													>Send</i
-												>
-											</button>
-										</div>
-									</div>
-								</fieldset>
-							</form>
-						</div>
-					</div>
-				</section>
-			</main>
-			<footer class="footer">
-				<div class="footer-inner-container">
-					<section class="column">
-						<h3 class="title">Customer Service Support:</h3>
-						<p>1-877-GET-EVFY<br />info@ev-fy.com</p>
-						<div class="icons">
-							<a
-								href="https://www.facebook.com/evfyinc"
-								target="_blank"
-								><img
-									src="images/social media icons/fb.svg" /></a
-							><a
-								href="https://twitter.com/EVFY_inc"
-								target="_blank"
-								><img
-									src="images/social media icons/twitter.svg" /></a
-							><a
-								href="https://www.linkedin.com/company/evfy"
-								target="_blank"
-								><img
-									src="images/social media icons/linkedIn.svg" /></a
-							><a
-								href="https://www.instagram.com/evfy_inc/"
-								target="_blank"
-								><img src="images/social media icons/IG.svg"
-							/></a>
-						</div>
-					</section>
-					<section class="column">
-						<h3 class="title">Where to Find Us:</h3>
-						<p>
-							EVFY, Inc.<br />4360 Park Terrace Dr. Suite 100,<br />Westlake
-							Village, CA 91361
-						</p>
-					</section>
-					<section class="column logo">
-						<a href="index.html"
-							><img
-								src="https://www.ev-fy.com/hubfs/images/EVFY_logos-white_green_green_border_RGB_SL_stacked_HR@2x.png"
-						/></a>
-					</section>
-				</div>
-				<div class="disclaimer">
-					<p>
-						&copy; 2021 EVFY All rights reserved.<a
-							href="#"
-							target="_blank"
-							>Privacy Policy</a
-						>
-						and<a href="#" target="_blank">Terms of Use</a>
-					</p>
-				</div>
-			</footer>
-			<script src="js/main.js"></script>
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-			<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
-			<script src="js/contact.js"></script>
-			<script src="js/signin.js"></script>
-			<script src="js/backToTop.js"></script>
-			<script src="js/userProfile.js"></script>
-			<script src="js/vue.js"></script>
-			<script>
-				var myDate = new Date();
-				var hrs = myDate.getHours();
-				var username = '';
-				var greet;
-
-				if (hrs < 12) greet = 'Good Morning';
-				else if (hrs >= 12 && hrs <= 17) greet = 'Good Afternoon';
-				else if (hrs >= 17 && hrs <= 24) greet = 'Good Evening';
-
-				if (username !== '') {
-					document.getElementById(
-						'lblGreetings'
-					).innerHTML = `<b> ${greet} </b> <span></span> and welcome to EVFY.com!`;
-				}
-			</script>
-			<script>
-				(function () {
-					'use strict';
-					window.addEventListener(
-						'load',
-						function () {
-							var forms =
-								document.getElementsByClassName(
-									'needs-validation'
-								);
-							var validation = Array.prototype.filter.call(
-								forms,
-								function (form) {
-									form.addEventListener(
-										'submit',
-										function (event) {
-											if (
-												form.checkValidity() === false
-											) {
-												event.preventDefault();
-												event.stopPropagation();
-											}
-											form.classList.add('was-validated');
-										},
-										false
-									);
-								}
-							);
-						},
-						false
-					);
-				})();
-			</script>
-		</div>
-	</body>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="manifest" href="/manifest.json">
+  <!-- For PWA-->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="images/evfy-icon-152.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="white">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Welcome to EVFY">
+  <meta name="msapplication-TileImage" content="images/evfy-icon-144.png">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <!-- End PWA-->
+  <title>EVFY</title>
+  <body data-spy="scroll" data-target="#topNavBar" data-offset="20">
+    <div class="container-fluid px-0">
+      <header class="sticky-top">
+        <nav class="navbar navbar-dark navbar-expand-xl" id="topNavBar"><a class="navbar-brand logo" href="#landing"><img src="images/EVFY Logos/EVFY_logos-white_green_green_border_noTagline.png"></a><a class="btn float-right nav-link" id="loginBtn" href="#" data-toggle="modal" data-target="#loginModal"><i class="bi bi-box-arrow-in-right"></i>
+            Log In</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav nav nav-pills">
+              <li class="nav-item dropdown"><a class="nav-link text-white" href="#about">About EVFY</a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#mission">Our Mission</a></li>
+                  <li><a href="#team">Our Team</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown"><a class="nav-link text-white" href="#sustainabilityIndex1">Sustainability Index</a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#sustainabilityIndex2">The Index</a></li>
+                  <li><a href="#sustainabilityIndex3">Methodology</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link text-white" href="#SRM">Sustainability Roadmap</a></li>
+              <li class="nav-item dropdown"><a class="nav-link text-white" href="#page1">Our Partners</a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#item1">Piconi Farm</a></li>
+                  <li><a href="#item2">Easy Bird Wines</a></li>
+                  <li><a href="#item3">Sprouts</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link text-white" href="#contactUs">Contact Us</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <button id="myBtn" onclick="topFunction()" title="Go to top"> <i class="bi bi-chevron-up"></i>
+          Top
+        </button>
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-center col-10">Sign In</h5>
+                <button class="close col-2" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                <form id="LoginForm" action="/login" method="post">
+                  <div class="form-group">
+                    <label class="col-form-label" for="l_email">Email</label>
+                    <input class="form-control" id="l_email" type="text" placeholder="email" name="email" required="">
+                  </div>
+                  <div class="form-group">
+                    <label class="col-form-label" for="l_password">Password</label>
+                    <input class="form-control" id="l_password" type="password" placeholder="Password" name="password" required="" aria-describedby="validatePasswordFeedback">
+                    <div class="hide-show"><span>SHOW</span></div>
+                  </div>
+                  <div class="form-group"><a data-dismiss="modal" data-toggle="modal" data-target="#resetPassword" href="#" style="text-decoration: underline;float: right;margin-bottom:1em;" title="Fill Email Field and Click it">Forgot Password?</a></div>
+                  <div class="form-group">
+                    <button class="btn btn-success btn-block" type="submit">Sign In</button>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <div>
+                  Not signed up yet?
+                   <a data-dismiss="modal" data-toggle="modal" data-target="#signUpModal" href="#" style="text-decoration: underline;">Create Account</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>const loginFailed = '';</script>
+        <div class="modal fade" id="resetPassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-center col-10">Forgot your password?</h5>
+                <button class="close col-2" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                <form id="SetpwdForm" action="{{route('reset')}}" method="post">
+                  <div class="form-group">
+                    <p>Enter the email for your account and we&apos;ll send you a link to reset your password.</p>
+                  </div>
+                  <div class="form-group" style="position: relative;">
+                    <input class="form-control" type="email" required="required" placeholder="Email">
+                  </div>
+                  <button class="btn btn-success btn-block" type="submit" value="resetPass"><i class="bi bi-envelope-plus"></i> Email Me</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <div>Remember your password? <a data-dismiss="modal" data-toggle="modal" data-target="#loginModal" href="#" style="text-decoration: underline;">Sign in</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title text-center col-10">Sign Up</h4>
+                <button class="close col-2" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                <form id="SignupForm" action="/register" method="post">
+                  <div class="form-group">
+                    <input class="form-control" type="text" required="" name="fullname" placeholder="Full Name">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" type="text" required="required" name="username" placeholder="Username">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="s_email" type="text" required="required" name="email" placeholder="Email" aria-describedby="validateEmailFeedback">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="s_password" type="password" required="required" name="password" placeholder="Password" pattern="(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                    <div class="hide-show"><span>SHOW</span></div>
+                  </div>
+                  <button class="btn btn-success btn-block" type="submit">Sign Up</button>
+                  <div class="modal-footer">Already have an account? <a data-dismiss="modal" data-toggle="modal" data-target="#loginModal" href="#" style="text-decoration: underline;">Sign In</a></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>const signUpFailed = '';</script>
+        <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title col-10">'s Profile</h4>
+                <button class="close col-2" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                <form class="form-inline col-10" id="editProfile" action="/edit" method="post">
+                  <div class="form-group col-12">
+                    <label class="col-3" for="name">Full Name: </label> 
+                    <input class="form-control col-8 m-2" id="urName" type="text" required="" name="fullname" disabled>
+                  </div>
+                  <div class="form-group col-12">
+                    <label class="col-3" for="username">Username:</label> 
+                    <input class="form-control col-8 m-2" id="urUserName" type="text" required="required" name="username" disabled>
+                  </div>
+                  <div class="form-group col-12">
+                    <label class="col-3" for="email">Email:</label> 
+                    <input class="form-control col-8 m-2" id="urEmail" type="email" required="required" name="email" disabled>
+                  </div>
+                  <div class="form-group col-12">
+                    <label class="col-3" for="password">Password:</label> 
+                    <input class="password form-control col-8 m-2" id="urPassword" type="password" required="required" name="password" disabled>
+                  </div>
+                  <div class="row col-10">
+                    <p class="col-6">Profile Picture:</p><img class="col-6 offset" src="images/default-avatar.png">
+                  </div>
+                  <div class="custom-file col-8 offset-3 my-2">
+                    <input class="custom-file-input" id="customFile" type="file">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                  <div class="row d-flex justify-content-center col-12">
+                    <button class="btn btn-primary col-4 offset-3 my-2 mr-2" id="editBtn" type="button">Edit</button>
+                    <button class="btn btn-secondary col-4 my-2" id="saveBtn" type="submit" disabled>Save Changes</button>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="close" data-dismiss="modal" data-toggle="modal" data-target="#profileModal" href="#" style="text-decoration: underline;">Close</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section id="landing">
+          <label id="lblGreetings"></label>
+          <div class="landingInfo d-flex align-content-center flex-wrap">
+            <div class="div col-12 ml-sm-auto px-4" id="message">
+              <script>setTimeout(function() {document.getElementById("message").remove();}, 3000);</script>
+            </div>
+            <div class="centerTextBox">
+              <h1>
+                <u>Introducing the Sustainability Index</u>
+              </h1>
+              <p>EVFY empowers people to reduce their carbon footprint in an effortless and sustainable way.<br><br>At EVFY, we help communities understand the environmental impact of their day-to-day life choices and how all of us can make a difference to improve our world and save energy.</p>
+              <button class="button" id="landingCTA" href="#" type="button">Live Sustainably.<br>Get Started Today!</button>
+            </div>
+          </div>
+        </section>
+        <section id="about">
+          <div class="aboutInfo container-fluid d-flex align-content-center flex-wrap">
+            <h1>About EVFY</h1>
+            <div class="row" id="aboutPara">
+              <p class="col-xl-7 offset-xl-5"><strong>EVFY</strong> &ndash; a cutting-edge clean tech start-up &ndash; offers green
+                                            solutions, starting with electric mobility, to help
+                                            communities live more sustainable lives.<br><br>                            With EVFY, consumers become members of our sustainability
+                                            program, known as <strong>The Sustainability Index.</strong> This program
+                                            provides substantial savings and rewards for being a conscious
+                                            consumer aiming to live carbon free.<br><br>                            Through our program, EVFY aims to help people become as
+                                            carbon-free as possible. We educate and guide on lifestyle
+                                            changes and provide services and resources to &apos;go green&apos;.<br><br><strong>The EVFY Sustainability Index</strong> is the new
+                                            benchmark for consumers to understand the environmental impact
+                                            of their decisions and social capital to share amongst peers
+                                            for a broader goal of making a world-wide impact.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section id="mission">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <h3>Our Mission</h3>
+              <p>To empower people to reduce their carbon footprint in an effortless and sustainable way.</p>
+            </div>
+            <div class="col-sm-12 col-md-6"><img class="img-fluid" src="images/iStock-533578039.jpg"></div>
+          </div>
+        </section>
+        <section id="team">
+          <div class="row">
+            <div class="col-sm-12 col-md-6 mt-4"><img class="img-fluid" src="images/iStock-537599600.jpg"></div>
+            <div class="col-sm-12 col-md-6 pt-3">
+              <h3>The EVFY Team</h3>
+              <p>
+                Collaboration is one of the keys for unlocking sustainability,
+                with leaders from all sectors of society agreeing that solving
+                environmental and social challenges requires unparalleled cooperation.
+                At EVFY, we are focused on solving the world&rsquo;s most pressing issues facing
+                climate change today.<br><br>                        We cannot be hesitant or half-hearted about living sustainably. Our team culture
+                                        is to drive innovation, and continuous engagement by being open, transparent,
+                                        ethical and responsible in order to find solutions for how people can live the
+                                        most sustainable lives possible.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section id="teamMember">
+          <div class="container-fluid">
+            <div class="row" id="teamHeadShots1">
+              <team-members1 v-for="member in team" v-bind:members="member"></team-members1>
+            </div>
+            <div class="row" id="teamHeadShots2">
+              <team-members2 v-for="member in team" v-bind:members="member"></team-members2>
+            </div>
+          </div>
+        </section>
+        <section id="sustainabilityIndex1">
+          <div>
+            <h1>The Sustainability Index.</h1>
+          </div>
+        </section>
+        <section id="sustainabilityIndex2">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <h3>The Sustainability Index</h3>
+              <p>
+                The Sustainability Index is a tiering system to reward strong sustainable behavior. It is an opportunity
+                to earn points based on choices that consumers make in their everyday lives.<br><br>                            The program provides consumers with a sustainability score based on daily consumption choices made
+                                            around reducing their carbon footprint.
+              </p>
+            </div>
+            <div class="col-sm-12 col-md-6"><img class="img-fluid" src="images/iStock-1295057140.jpg"></div>
+          </div>
+        </section>
+        <section id="sustainabilityIndex3">
+          <div class="row">
+            <div class="col-sm-12 col-lg-6 pl-5"><img class="img-fluid" src="images/iStock-956436966 copy.jpg" width="500px"></div>
+            <div class="col-sm-12 col-lg-6 mt-1 pr-5">
+              <h3>Our Methodology</h3>
+              <p>Our approach is three-fold. To improve your sustainability score, EVFY helps you to:</p>
+              <ul>
+                <li>Incorporate daily energy usage within your home and by using your electric vehicle.</li>
+                <li>Reduce your energy bill and enjoy substantial savings.</li>
+                <li>
+                  Implement a fully sustainable lifestyle via a phased rollout of ways to improve consumption behaviors
+                  with discounted products and services including food, clothing, air travel, hotels and other elements to
+                  help improve your sustainability index - and ultimately live as carbon free as possible.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section id="SRM">
+          <div id="sustainRM">
+            <div class="row">
+              <h1 class="col-xs-12 col-xl-4">The EVFY Sustainability Roadmap</h1>
+              <p class="col-xs-12 col-xl-8 pr-xl-5">Our <a href="#">Sustainability Index</a> is a program that provides green conscious members the
+                                        platform to make informed carbon reduction decisions, with levels of services that consumers are
+                                        comfortable with.<br><br>                        As part of the program, EVFY offers consumers subscription tiers and a roadmap to make the most
+                                        informed decisions. This includes monthly reports, access to green products and services and offers
+                                        a forum for members to share green lifestyle tips and a community to help others to become more
+                                        &lsquo;green.&apos;
+              </p>
+            </div>
+          </div>
+          <div id="sustainMockup">
+            <div class="row">
+              <div class="col-xs-12 col-md-6 img-responsive imgWrapper"><img id="phoneTop" src="images/Picture4.png" alt="Sustainability Index App" title="Sustainability Index App"><img id="phoneBottom" src="images/iStock-852024402 copy.jpg"></div>
+              <div class="col-xs-12 col-md-6 infoWrapper">
+                <h2>EVFY Provides Sustainable Lifestyle Choices.</h2>
+                <p>The Sustainability Index assigns a green score to everyday products and services so you can have a consolidated sustainability score.  Now you can have an easy way to see how your day-to-day decisions impact the world around you.  You can also have fun sharing your score with friends and family too!</p>
+              </div>
+            </div>
+          </div>
+          <div id="sustainTable">
+            <h2>Choose Your Sustainability Tier.</h2>
+            <p>Simply select the sustainability tier that works best for you and your &lsquo;green&rsquo; lifestyle. The more sustainable you are, the higher your sustainability index will become. This ensures that you will also receive the highest discounts and rewards from our favorite sustainable partners.</p>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 8%"> </th>
+                    <th style="width: 23%">Basic</th>
+                    <th style="width: 23%">Basic+</th>
+                    <th style="width: 23%">Premium</th>
+                    <th style="width: 23%">Premium+</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Description</td>
+                    <td>&bull;Home energy monitoring and monthly reports <br>                                        &bull;Sustainability Index</td>
+                    <td>&bull;Automated energy management to reduce monthly energy bill and carbon footprint (RECs)</td>
+                    <td>&bull;Incorporation of lifestyle activities outside home energy use to Sustainability Index</td>
+                    <td>&bull;Access to exclusive green retailers and discounts</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td>Cost</td>
+                    <td>$5/month</td>
+                    <td>$10/month</td>
+                    <td>$15/month</td>
+                    <td>$20/month</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <button class="button" id="sustainTableCTA" href="#" type="button" data-toggle="modal" data-target="#signUpModal">Sign up Today.</button>
+          </div>
+        </section>
+        <section id="page1">
+          <h1>Our Partners</h1>
+        </section>
+        <section class="page2">
+          <div>
+            <div id="item1">
+              <div class="row d-flex align-items-center ml-1 p-1">
+                <h1 class="col-sm-12 pt-2">Piconi Farms</h1>
+                <div class="col-sm-12 col-md-6 col-lg-4"><img class="img-fluid float-center" src="images/Copy%20of%20IMG-20210418-WA0044.jpg" alt="A black, brown, and white dog wearing a kerchief" width="340" height="260"></div>
+                <div class="col-sm-12 col-md-6 col-lg-2"><img class="img-fluid float-center" src="images/Piconi%20Farms%20at%20Lake%20Sherwood_21.png" alt="A black, brown, and white dog wearing a kerchief" width="200" height="180"></div>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                  <p>
+                    Piconi Farms was built on the belief that meals should not only be from our farm to
+                    your table, but organic and sustainable &ndash; and most importantly as special as
+                    possible for you and your family. We carry this belief into everything we do.Piconi
+                    Farms speciality is home grown freshness and flavors created with the ingenuity and
+                    passion inspired by years of family tradition.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="container-fluid" id="item2">
+              <div class="row d-flex align-items-left ml-1">
+                <h1 class="pt-3">Early Bird Wines</h1>
+              </div>
+              <div class="row align-items-left">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                  <p>
+                    Early Bird Wine is America&rsquo;s premier no additional sulfite wine. We produce our wines
+                    using a proprietary green technology, which results in a cleaner, fresher tasting wine
+                    with enhanced flavors and increased antioxidants for added health benefits and reduced
+                    risk of allergic reactions. Utilizing a 100% natural process, no added sulfites, and no
+                    chemical components, we are able to provide an affordable quality wine for you to enjoy,
+                    day and night, as part of your active, healthy lifestyle.
+                  </p>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6"><img class="img-fluid float-center" src="images/Copy%20of%20EB-Logo-Parts-074.png" alt="A black, brown, and white dog wearing a kerchief" width="304" height="180"></div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6"><img class="img-fluid float-center" src="images/earlybird1.png" alt="A black, brown, and white dog wearing a kerchief" width="304" height="180"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div id="item3">
+            <div class="row align-items-left ml-1">
+              <h1 class="col-12 col-sm-12 pt-3">Sprouts Farmers Market</h1>
+              <div class="col-12 col-sm-12 col-md-4 pt-3 pb-2"><img class="img-fluid float-left" src="images/Sprouts.png" alt="A black, brown, and white dog wearing a kerchief" width="360" height="260"></div>
+              <div class="col-12 col-sm-12 col-md-8 p-2">
+                <p>
+                  Our neighborhood grocery stores offer thousands of natural, organic &amp; gluten-free foods.
+                  Discover fresh produce, meats, vitamins, supplements &amp; more.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="container-fluid" id="contactUs">
+          <div class="row">
+            <div class="col-lg-6 offset-lg-6">
+              <form class="well form-horizontal needs-validation" id="contactForm" action="/contact" method="post" novalidate>
+                <fieldset>
+                  <p>
+                    To learn more about the EVFY program, and to receive a Level 2 home charger, please fill
+                    out the form below.
+                  </p>
+                  <div class="form-group row m-0">
+                    <label class="col-3 col-form-label" for="inputFirstName">First Name</label>
+                    <div class="col-9">
+                      <input class="form-control" type="text" name="first name" id="inputFirstName" required>
+                      <div class="invalid-feedback">Please enter your first name</div>
+                    </div>
+                  </div>
+                  <div class="form-group row m-0">
+                    <label class="col-3 col-form-label" for="inputLastName">Last Name</label>
+                    <div class="col-9">
+                      <input class="form-control" type="text" name="last name" id="inputLastName" required>
+                      <div class="invalid-feedback">
+                         Please enter your last name</div>
+                    </div>
+                  </div>
+                  <div class="form-group row m-0">
+                    <label class="col-12 col-form-label"><i>Address:</i></label>
+                    <label class="col-3 col-col-form-label" for="inputAddress">Street</label>
+                    <div class="col-9">
+                      <input class="form-control" type="text" name="street" id="inputAddress">
+                    </div>
+                  </div>
+                  <div class="form-group row m-0">
+                    <label class="col-3 col-sm-3 col-form-label" for="inputCity">City</label>
+                    <div class="col-9 col-sm-3">
+                      <input class="form-control" type="text" name="city" id="inputCity" required>
+                    </div>
+                    <label class="col-3 col-sm-2 col-form-label" for="inputState">State</label>
+                    <div class="col-9 col-sm-4">
+                      <input class="form-control" type="text" name="state" id="inputState" required>
+                    </div>
+                  </div>
+                  <div class="form-group row m-0">
+                    <label class="col-3 col-sm-3 col-form-label" for="inputZip">Zip</label>
+                    <div class="col-9 col-sm-3">
+                      <input class="form-control" type="text" name="zip" for="inputZip" required>
+                    </div>
+                    <label class="col-3 col-sm-2 col-form-label" for="inputCountry">Country</label>
+                    <div class="col-9 col-sm-4">
+                      <input class="form-control" type="text" name="country" id="inputCountry" required>
+                    </div>
+                  </div>
+                  <div class="form-group row m-0">
+                    <label class="col-3 col-form-label" for="inputCell">Cell Phone</label>
+                    <div class="col-9">
+                      <input class="form-control" type="text" name="phone" placeholder="" id="inputCell" required>
+                      <div class="invalid-feedback">
+                         Please enter your phone number</div>
+                    </div>
+                  </div>
+                  <div class="form-group row m-0">
+                    <label class="col-3 col-form-label" for="inputEmail">Email</label>
+                    <div class="col-9">
+                      <input class="form-control" type="email" name="email" placeholder="" id="inputEmail" required>
+                      <div class="invalid-feedback">
+                         Please enter your email</div>
+                    </div>
+                  </div>
+                  <div class="form-group row m-0 randomcode align-items-center">
+                    <label class="col-5" for="codeentered">Enter code as seen:</label>
+                    <div class="col-3">
+                      <input class="form-control" id="codeentered" type="text" name="randomcode" placeholder="" required>
+                    </div>
+                    <div class="col-3">
+                      <p id="codes"></p>
+                    </div>
+                  </div>
+                  <div class="row offset-4">
+                    <div>
+                      <button class="btn btn-secondary" id="reset" type="reset"><i class="bi bi-arrow-repeat">Reset</i></button>
+                    </div>
+                    <div class="ml-sm-3">
+                      <button class="btn btn-success" id="send" type="submit"><i class="bi bi-telegram">Send</i></button>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer-inner-container">
+          <section class="column">
+            <h3 class="title">Customer Service Support:</h3>
+            <p>1-877-GET-EVFY<br>info@ev-fy.com</p>
+            <div class="icons"><a href="https://www.facebook.com/evfyinc" target="_blank"><img src="images/social media icons/fb.svg"></a><a href="https://twitter.com/EVFY_inc" target="_blank"><img src="images/social media icons/twitter.svg"></a><a href="https://www.linkedin.com/company/evfy" target="_blank"><img src="images/social media icons/linkedIn.svg"></a><a href="https://www.instagram.com/evfy_inc/" target="_blank"><img src="images/social media icons/IG.svg"></a></div>
+          </section>
+          <section class="column">
+            <h3 class="title">Where to Find Us:</h3>
+            <p>EVFY, Inc.<br>4360 Park Terrace Dr. Suite 100,<br>Westlake
+                                  Village, CA 91361
+            </p>
+          </section>
+          <section class="column logo"><a href="index.html"><img src="https://www.ev-fy.com/hubfs/images/EVFY_logos-white_green_green_border_RGB_SL_stacked_HR@2x.png"></a></section>
+        </div>
+        <div class="disclaimer">
+          <p>&copy; 2021 EVFY All rights reserved.<a href="#" target="_blank">Privacy Policy</a> and<a href="#" target="_blank">Terms of Use</a></p>
+        </div>
+      </footer>
+      <script src="js/main.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+      <script src="js/contact.js"></script>
+      <script src="js/signin.js"></script>
+      <script src="js/backToTop.js"></script>
+      <script src="js/userProfile.js"></script>
+      <script src="js/vue.js"></script>
+      <script>
+        var myDate = new Date();
+        var hrs = myDate.getHours();
+        var username = '';
+        var greet;
+        
+        if (hrs < 12)
+            greet = 'Good Morning';
+        else if (hrs >= 12 && hrs <= 17)
+            greet = 'Good Afternoon';
+        else if (hrs >= 17 && hrs <= 24)
+            greet = 'Good Evening';
+        
+        if (username !== '') {
+                document.getElementById('lblGreetings').innerHTML = `<b> ${greet} </b> <span></span> and welcome to EVFY.com!`;
+        }
+        
+      </script>
+      <script>
+        (function() {
+        'use strict'
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+            });
+        }, false);
+        })();
+      </script>
+    </div>
+  </body>
 </head>
