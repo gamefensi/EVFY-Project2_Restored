@@ -14,9 +14,10 @@
         "sizes": "152x152",
         "type": "image/png"
       }, {
-        "src": "/public/images/icons/evfy-icon-192.png",
+        "src": "/public/images/icons/evfy-icon-192_maskable.png",
         "sizes": "192x192",
-        "type": "image/png"
+        "type": "image/png",
+        "purpose": "maskable"
       }, {
         "src": "/public/images/icons/evfy-icon-256.png",
         "sizes": "256x256",

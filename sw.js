@@ -3,13 +3,9 @@
 var cacheName = 'evfy';
 var filesToCache = [
   '/',
-  '/views/index.pug',
-  '/views/layout.pug',
-  '/views/footer.pug',
   '/index.html',
-  '/public/css/style.css',
-  '/app.js',
-  '/js/main.js'
+  '/css/style.css',
+  '/s/main.js'
 ];
 
 /* Start the service worker and cache all of the app's content */

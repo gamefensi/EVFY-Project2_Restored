@@ -1,8 +1,9 @@
 /* For sw.js */
 
-var cacheName = 'hello-pwa';
+var cacheName = 'evfy';
 var filesToCache = [
   '/',
+  '/index.html',
   '/css/style.css',
   '/js/vue.js',
   '/js/main.js'
