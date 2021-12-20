@@ -9,6 +9,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const app = express();
 require("dotenv").config();
+const urlencodedParser = bodyParser.urlencoded({ extended: true });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -94,6 +95,10 @@ app.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
+app.post('/contact', urlencodedParser, (req, res) => {
+  console.log('Received Contact Information:', req.body);
+  res.render("index");
+});
 app.post("/register", async (req, res) => {
     try {
       const { email, password, username, fullname} = req.body;
