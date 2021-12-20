@@ -1,11 +1,13 @@
-const request = require('supertest');
-const app = require('../app');
-const mongoose = require("mongoose");
+// const request = require('supertest');
+// const app = require('../app');
+// const mongoose = require("mongoose");
 const Mailer = require("../models/mailerModel");
-const createMailer = require('../controller/createMailer')
-const db = require('./db')
+const createMailer = require('../controller/createMailer');
+const db = require('./db');
 
 beforeAll(async () => await db.connect())
+
+afterEach(async () => await db.clearDatabase())
 
 afterAll(async () => await db.closeDatabase())
 

@@ -1,3 +1,4 @@
+const Mailer = require("../models/mailerModel");
 const mongoose = require('mongoose');
 require("dotenv").config();
 
@@ -15,6 +16,11 @@ module.exports.connect = async () => {
 
 //disconnect and close connection
 module.exports.closeDatabase = async () => {
-	await mongoose.connection.dropDatabase();
+	// await mongoose.connection.dropDatabase();
 	await mongoose.connection.close();
+}
+
+// //clear the db, remove all data
+module.exports.clearDatabase = async () => {
+	await mongoose.connection.db.collection('mailers').deleteMany({})
 }
