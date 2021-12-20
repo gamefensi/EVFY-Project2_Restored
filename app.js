@@ -196,7 +196,7 @@ app.post('/login', async (req, res, next) => {
 var jade = require('pug');//require pug module
 var fs = require('fs')
 var str = jade.renderFile('./views/index.pug' ,{pretty : true });
-fs.writeFile('./public/index.html' ,str , function(err){
+fs.writeFile('./index.html' ,str , function(err){
     if (err)
         console.log("Compile to html in error");
     else
