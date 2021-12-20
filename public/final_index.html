@@ -408,7 +408,7 @@
         <section class="container-fluid" id="contactUs">
           <div class="row">
             <div class="col-lg-6 offset-lg-6">
-              <form class="well form-horizontal" id="contactForm" action="/contact" method="post">
+              <form class="well form-horizontal needs-validation" id="contactForm" action="/contact" method="post" novalidate>
                 <fieldset>
                   <p>
                     To learn more about the EVFY program, and to receive a Level 2 home charger, please fill
@@ -417,58 +417,65 @@
                   <div class="form-group row m-0">
                     <label class="col-3 col-form-label" for="inputFirstName">First Name</label>
                     <div class="col-9">
-                      <input class="form-control" type="text" required="required" name="first name">
+                      <input class="form-control" type="text" name="first name" id="inputFirstName" required>
+                      <div class="invalid-feedback">Please enter your first name</div>
                     </div>
                   </div>
                   <div class="form-group row m-0">
                     <label class="col-3 col-form-label" for="inputLastName">Last Name</label>
                     <div class="col-9">
-                      <input class="form-control" type="text" required="required" name="last name">
+                      <input class="form-control" type="text" name="last name" id="inputLastName" required>
+                      <div class="invalid-feedback">
+                         Please enter your last name</div>
                     </div>
                   </div>
                   <div class="form-group row m-0">
                     <label class="col-12 col-form-label"><i>Address:</i></label>
                     <label class="col-3 col-col-form-label" for="inputAddress">Street</label>
                     <div class="col-9">
-                      <input class="form-control" type="text" name="street">
+                      <input class="form-control" type="text" name="street" id="inputAddress">
                     </div>
                   </div>
                   <div class="form-group row m-0">
-                    <label class="col-3 col-sm-3 col-form-label">City</label>
+                    <label class="col-3 col-sm-3 col-form-label" for="inputCity">City</label>
                     <div class="col-9 col-sm-3">
-                      <input class="form-control" type="text" name="city">
+                      <input class="form-control" type="text" name="city" id="inputCity">
                     </div>
-                    <label class="col-3 col-sm-2 col-form-label">State</label>
+                    <label class="col-3 col-sm-2 col-form-label" for="inputState">State</label>
                     <div class="col-9 col-sm-4">
-                      <input class="form-control" type="text" name="state">
+                      <input class="form-control" type="text" name="state" id="inputState">
                     </div>
                   </div>
                   <div class="form-group row m-0">
-                    <label class="col-3 col-sm-3 col-form-label">Zip</label>
+                    <label class="col-3 col-sm-3 col-form-label" for="inputZip">Zip</label>
                     <div class="col-9 col-sm-3">
-                      <input class="form-control" type="text" name="zip">
+                      <input class="form-control" type="text" name="zip" for="inputZip">
                     </div>
-                    <label class="col-3 col-sm-2 col-form-label">Country</label>
+                    <label class="col-3 col-sm-2 col-form-label" for="inputCountry">Country</label>
                     <div class="col-9 col-sm-4">
-                      <input class="form-control" type="text" name="country">
+                      <input class="form-control" type="text" name="country" id="inputCountry">
                     </div>
                   </div>
                   <div class="form-group row m-0">
-                    <label class="col-3 col-form-label">Cell Phone</label>
+                    <label class="col-3 col-form-label" for="inputCell">Cell Phone</label>
                     <div class="col-9">
-                      <input class="form-control" type="text" required="required" name="phone" placeholder="">
+                      <input class="form-control" type="text" name="phone" placeholder="" id="inputCell" required>
+                      <div class="invalid-feedback">
+                         Please enter your phone number</div>
                     </div>
                   </div>
                   <div class="form-group row m-0">
-                    <label class="col-3 col-form-label">Email</label>
+                    <label class="col-3 col-form-label" for="inputEmail">Email</label>
                     <div class="col-9">
-                      <input class="form-control" type="email" required="required" name="email" placeholder="">
+                      <input class="form-control" type="email" name="email" placeholder="" id="inputEmail" required>
+                      <div class="invalid-feedback">
+                         Please enter your email</div>
                     </div>
                   </div>
                   <div class="form-group row m-0 randomcode align-items-center">
-                    <label class="col-5">Enter code as seen:</label>
+                    <label class="col-5" for="codeentered">Enter code as seen:</label>
                     <div class="col-3">
-                      <input class="form-control" id="codeentered" type="text" required="required" name="randomcode" placeholder="">
+                      <input class="form-control" id="codeentered" type="text" name="randomcode" placeholder="" required>
                     </div>
                     <div class="col-3">
                       <p id="codes"></p>
@@ -532,6 +539,24 @@
         if (username !== '') {
                 document.getElementById('lblGreetings').innerHTML = `<b> ${greet} </b> <span></span> and welcome to EVFY.com!`;
         }
+        
+      </script>
+      <script>
+        (function() {
+        'use strict'
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+            });
+        }, false);
+        })();
       </script>
     </div>
   </body>
