@@ -1,3 +1,6 @@
+// if (process.env.NODE_ENV !== "production") {
+//   require('dotenv').config();
+// }
 const express = require('express');
 const path = require('path');
 const mongoose = require("mongoose");
@@ -145,10 +148,15 @@ app.post("/register", async (req, res) => {
         username: username,
         fullname: fullname,
       });
-      // const savedUser = await newUser.save();
-      console.log("user", user)
+      const savedUser = await newUser.save();
+      // console.log("user", user)
+      req.session.loggedin = true;
+      req.session.username = username;
+      req.session.fullname = fullname;
+      req.session.email = email;
+      req.session.password = password;
       req.flash("success", "Welcome to EVFY!");
-      res.redirect('/profile');
+      res.redirect('/');
     } catch (error) {
       res.status(500).json({ err: error.message });
     }
@@ -196,11 +204,15 @@ app.post('/login', async (req, res, next) => {
 var jade = require('pug');//require pug module
 var fs = require('fs')
 var str = jade.renderFile('./views/index.pug' ,{pretty : true });
-fs.writeFile('./public/final_index.html' ,str , function(err){
+fs.writeFile('./index.html' ,str , function(err){
     if (err)
         console.log("Compile to html in error");
     else
         console.log("Compile to html successfully");
 });
 
-app.listen(3000, () => console.log("Listening on port 3000"))
+// app.listen(3000, () => console.log("Listening on port 3000"))
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Serving on port ${port}`)
+})

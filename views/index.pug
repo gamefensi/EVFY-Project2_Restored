@@ -117,7 +117,7 @@ block content
                   | Remember your password? 
                   a(data-dismiss='modal' data-toggle='modal' data-target='#loginModal' href='#' style='text-decoration: underline;') Sign in
         //- SIGNUP  MODAL START HERE
-        #signUpModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
+        #signUpModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true' )
           .modal-dialog.modal-dialog-centered(role='document')
             .modal-content
               .modal-header
@@ -125,20 +125,22 @@ block content
                 button.close.col-2(type='button' data-dismiss='modal' aria-label='Close')
                   span(aria-hidden='true') &times;
               .modal-body
-                form#SignupForm(action="/register" method='post')
+                form#SignupForm.needs-validation(action="/register" method='post' novalidate)
                   .form-group
-                    input.form-control(type='text' required='' name='fullname' placeholder='Full Name')
+                    input.form-control(type='text' required name='fullname' placeholder='Full Name')
                   .form-group
-                    input.form-control(type='text' required='required' name='username' placeholder='Username')
+                    input.form-control(type='text' required name='username' placeholder='Username')
                   .form-group
-                    input#s_email.form-control(type='text' required='required' name='email' placeholder='Email' aria-describedby='validateEmailFeedback')
+                    input#s_email.form-control(type='text' required name='email' placeholder='Email' aria-describedby='validateEmailFeedback')
                     if signUpFailed
                       #validateEmailFeedback.invalid-feedback
-                        | Email has been registered!
+                        | Email has already been registered!
                   .form-group
-                    input#s_password.form-control(type='password' required='required' name='password' placeholder='Password' pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters")
+                    input#s_password.form-control(type='password' required name='password' placeholder='Password' pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}')
                     .hide-show
                       span SHOW
+                    .invalid-feedback
+                      | Minimum eight characters, one uppercase, one lowercase letter, one number
                   button.btn.btn-success.btn-block(type='submit') Sign Up
                   .modal-footer
                     | Already have an account? 
@@ -207,7 +209,7 @@ block content
                 br
                 br
                 | At EVFY, we help communities understand the environmental impact of their day-to-day life choices and how all of us can make a difference to improve our world and save energy.
-              button#landingCTA.button(href='#' type='button')
+              button#landingCTA.button(href='#' data-toggle='modal' data-target='#signUpModal')
                 | Live Sustainably.
                 br
                 | Get Started Today!
