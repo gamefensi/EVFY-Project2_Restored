@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const mongoose = require("mongoose");
 const User = require("./models/userModel");
-const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
@@ -186,17 +185,6 @@ app.post('/login', async (req, res, next) => {
             req.flash('success', 'Welcome back, ' + req.session.username + '!');
             res.redirect('/');
         }
-
-        //create json web token
-        // const token = jwt.sign({ id: user._id });
-        // res.json({
-        //   token,
-        //   user: {
-        //     id: user._id,
-        //     fullname: user.fullname,
-        //     username: user.username,
-        //   },
-        // });
 
     } catch (error) {
         res.status(500).json({ err: error.message });
