@@ -158,7 +158,7 @@ block content
                   .form-group.col-12
                     label.col-3(for='name') Full Name: 
                     | 
-                    input.form-control.col-8.m-2(id='urName' type='text' required='' name='name' value=fullname disabled)
+                    input.form-control.col-8.m-2(id='urName' type='text' required='' name='fullname' value=fullname disabled)
                   .form-group.col-12
                     label.col-3(for='username') Username:
                     | 
@@ -171,9 +171,9 @@ block content
                     label.col-3(for='password') Password:
                     | 
                     input.password.form-control.col-8.m-2(id='urPassword' type='password' required='required' name='password' value=password disabled)
-                    .hide-show
-                      label
-                        span SHOW
+                    //- .hide-show
+                    //-   label
+                    //-     span SHOW
                   .row.col-10
                     p.col-6 Profile Picture:
                     img.col-6.offset(src="images/default-avatar.png")
