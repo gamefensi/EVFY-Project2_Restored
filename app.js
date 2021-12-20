@@ -9,6 +9,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const app = express();
 require("dotenv").config();
+const urlencodedParser = bodyParser.urlencoded({ extended: true });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -94,6 +95,34 @@ app.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
+app.post('/contact', urlencodedParser, (req, res) => {
+  console.log('Received Contact Information:', req.body);
+  res.render("index");
+});
+app.post('/edit', async (req, res)  => {
+  try{
+    const { email, password, username, fullname} = req.body;
+
+    // Bcrypt - hashing password
+    const salt = await bcrypt.genSalt();
+    const passwordHash = await bcrypt.hash(password, salt);
+
+    const newUser = new User({
+      email: email,
+      password: passwordHash,
+      username: username,
+      fullname: fullname,
+    });
+    const savedUser = await newUser.save();
+    req.session.destroy();
+    console.log("New login information has been saved", req.body)
+    res.redirect('/');
+
+  } catch (error) {
+    res.status(500).json({ err: error.message });
+  }
+});
+
 app.post("/register", async (req, res) => {
     try {
       const { email, password, username, fullname} = req.body;
@@ -117,7 +146,8 @@ app.post("/register", async (req, res) => {
         username: username,
         fullname: fullname,
       });
-      const savedUser = await newUser.save();
+      // const savedUser = await newUser.save();
+      console.log("user", user)
       req.flash("success", "Welcome to EVFY!");
       res.redirect('/profile');
     } catch (error) {
