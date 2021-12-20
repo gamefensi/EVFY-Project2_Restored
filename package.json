@@ -4,7 +4,6 @@
   "description": "Green Team Single Page EVFY project Fall 2021",
   "main": "index.js",
   "scripts": {
-    "start":"node app.js",
     "test": "jest --testEnvironment=node --runInBand --detectOpenHandles ./tests",
     "app": "nodemon app.js",
     "less": "lessc public/less/style.less public/css/style.css"

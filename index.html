@@ -121,19 +121,20 @@
                 <button class="close col-2" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body">
-                <form id="SignupForm" action="/register" method="post">
+                <form class="needs-validation" id="SignupForm" action="/register" method="post" novalidate>
                   <div class="form-group">
-                    <input class="form-control" type="text" required="" name="fullname" placeholder="Full Name">
+                    <input class="form-control" type="text" required name="fullname" placeholder="Full Name">
                   </div>
                   <div class="form-group">
-                    <input class="form-control" type="text" required="required" name="username" placeholder="Username">
+                    <input class="form-control" type="text" required name="username" placeholder="Username">
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="s_email" type="text" required="required" name="email" placeholder="Email" aria-describedby="validateEmailFeedback">
+                    <input class="form-control" id="s_email" type="text" required name="email" placeholder="Email" aria-describedby="validateEmailFeedback">
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="s_password" type="password" required="required" name="password" placeholder="Password" pattern="(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                    <input class="form-control" id="s_password" type="password" required name="password" placeholder="Password" pattern="(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
                     <div class="hide-show"><span>SHOW</span></div>
+                    <div class="invalid-feedback">Minimum eight characters, one uppercase, one lowercase letter, one number</div>
                   </div>
                   <button class="btn btn-success btn-block" type="submit">Sign Up</button>
                   <div class="modal-footer">Already have an account? <a data-dismiss="modal" data-toggle="modal" data-target="#loginModal" href="#" style="text-decoration: underline;">Sign In</a></div>
@@ -198,7 +199,7 @@
                 <u>Introducing the Sustainability Index</u>
               </h1>
               <p>EVFY empowers people to reduce their carbon footprint in an effortless and sustainable way.<br><br>At EVFY, we help communities understand the environmental impact of their day-to-day life choices and how all of us can make a difference to improve our world and save energy.</p>
-              <button class="button" id="landingCTA" href="#" type="button">Live Sustainably.<br>Get Started Today!</button>
+              <button class="button" id="landingCTA" href="#" data-toggle="modal" data-target="#signUpModal">Live Sustainably.<br>Get Started Today!</button>
             </div>
           </div>
         </section>
