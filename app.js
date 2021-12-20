@@ -145,10 +145,15 @@ app.post("/register", async (req, res) => {
         username: username,
         fullname: fullname,
       });
-      // const savedUser = await newUser.save();
-      console.log("user", user)
+      const savedUser = await newUser.save();
+      // console.log("user", user)
+      req.session.loggedin = true;
+      req.session.username = username;
+      req.session.fullname = fullname;
+      req.session.email = email;
+      req.session.password = password;
       req.flash("success", "Welcome to EVFY!");
-      res.redirect('/profile');
+      res.redirect('/');
     } catch (error) {
       res.status(500).json({ err: error.message });
     }
