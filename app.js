@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== "production") {
+  require('dotenv').config();
+}
 const express = require('express');
 const path = require('path');
 const mongoose = require("mongoose");
@@ -7,7 +10,7 @@ const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const session = require('express-session');
 const app = express();
-require("dotenv").config();
+// require("dotenv").config();
 const urlencodedParser = bodyParser.urlencoded({ extended: true });
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -201,11 +204,15 @@ app.post('/login', async (req, res, next) => {
 var jade = require('pug');//require pug module
 var fs = require('fs')
 var str = jade.renderFile('./views/index.pug' ,{pretty : true });
-fs.writeFile('./public/final_index.html' ,str , function(err){
+fs.writeFile('./index.html' ,str , function(err){
     if (err)
         console.log("Compile to html in error");
     else
         console.log("Compile to html successfully");
 });
 
-app.listen(3000, () => console.log("Listening on port 3000"))
+// app.listen(3000, () => console.log("Listening on port 3000"))
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Serving on port ${port}`)
+})
