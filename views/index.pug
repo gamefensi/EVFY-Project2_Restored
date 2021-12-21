@@ -136,7 +136,7 @@ block content
                       #validateEmailFeedback.invalid-feedback
                         | Email has already been registered!
                   .form-group
-                    input#s_password.form-control(type='password' required name='password' placeholder='Password' pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}')
+                    input#s_password.form-control(type='password' required name='password' placeholder='Password' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$')
                     .hide-show
                       span SHOW
                     .invalid-feedback
